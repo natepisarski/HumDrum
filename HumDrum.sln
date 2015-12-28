@@ -3,12 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumDrum", "HumDrum\HumDrum.csproj", "{A5CC48FE-73B1-4FFF-B236-71B9E0EFBD7B}"
 EndProject
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "Packages", "Packages.mdproj", "{54FE9596-F45F-4605-B7AE-38FCDB4D464E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54FE9596-F45F-4605-B7AE-38FCDB4D464E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54FE9596-F45F-4605-B7AE-38FCDB4D464E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5CC48FE-73B1-4FFF-B236-71B9E0EFBD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A5CC48FE-73B1-4FFF-B236-71B9E0EFBD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5CC48FE-73B1-4FFF-B236-71B9E0EFBD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU

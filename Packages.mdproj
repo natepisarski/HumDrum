@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ItemType>PackagingProject</ItemType>
+    <ProjectGuid>{54FE9596-F45F-4605-B7AE-38FCDB4D464E}</ProjectGuid>
+    <Packages>
+      <Packages xmlns="">
+        <Package name="MSbuild Package">
+          <Builder targetFile="HumDrum.zip" format="MonoDevelop.Projects.FileFormat" ctype="SourcesZipPackageBuilder">
+            <ChildEntries>
+              <SolutionItemReference path="HumDrum\HumDrum.csproj" />
+            </ChildEntries>
+            <RootEntry path="HumDrum.sln" id=":root:" />
+          </Builder>
+        </Package>
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+</Project>

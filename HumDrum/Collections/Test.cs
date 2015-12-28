@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 
 using HumDrum.Collections;
-namespace HDContainer.Collections
+
+namespace HumDrum.Collections
 {
 	[TestFixture ()]
 	public class Test
