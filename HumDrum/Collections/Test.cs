@@ -21,6 +21,11 @@ namespace HumDrum.Collections
 				Sections.EscapeSplit ("some\\ te xt", ' '),
 				Transformations.Make ("some te", "xt"));
 
+			// Internal
+			Assert.AreEqual (
+				Sections.Internal ("no{yes{yes}yes}no", '{', '}'),
+				"yes{yes}yes");
+
 			// RepairString
 			Assert.AreEqual (
 				Sections.RepairString (Transformations.Make ("1", "2", "3")),

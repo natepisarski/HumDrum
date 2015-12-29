@@ -18,8 +18,9 @@ namespace HumDrum.Collections
 		/// </summary>
 		/// <returns>The sections.</returns>
 		/// <param name="text">The text to partition</param>
-		/// <param name="delim">The character defining partitions</param>
-		public static string[] ParseSections(string text, char delim){
+		/// <param name="startDelim">The character defining partitions</param>
+		/// <param name="endDelim"> The character defining the end of the partitions</param>
+		public static string[] ParseSections(string text, char startDelim, char endDelim){
 
 			// What is being collected right now
 			string selection = "";
@@ -49,7 +50,7 @@ namespace HumDrum.Collections
 				}
 
 				// Stop collecting this selection
-				if (collecting && c.Equals (delim)) {
+				if (collecting && c.Equals (endDelim)) {
 					collection.Add (selection);
 					selection = "";
 					collecting = false;
@@ -57,7 +58,7 @@ namespace HumDrum.Collections
 				} 
 
 				// Start collecting this selection
-				if (!collecting && c.Equals (delim)) {
+				if (!collecting && c.Equals (startDelim)) {
 					collecting = true;
 					continue;
 				}
@@ -74,6 +75,16 @@ namespace HumDrum.Collections
 			collection.RemoveAll (x => x.Equals (""));
 
 			return collection.ToArray ();
+		}
+
+		/// <summary>
+		/// Parses the sections using one delimiter
+		/// </summary>
+		/// <returns>The sections</returns>
+		/// <param name="text">Text.</param>
+		/// <param name="delim">The delimiter</param>
+		public static string[] ParseSections(string text, char delim){
+			return ParseSections (text, delim, delim);
 		}
 
 		/// <summary>
@@ -122,6 +133,43 @@ namespace HumDrum.Collections
 			collection.Add (selection);
 
 			collection.RemoveAll (x => x.Equals (""));
+
+			return collection;
+		}
+
+		/// <summary>
+		/// Extract the text from the inside of two delimiters,
+		/// not including them. 
+		/// </summary>
+		/// <param name="text">The text to extract</param>
+		/// <param name="startDelim">The starting delimiter</param>
+		/// <param name="endDelim">The ending delmiter</param>
+		public static string Internal(string text, char startDelim, char endDelim){
+			// Count of how many startDelims vs endDelims there have been
+			int count = 0;
+
+			// A collection of the internal text
+			string collection = "";
+
+			foreach (char c in text) {
+
+
+				if (c.Equals (startDelim)) {
+					if (count > 0)
+						collection += c;
+
+					count++;
+					continue;
+				} else if (c.Equals (endDelim) && count > 0) {
+					count--;
+
+					if (count > 0)
+						collection += c;
+					continue;
+				} else if (count > 0)
+					collection += c;
+
+			}
 
 			return collection;
 		}
