@@ -1,0 +1,28 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/Collections/Test.cs">
+    <Files>
+      <File FileName="HumDrum/Collections/Test.cs" Line="27" Column="27" />
+      <File FileName="HumDrum/Collections/Transformations.cs" Line="21" Column="21" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="HumDrum" expanded="True">
+            <Node name="HumDrum" expanded="True">
+              <Node name="Collections" expanded="True">
+                <Node name="Test" expanded="True">
+                  <Node name="TestTransformations" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
