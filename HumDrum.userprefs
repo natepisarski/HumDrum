@@ -1,45 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/Collections/Test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/Collections/Transformations.cs">
     <Files>
-      <File FileName="HumDrum/Collections/Test.cs" Line="27" Column="27" />
-      <File FileName="HumDrum/Collections/Transformations.cs" Line="21" Column="21" />
+      <File FileName="HumDrum/Collections/Test.cs" Line="10" Column="10" />
+      <File FileName="HumDrum/Collections/Transformations.cs" Line="5" Column="5" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True">
-          <Node name="HumDrum" expanded="True">
-            <Node name="HumDrum" expanded="True">
-              <Node name="Collections" expanded="True">
-                <Node name="Test" expanded="True">
-                  <Node name="TestTransformations" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/Structures/Tree.cs">
-    <Files>
-      <File FileName="HumDrum/Collections/Sections.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/Collections/Test.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/Collections/Transformations.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/Recursion/Test.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/Structures/Direction.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/Structures/Tree.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/home/nate/Code/HDContainer/HDContainer/HumDrum/Collections/Sections.cs" line="98" column="7" />
-    </BreakpointStore>
->>>>>>> dbf350521abb8402ad2c0b2f089fbd6360cc21d4
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

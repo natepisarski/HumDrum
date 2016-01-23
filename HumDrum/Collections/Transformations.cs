@@ -65,7 +65,6 @@ namespace HumDrum.Collections
 
 			return returnCollection;
 		}
-<<<<<<< HEAD
 
 		/// <summary>
 		/// Collects elements of the list while the predicate is true, and includes
@@ -137,9 +136,6 @@ namespace HumDrum.Collections
 			temp.RemoveAt (0);
 			return temp;
 		}
-
-=======
->>>>>>> dbf350521abb8402ad2c0b2f089fbd6360cc21d4
 	}
 }
 
