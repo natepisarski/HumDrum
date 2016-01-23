@@ -62,6 +62,7 @@ namespace HumDrum.Collections
 			Assert.AreEqual (
 				Transformations.Subsequence (Transformations.Make (1, 2, 3, 4, 5), 1, 5),
 				Transformations.Make (2, 3, 4, 5));
+<<<<<<< HEAD
 
 			// WhileInclusive
 			Assert.AreEqual (
@@ -82,6 +83,8 @@ namespace HumDrum.Collections
 			Assert.AreEqual (
 				Transformations.After ("aaabc", x => x.Equals ('b')),
 				"c");
+=======
+>>>>>>> dbf350521abb8402ad2c0b2f089fbd6360cc21d4
 		}
 	}
 }
