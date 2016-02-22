@@ -4,7 +4,7 @@
     <ItemType>PackagingProject</ItemType>
     <ProjectGuid>{54FE9596-F45F-4605-B7AE-38FCDB4D464E}</ProjectGuid>
     <Packages>
-      <Packages xmlns="">
+      <Packages>
         <Package name="MSbuild Package">
           <Builder targetFile="HumDrum.zip" format="MonoDevelop.Projects.FileFormat" ctype="SourcesZipPackageBuilder">
             <ChildEntries>
@@ -15,5 +15,7 @@
         </Package>
       </Packages>
     </Packages>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
 </Project>
