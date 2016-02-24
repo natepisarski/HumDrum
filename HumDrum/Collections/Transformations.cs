@@ -57,7 +57,7 @@ namespace HumDrum.Collections
 		/// <param name="start">Where to start collecting</param>
 		/// <param name="length">How many items to take</param>
 		/// <typeparam name="T">T - type</typeparam>
-		public static List<T> Subsequence<T>(IEnumerable<T> list, int start, int length){
+		public static List<T> Subsequence<T>(this IEnumerable<T> list, int start, int length){
 			var returnCollection = new List<T> ();
 
 			for (int i = start; i < list.Length (); i++)
@@ -66,6 +66,10 @@ namespace HumDrum.Collections
 			return returnCollection;
 		}
 
+		public static List<T> Tail<T>(this IEnumerable<T> list)
+		{
+			return Subsequence (list, 0, list.Length ());
+		}
 		/// <summary>
 		/// Collects elements of the list while the predicate is true, and includes
 		/// the element that causes failure.
@@ -74,7 +78,7 @@ namespace HumDrum.Collections
 		/// <param name="list">The data to filter</param>
 		/// <param name="predicate">The predicate used for filtering</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static List<T> WhileInclusive<T>(IEnumerable<T> list, Predicate<T> predicate)
+		public static List<T> WhileInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			var collected = new List<T> ();
 
@@ -98,7 +102,7 @@ namespace HumDrum.Collections
 		/// <param name="list">The list to filter</param>
 		/// <param name="predicate">The predicate used for filtering</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static List<T> AfterInclusive<T>(IEnumerable<T> list, Predicate<T> predicate)
+		public static List<T> AfterInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			var collected = new List<T> ();
 			bool collecting = false;
@@ -121,7 +125,7 @@ namespace HumDrum.Collections
 		/// <param name="list">The list to filter</param>
 		/// <param name="predicate">Predicate.</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static List<T> While<T>(IEnumerable<T> list, Predicate<T> predicate)
+		public static List<T> While<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			var temp = WhileInclusive (list, predicate);
 			temp.RemoveAt (temp.Count - 1);
@@ -130,7 +134,7 @@ namespace HumDrum.Collections
 		}
 
 
-		public static List<T> After<T>(IEnumerable<T> list, Predicate<T> predicate)
+		public static List<T> After<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			var temp = AfterInclusive (list, predicate);
 			temp.RemoveAt (0);
@@ -138,7 +142,7 @@ namespace HumDrum.Collections
 		}
 
 
-		public static T[] RemoveDuplicates<T>(IEnumerable<T> list)
+		public static T[] RemoveDuplicates<T>(this IEnumerable<T> list)
 		{
 			var local = new List<T> ();
 
@@ -149,6 +153,8 @@ namespace HumDrum.Collections
 
 			return local.ToArray ();
 		}
+
+		
 	}
 }
 

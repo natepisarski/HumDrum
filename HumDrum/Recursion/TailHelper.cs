@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HumDrum.Recursion
 {
-	public class TailHelper
+	public static class TailHelper
 	{
 		/// <summary>
 		/// Wraps the specified item in a list
@@ -29,6 +29,11 @@ namespace HumDrum.Recursion
 			local.AddRange (list2);
 
 			return local;
+		}
+
+		public static List<T> Tack<T>(this IEnumerable<T> list, T item)
+		{
+			return Concatenate (list, Wrap (item));
 		}
 	}
 }
