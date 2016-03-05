@@ -26,6 +26,9 @@ namespace HumDrum.Collections
 		/// <param name="index">The index (0-based)</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static T Get<T>(this IEnumerable<T> list, int index){
+			if(list.Length() == 0)
+				return default(T);
+			
 			int counter = 0;
 
 			foreach (T item in list) {
@@ -60,8 +63,10 @@ namespace HumDrum.Collections
 		public static List<T> Subsequence<T>(this IEnumerable<T> list, int start, int length){
 			var returnCollection = new List<T> ();
 
-			for (int i = start; i < list.Length (); i++)
+			for (int i = start; length>0 && i < list.Length(); i++) {
 				returnCollection.Add (list.Get (i));
+				length--;
+			}
 
 			return returnCollection;
 		}
@@ -154,7 +159,31 @@ namespace HumDrum.Collections
 			return local.ToArray ();
 		}
 
-		
+		public static bool Equal<T>(IEnumerable<T> list1, IEnumerable<T> list2)
+		{
+			if (!(list1.Length ().Equals (list2.Length ())))
+				return false;
+			
+			for (int i = 0; i < list1.Length () && i < list2.Length (); i++) {
+				if (!(list1.Get (i).Equals (list2.Get (i))))
+					return false;
+			}
+
+			return true;
+		}
+
+		public static List<T> StartingWith<T>(IEnumerable<T> sequence, IEnumerable<T> beginning)
+		{
+			// Believe it or not, this line is required because of how C# generics work. Black magic, etc.
+			var local = Transformations.Subsequence (beginning, 0, beginning.Length ()).ToArray();
+
+			for (int i = 0; i < sequence.Length () - beginning.Length (); i++) {
+				var chunk = Transformations.Subsequence (sequence, i, beginning.Length ());
+				if (Transformations.Equal (chunk, beginning))
+					return Transformations.Subsequence (sequence, i, sequence.Length ());
+			}
+			return new List<T> ();
+		}
 	}
 }
 

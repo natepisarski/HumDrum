@@ -23,6 +23,7 @@ namespace HumDrum.Operations
 		/// <param name="option"> </param>
 		public DirectorySearch (string filepath, SearchOption option)
 		{
+			Files = new List<string> ();
 			foreach (string name in Directory.EnumerateFiles (filepath, "*", option))
 				Files.Add (name);
 		}
