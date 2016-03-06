@@ -190,6 +190,7 @@ namespace HumDrum.Collections
 			bool collecting = false;
 
 			foreach (char c in text) {
+				
 				if (c.Equals ('\\')) {
 					escaped = true;
 					continue;
@@ -201,6 +202,7 @@ namespace HumDrum.Collections
 					continue;
 				}
 
+				// If it's whitespace, that's the end of the word. Unless we're collecting
 				if (!collecting && c.Equals (' ')) {
 					local.Add (buffer);
 					buffer = "";

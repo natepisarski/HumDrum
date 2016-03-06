@@ -31,6 +31,12 @@ namespace HumDrum.Recursion
 			return local;
 		}
 
+		/// <summary>
+		/// "Tack" the item onto an existing IEnumerable list
+		/// </summary>
+		/// <param name="list">The list</param>
+		/// <param name="item">The item</param>
+		/// <typeparam name="T">The type of both parameters</typeparam>
 		public static List<T> Tack<T>(this IEnumerable<T> list, T item)
 		{
 			return Concatenate (list, Wrap (item));

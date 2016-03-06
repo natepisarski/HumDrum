@@ -138,7 +138,12 @@ namespace HumDrum.Collections
 			return temp;
 		}
 
-
+		/// <summary>
+		/// Once a predicate is true, return everything after it.
+		/// </summary>
+		/// <param name="list">The list to test</param>
+		/// <param name="predicate">The predicate used for testing</param>
+		/// <typeparam name="T">A generic type parameter</typeparam>
 		public static List<T> After<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			var temp = AfterInclusive (list, predicate);
@@ -146,7 +151,12 @@ namespace HumDrum.Collections
 			return temp;
 		}
 
-
+		/// <summary>
+		/// Removes the duplicates from the list.
+		/// </summary>
+		/// <returns>The list, without any duplicates</returns>
+		/// <param name="list">The list to scan</param>
+		/// <typeparam name="T">A generic type parameter</typeparam>
 		public static T[] RemoveDuplicates<T>(this IEnumerable<T> list)
 		{
 			var local = new List<T> ();
@@ -159,8 +169,16 @@ namespace HumDrum.Collections
 			return local.ToArray ();
 		}
 
+		/// <summary>
+		/// Tests to see if two lists of the same type are equal based on each individual
+		/// element's specification of equality.
+		/// </summary>
+		/// <param name="list1">The first list</param>
+		/// <param name="list2">The second list</param>
+		/// <typeparam name="T">A Generic type parameter</typeparam>
 		public static bool Equal<T>(IEnumerable<T> list1, IEnumerable<T> list2)
 		{
+			// If the lists are no of equal length, they're obviously not the same.
 			if (!(list1.Length ().Equals (list2.Length ())))
 				return false;
 			
@@ -172,17 +190,52 @@ namespace HumDrum.Collections
 			return true;
 		}
 
+		/// <summary>
+		/// Returns a sequence starting with some other sequence, and everything after it.
+		/// As an example, in this sentence "the cat jumps over the dog", startingAt cat would
+		/// return "cat jumps over the dog".
+		/// </summary>
+		/// <returns>The sequence beginning with the parameter</returns>
+		/// <param name="sequence">The sequence to examine</param>
+		/// <param name="beginning">The sequence to begin with</param>
+		/// <typeparam name="T">The generic type parameter</typeparam>
 		public static List<T> StartingWith<T>(IEnumerable<T> sequence, IEnumerable<T> beginning)
 		{
-			// Believe it or not, this line is required because of how C# generics work. Black magic, etc.
-			var local = Transformations.Subsequence (beginning, 0, beginning.Length ()).ToArray();
-
+			// The sequence cannot be less than "beginning", so the loop doesn't get that far.
 			for (int i = 0; i < sequence.Length () - beginning.Length (); i++) {
+				
+				//An amount of text equal to the length of the beginning sequence
 				var chunk = Transformations.Subsequence (sequence, i, beginning.Length ());
+
 				if (Transformations.Equal (chunk, beginning))
 					return Transformations.Subsequence (sequence, i, sequence.Length ());
 			}
+
+			// This sequence was not present in the list.
 			return new List<T> ();
+		}
+
+		/// <summary>
+		/// Returns the position where the sequence is found.
+		/// </summary>
+		/// <returns>The position.</returns>
+		/// <param name="sequence">Sequence.</param>
+		/// <param name="beginning">Beginning.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static int SequencePosition<T>(IEnumerable<T> sequence, IEnumerable<T> beginning)
+		{
+			// The sequence cannot be less than "beginning", so the loop doesn't get that far.
+			for (int i = 0; i < sequence.Length () - beginning.Length (); i++) {
+
+				//An amount of text equal to the length of the beginning sequence
+				var chunk = Transformations.Subsequence (sequence, i, beginning.Length ());
+
+				if (Transformations.Equal (chunk, beginning))
+					return i;
+			}
+
+			// This sequence was not present in the list.
+			return -1;
 		}
 	}
 }

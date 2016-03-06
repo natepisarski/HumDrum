@@ -24,7 +24,31 @@ namespace HumDrum.Operations
 		public DirectorySearch (string filepath, SearchOption option)
 		{
 			Files = new List<string> ();
-			foreach (string name in Directory.EnumerateFiles (filepath, "*", option))
+
+			Include (filepath, option);
+		}
+
+		/// <summary>
+		/// Initializes a DirectorySearch containing multiple directories.
+		/// </summary>
+		/// <param name="filepaths">All of the directories to be included in this directorysearch</param>
+		/// <param name="option">Option.</param>
+		public DirectorySearch(string[] filepaths, SearchOption option)
+		{
+			Files = new List<string> ();
+
+			foreach (string s in filepaths) 
+				Include (s, option);
+		}
+
+		/// <summary>
+		/// Include this directory in the resulting files
+		/// </summary>
+		/// <param name="directory">The directory to include</param>
+		/// <param name="option">Whether or not to just scan the top directory lvel</param>
+		public void Include(string directory, SearchOption option)
+		{
+			foreach(string name in Directory.EnumerateFiles(directory, "*", option))
 				Files.Add (name);
 		}
 
