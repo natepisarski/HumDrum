@@ -9,9 +9,6 @@ namespace HumDrum.Collections
 	/// </summary>
 	public static class Sections
 	{
-		//TODO: I don't see a need to make this anything but strings. But make it so that
-		//TODO: delim is startDelim and endDelim
-
 		/// <summary>
 		/// Parses a section.
 		/// Example: { these are words. |this is a string|. |this has a \| in it |

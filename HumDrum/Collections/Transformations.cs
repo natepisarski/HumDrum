@@ -239,10 +239,17 @@ namespace HumDrum.Collections
 			return -1;
 		}
 
+		/// <summary>
+		/// Checks the number of times that an element occurs within
+		/// a given sequence.
+		/// </summary>
+		/// <param name="list">The list </param>
+		/// <param name="item">The item</param>
+		/// <typeparam name="T">The generic type parameter</typeparam>
 		public static int Times<T>(IEnumerable<T> list, T item)
 		{
 			return list.Where ((T x) => x.Equals (item)).Length<T>();
-		} //TODO: Rewrite with yield return
+		} 
 	}
 }
 
