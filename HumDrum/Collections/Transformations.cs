@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace HumDrum.Collections
@@ -237,6 +238,11 @@ namespace HumDrum.Collections
 			// This sequence was not present in the list.
 			return -1;
 		}
+
+		public static int Times<T>(IEnumerable<T> list, T item)
+		{
+			return list.Where ((T x) => x.Equals (item)).Length<T>();
+		} //TODO: Rewrite with yield return
 	}
 }
 

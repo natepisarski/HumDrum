@@ -50,6 +50,24 @@ namespace HumDrum.Collections
 
 			return Collection;
 		}
+
+		public static List<List<T>> Group<T,W>(IEnumerable<T> list, StateObject<W> StateCheck)
+		{
+			var Collection = new List<List<T>> ();
+			var Buffer = new List<T> ();
+
+			foreach (T item in list) {
+				Buffer.Add (item);
+				if(StateCheck.ModifyState ())
+				{
+					Collection.Add (Buffer);
+					StateCheck.Reset ();
+					Buffer = new List<T> ();
+				}
+			}
+
+			return Collection;
+		}
 	}
 }
 

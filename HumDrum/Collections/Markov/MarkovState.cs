@@ -4,24 +4,24 @@ namespace HumDrum.Collections.Markov
 {
 	public class MarkovState<T> 
 	{
-		public T State { get; set; }
-		public Tuple<T, double> FutureState { get; set; }
+		public T[] State { get; set; }
+		public T Next {get; set;}
+		public double Probability {get; set;}
 
-		public MarkovState (T state, T next, double probability)
+		public MarkovState(T[] state, T next)
 		{
 			State = state;
-			FutureState = new Tuple<T, double> (next, probability);
+			Next = next;
+			Probability = 0.00;
 		}
 
-		public double FutureProbability()
+		public MarkovState (T[] state, T next, double probability)
 		{
-			return FutureState.Item2;
+			State = state;
+			Next = next;
+			Probability = probability;
 		}
-
-		public T FutureItem()
-		{
-			return FutureState.Item1;
-		}
+			
 	}
 }
 
