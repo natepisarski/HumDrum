@@ -1,15 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Collections/Information.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Operations/ImageManager.cs">
     <Files>
-      <File FileName="HumDrum/HumDrum/Operations/ImageManager.cs" Line="6" Column="6" />
+      <File FileName="HumDrum/HumDrum/Operations/ImageManager.cs" Line="1" Column="1" />
       <File FileName="HumDrum/HumDrum/Collections/Information.cs" Line="22" Column="22" />
-      <File FileName="HumDrum/HumDrum/Collections/Transformations.cs" Line="4" Column="4" />
+      <File FileName="HumDrum/HumDrum/Collections/Transformations.cs" Line="1" Column="1" />
       <File FileName="HumDrum/HumDrum/Collections/Predicates.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Collections/Markov/Markov.cs" Line="20" Column="20" />
-      <File FileName="HumDrum/HumDrum/Structures/BindingsTable.cs" Line="12" Column="12" />
+      <File FileName="HumDrum/HumDrum/Collections/Markov/Markov.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Structures/BindingsTable.cs" Line="1" Column="1" />
       <File FileName="HumDrum/HumDrum/Collections/HigherOrder.cs" Line="1" Column="1" />
       <File FileName="HumDrum/HumDrum/Collections/Sections.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Operations/Files/DirectorySearch.cs" Line="71" Column="71" />
+      <File FileName="HumDrum/HumDrum/Operations/Files/Line.cs" Line="53" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

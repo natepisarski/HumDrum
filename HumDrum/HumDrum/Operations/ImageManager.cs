@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Collections.Generic;
 
 using HumDrum.Operations;
+using HumDrum.Operations.Files;
 
 namespace HumDrum.Operations
 {

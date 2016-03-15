@@ -41,7 +41,6 @@
     <Compile Include="HumDrum\Collections\Markov\Markov.cs" />
     <Compile Include="HumDrum\Collections\Markov\MarkovState.cs" />
     <Compile Include="HumDrum\Collections\StateModifiers\IntegerCounter.cs" />
-    <Compile Include="HumDrum\Operations\DirectorySearch.cs" />
     <Compile Include="HumDrum\Operations\ImageManager.cs" />
     <Compile Include="HumDrum\Operations\Logger.cs" />
     <Compile Include="HumDrum\Operations\Servitor.cs" />
@@ -51,9 +50,12 @@
     <Compile Include="HumDrum\Structures\Tree.cs" />
     <Compile Include="HumDrum\Collections\Information.cs" />
     <Compile Include="HumDrum\Collections\HigherOrder.cs" />
+    <Compile Include="HumDrum\Operations\Files\DirectorySearch.cs" />
+    <Compile Include="HumDrum\Operations\Files\Line.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="HumDrum\" />
+    <Folder Include="HumDrum\Operations\Files\" />
   </ItemGroup>
 </Project>

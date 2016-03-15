@@ -2,7 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace HumDrum.Operations
+namespace HumDrum.Operations.Files
 {
 	/// <summary>
 	/// Searches directories for matching
@@ -69,6 +69,21 @@ namespace HumDrum.Operations
 		{
 			Files.RemoveAll (x => !refiner (x));
 			return new DirectorySearch (Files);
+		}
+
+		/// <summary>
+		/// Goes through all of the files in this DirectorySearch,
+		/// returning Line objects that match a certain string predicate
+		/// </summary>
+		/// <returns>The matching Line objects</returns>
+		/// <param name="predicate">A predicate working on lines from a file</param>
+		public IEnumerable<Line> LinesWhere(Predicate<string> predicate)
+		{
+			foreach (string filename in Files) 
+				foreach (Line line in Line.AllLines(filename))
+					if (predicate (line.Text))
+						yield return line;
+			yield break;
 		}
 	}
 }
