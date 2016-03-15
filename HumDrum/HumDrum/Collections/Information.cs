@@ -74,7 +74,7 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The generic type parameter</typeparam>
 		public static int Times<T>(this IEnumerable<T> list, T item)
 		{
-			return Predicates.When (list, (T x) => x.Equals (item)).Length<T>();
+			return HigherOrder.When (list, (T x) => x.Equals (item)).Length<T>();
 		} 
 
 

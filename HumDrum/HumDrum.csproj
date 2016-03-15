@@ -50,6 +50,7 @@
     <Compile Include="HumDrum\Structures\Direction.cs" />
     <Compile Include="HumDrum\Structures\Tree.cs" />
     <Compile Include="HumDrum\Collections\Information.cs" />
+    <Compile Include="HumDrum\Collections\HigherOrder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
