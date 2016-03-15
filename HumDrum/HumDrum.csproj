@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{715D15D4-68CB-4E55-B9C6-DCFE791C9B00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HumDrum</RootNamespace>
+    <AssemblyName>HumDrum</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HumDrum\Collections\Groups.cs" />
+    <Compile Include="HumDrum\Collections\Predicates.cs" />
+    <Compile Include="HumDrum\Collections\Sections.cs" />
+    <Compile Include="HumDrum\Collections\Transformations.cs" />
+    <Compile Include="HumDrum\Collections\Markov\Markov.cs" />
+    <Compile Include="HumDrum\Collections\Markov\MarkovState.cs" />
+    <Compile Include="HumDrum\Collections\StateModifiers\IntegerCounter.cs" />
+    <Compile Include="HumDrum\Operations\DirectorySearch.cs" />
+    <Compile Include="HumDrum\Operations\ImageManager.cs" />
+    <Compile Include="HumDrum\Operations\Logger.cs" />
+    <Compile Include="HumDrum\Operations\Servitor.cs" />
+    <Compile Include="HumDrum\Recursion\TailHelper.cs" />
+    <Compile Include="HumDrum\Structures\BindingsTable.cs" />
+    <Compile Include="HumDrum\Structures\Direction.cs" />
+    <Compile Include="HumDrum\Structures\Tree.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="HumDrum\" />
+  </ItemGroup>
+</Project>
