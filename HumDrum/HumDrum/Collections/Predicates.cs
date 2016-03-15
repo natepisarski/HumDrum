@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using HumDrum.Collections;
 
-namespace Todo
+namespace HumDrum.Collections
 {
 	/// <summary>
 	/// Class for analyzing collections of data based on some predicate.
@@ -22,6 +22,19 @@ namespace Todo
 				return list.Get<bool> (0) || Any (list.Tail ());
 		}
 
+		/// <summary>
+		/// Checks to see if the predicate 
+		/// </summary>
+		/// <param name="list">List.</param>
+		/// <param name="p">P.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static bool Any<T>(IEnumerable<T> list, Predicate<T> p)
+		{
+			foreach (T item in list)
+				if (p (item))
+					return true;
+			return false;
+		}
 		/// <summary>
 		/// Will return true if all of the booleans in this list are true.
 		/// </summary>

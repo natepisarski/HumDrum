@@ -282,10 +282,50 @@ namespace HumDrum.Collections
 		/// <param name="list">The list </param>
 		/// <param name="item">The item</param>
 		/// <typeparam name="T">The generic type parameter</typeparam>
-		public static int Times<T>(IEnumerable<T> list, T item)
+		public static int Times<T>(this IEnumerable<T> list, T item)
 		{
 			return list.Where ((T x) => x.Equals (item)).Length<T>();
 		} 
+
+		/// <summary>
+		/// Returns the given sequence as an array
+		/// </summary>
+		/// <returns>The list to convert</returns>
+		/// <param name="list">An array based on the list</param>
+		public static T[] AsArray<T>(this IEnumerable<T> list)
+		{
+			var collector = new List<T> ();
+			collector.AddRange (list);
+			return collector.ToArray ();
+		}
+
+		/// <summary>
+		/// Create two arrays. The first array is made up of the 
+		/// array's even elements (0, 2, ...) and the second is made up
+		/// of the list's odd-indexed elements (1, 3, ...)
+		/// </summary>
+		/// <param name="originalList">The list to unbind from</param>
+		/// <typeparam name="T">The type of this list.</typeparam>
+		public static Tuple<T[], T[]> Unbind<T>(T[] originalList){
+			var firstList = new List<T> ();
+			var secondList = new List<T> ();
+
+			// If this is true, add the item to the first list. Second otherwise.
+			bool firstOrSecond = true;
+
+			foreach (T item in originalList) {
+				if (firstOrSecond)
+					firstList.Add (item);
+				else
+					secondList.Add (item);
+
+				firstOrSecond = !firstOrSecond;
+			}
+
+			return new Tuple<T[], T[]>(firstList.ToArray(), secondList.ToArray());
+		}
+
+
 	}
-}
+}//TODO: Implement some LINQ shit in here as well as splitting it into Information. Add AsList
 
