@@ -33,7 +33,7 @@ namespace HumDrum.Operations
 		/// </summary>
 		/// <param name="filepaths">All of the directories to be included in this directorysearch</param>
 		/// <param name="option">Option.</param>
-		public DirectorySearch(string[] filepaths, SearchOption option)
+		public DirectorySearch(IEnumerable<string> filepaths, SearchOption option)
 		{
 			Files = new List<string> ();
 
