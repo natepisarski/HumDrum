@@ -47,10 +47,10 @@ namespace HumDrum.Collections.Markov
 			// Pass 2: Determine the probability of current incurring future state
 			foreach (MarkovState<T> ms in States) {
 				List<T> occurences = (from MarkovState<T> item in States
-					where Transformations.Equal(item.State, ms.State)
+					where Information.Equal(item.State, ms.State)
 					select item.Next).ToList();
 				// Probability is equal to the times this future state occured compared to how many there are.
-				ms.Probability = ((double)Transformations.Times<T> (occurences, ms.Next)) / ((double)occurences.Length<T> ());
+				ms.Probability = ((double)Information.Times<T> (occurences, ms.Next)) / ((double)occurences.Length<T> ());
 			}
 		}
 
@@ -65,7 +65,7 @@ namespace HumDrum.Collections.Markov
 		
 			foreach (MarkovState<T> item in States) {
 				var currentState = item.State;
-				if (Transformations.Equal(currentState, state))
+				if (Information.Equal(currentState, state))
 					collector.Add (item);
 			}
 
