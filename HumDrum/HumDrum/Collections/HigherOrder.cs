@@ -35,6 +35,18 @@ namespace HumDrum.Collections
 				yield return t (item);
 			yield break;
 		}
+
+		/// <summary>
+		/// Performs an action to every item in a list
+		/// </summary>
+		/// <param name="list">The list to perform an action to</param>
+		/// <param name="action">The action to perform</param>
+		/// <typeparam name="T">A generic type parameter</typeparam>
+		public static void ForEvery<T>(this IEnumerable<T> list, Action<T> action)
+		{
+			foreach (T item in list)
+				action (item);
+		}
 	}
 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using HumDrum.Recursion;
+using HumDrum.Collections;
 
 namespace HumDrum.Structures
 {
@@ -74,9 +75,9 @@ namespace HumDrum.Structures
 		/// Flattens the entire tree into a list of its Nodes. Working on these directly
 		/// affects the information in the tree, so be careful.
 		/// </summary>
-		public List<T> Flatten(){
+		public IEnumerable<T> Flatten(){
 			if (RightBranch == null && LeftBranch == null)
-				return TailHelper.Wrap (CurrentNode);
+				return TailHelper.Wrap<T> (CurrentNode);
 			else
 				return TailHelper.Concatenate( // Returns the current node and all the other nodes
 					TailHelper.Wrap(CurrentNode),
@@ -96,7 +97,7 @@ namespace HumDrum.Structures
 		/// </summary>
 		/// <param name="function">The function to map</param>
 		public void Map(Action<T> function){
-			Flatten ().ForEach (function);
+			Flatten ().ForEvery (function);
 		}
 
 		/// <summary>
