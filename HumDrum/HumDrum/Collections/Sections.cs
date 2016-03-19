@@ -234,6 +234,16 @@ namespace HumDrum.Collections
 
 			return collection.TrimEnd(' ');
 		}
+
+		/// <summary>
+		/// Very generic string repair
+		/// </summary>
+		/// <returns>The string</returns>
+		/// <param name="toRepair">The repaired string</param>
+		public static string RepairString(IEnumerable<string> toRepair)
+		{
+			return RepairString (toRepair.AsArray ());
+		}
 	}
 }
 

@@ -6,6 +6,8 @@ using HumDrum.Collections;
 using HumDrum.Collections.StateModifiers;
 using HumDrum.Collections.Markov;
 
+using HumDrum.Recursion;
+
 namespace HumDrum.Collections.Markov
 {
 	/// <summary>
@@ -105,8 +107,37 @@ namespace HumDrum.Collections.Markov
 					return likelyState.Next;
 			}
 
-			// If something goes wrong, return the most likely word to occur
-			return ByLikely (state).Get (0).Next;
+			// If something goes wrong, return a random state
+			return States.Get(new Random().Next(0, States.Length()-1)).Next;
+		}
+
+		/// <summary>
+		/// Creates a sequence of randomly selected instances
+		/// based on a seed and a number of items to return.
+		/// </summary>
+		/// <returns>The random sequence</returns>
+		/// <param name="seed">The seed state</param>
+		/// <param name="count">How many iterations to go</param>
+		public IEnumerable<T> SelectRandomSequence(IEnumerable<T> seed, int count)
+		{
+			IEnumerable<T> selectedState = seed;
+
+			for (; count > 0; count--) {
+				selectedState = TailHelper.Concatenate (
+					Transformations.Subsequence (seed, 1, seed.Length ()),
+					TailHelper.Wrap (SelectRandom (selectedState)));
+				yield return SelectRandom (selectedState);
+			}
+			yield break;
+		}
+
+		/// <summary>
+		/// Gets a random state from the list of available states
+		/// </summary>
+		/// <returns>The state</returns>
+		public IEnumerable<T> RandomState()
+		{
+			return States.Get (new Random ().Next (0, States.Length () - 1)).State;
 		}
 	}
 }

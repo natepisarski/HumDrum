@@ -3,3 +3,8 @@
 /home/nate/Code/sb/HumDrum/HumDrum/bin/Debug/HumDrum.dll
 /home/nate/Code/sb/HumDrum/HumDrum/obj/Debug/HumDrum.dll
 /home/nate/Code/sb/HumDrum/HumDrum/obj/Debug/HumDrum.dll.mdb
+/home/nate/Code/HumDrum/HumDrum/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/nate/Code/HumDrum/HumDrum/bin/Debug/HumDrum.dll.mdb
+/home/nate/Code/HumDrum/HumDrum/bin/Debug/HumDrum.dll
+/home/nate/Code/HumDrum/HumDrum/obj/Debug/HumDrum.dll
+/home/nate/Code/HumDrum/HumDrum/obj/Debug/HumDrum.dll.mdb

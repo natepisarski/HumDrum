@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HumDrum.Collections.Markov
 {
@@ -13,7 +14,7 @@ namespace HumDrum.Collections.Markov
 		/// be attained in order for Next to be considered.
 		/// </summary>
 		/// <value>The necessary state</value>
-		public T[] State { get; set; }
+		public IEnumerable<T> State { get; set; }
 
 		/// <summary>
 		/// The item, that if State is reached, will be considered
@@ -35,7 +36,7 @@ namespace HumDrum.Collections.Markov
 		/// </summary>
 		/// <param name="state">State.</param>
 		/// <param name="next">Next.</param>
-		public MarkovState(T[] state, T next)
+		public MarkovState(IEnumerable<T> state, T next)
 		{
 			State = state;
 			Next = next;
@@ -49,7 +50,7 @@ namespace HumDrum.Collections.Markov
 		/// <param name="state">The state of this instance</param>
 		/// <param name="next">The future state of this instance</param>
 		/// <param name="probability">The probability for this to occur</param>
-		public MarkovState (T[] state, T next, double probability) : this(state, next)
+		public MarkovState (IEnumerable<T> state, T next, double probability) : this(state, next)
 		{
 			Probability = probability;
 		}
