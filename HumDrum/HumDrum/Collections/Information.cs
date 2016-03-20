@@ -77,7 +77,33 @@ namespace HumDrum.Collections
 			return HigherOrder.When (list, (T x) => x.Equals (item)).Length<T>();
 		} 
 
+		/// <summary>
+		/// Determines whether this list has the specified item.
+		/// </summary>
+		/// <returns><c>true</c> if this instance has list item; otherwise, <c>false</c>.</returns>
+		/// <param name="list">The lsit to check</param>
+		/// <param name="item">The item to search for in the list</param>
+		/// <typeparam name="T">The generic type parameter</typeparam>
+		public static bool Has<T>(this IEnumerable<T> list, T item)
+		{
+			foreach (T listItem in list)
+				if (listItem.Equals (item))
+					return true;
+			return false;
+		}
 
+		/// <summary>
+		/// Turn any type of collection into an IEnumerable
+		/// </summary>
+		/// <param name="list">The list to genericize</param>
+		/// <typeparam name="T">The type parameter of this list</typeparam>
+		public static IEnumerable<T> Genericize<T>(this IEnumerable<T> list)
+		{
+			foreach (T item in list) 
+				yield return item;
+			
+			yield break;
+		}
 	}
 }
 

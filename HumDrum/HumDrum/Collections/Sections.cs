@@ -17,7 +17,7 @@ namespace HumDrum.Collections
 		/// <param name="text">The text to partition</param>
 		/// <param name="startDelim">The character defining partitions</param>
 		/// <param name="endDelim"> The character defining the end of the partitions</param>
-		public static string[] ParseSections(string text, char startDelim, char endDelim){
+		public static IEnumerable<string> ParseSections(string text, char startDelim, char endDelim){
 
 			// What is being collected right now
 			string selection = "";
@@ -71,7 +71,7 @@ namespace HumDrum.Collections
 			// Remove any empty strings that this found.
 			collection.RemoveAll (x => x.Equals (""));
 
-			return collection.ToArray ();
+			return collection.ToArray ().Genericize();
 		}
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace HumDrum.Collections
 		/// <returns>The sections</returns>
 		/// <param name="text">Text.</param>
 		/// <param name="delim">The delimiter</param>
-		public static string[] ParseSections(string text, char delim){
+		public static IEnumerable<string> ParseSections(string text, char delim){
 			return ParseSections (text, delim, delim);
 		}
 
@@ -90,7 +90,7 @@ namespace HumDrum.Collections
 		/// <returns>The split.</returns>
 		/// <param name="text">The text to split on.</param>
 		/// <param name="splitOn">The character to split this string on.</param>
-		public static List<string> EscapeSplit(string text, char splitOn){
+		public static IEnumerable<string> EscapeSplit(string text, char splitOn){
 			// The total collection
 			var collection = new List<string> ();
 
@@ -131,7 +131,7 @@ namespace HumDrum.Collections
 
 			collection.RemoveAll (x => x.Equals (""));
 
-			return collection;
+			return collection.Genericize();
 		}
 
 		/// <summary>
@@ -178,7 +178,7 @@ namespace HumDrum.Collections
 		/// <param name="text">Text.</param>
 		/// <param name="startDelim">Start delim.</param>
 		/// <param name="endDelim">End delim.</param>
-		public static List<String> Globs(string text, char startDelim, char endDelim)
+		public static IEnumerable<string> Globs(string text, char startDelim, char endDelim)
 		{
 			var local = new List<string> ();
 			string buffer = "";
@@ -217,7 +217,7 @@ namespace HumDrum.Collections
 
 			local.Add (buffer);
 
-			return local;
+			return local.Genericize();
 		}
 
 		/// <summary>

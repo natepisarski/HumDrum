@@ -32,14 +32,12 @@ namespace HumDrum.Structures
 		/// </summary>
 		/// <param name="list1">The first list (keyset)</param>
 		/// <param name="list2">The second list (values)</param>
-		public static List<Tuple<T, W>> Bind(IEnumerable<T> list1, IEnumerable<W> list2)
+		public static IEnumerable<Tuple<T, W>> Bind(IEnumerable<T> list1, IEnumerable<W> list2)
 		{
-			var localList = new List<Tuple<T, W>> ();
-
 			for (int i = 0; i < list1.Length () - 1 && i < list2.Length() - 1; i++) 
-				localList.Add (new Tuple<T, W> (list1.Get (i), list2.Get (i)));
+				yield return (new Tuple<T, W> (list1.Get (i), list2.Get (i)));
 
-			return localList;
+			yield break;
 		}
 
 		/// <summary>
@@ -48,16 +46,14 @@ namespace HumDrum.Structures
 		/// </summary>
 		/// <param name="list1">The first list</param>
 		/// <param name="list2">The second list.</param>
-		public static List<Tuple<T, W>> Cross(IEnumerable<T> list1, IEnumerable<W> list2)
+		public static IEnumerable<Tuple<T, W>> Cross(IEnumerable<T> list1, IEnumerable<W> list2)
 		{
-			var local = new List<Tuple<T, W>> ();
-
 			foreach (T item1 in list1) {
 				foreach (W item2 in list2) 
-					local.Add (new Tuple<T, W> (item1, item2));
+					yield return (new Tuple<T, W> (item1, item2));
 			}
 
-			return local;
+			yield break;
 		}
 
 		/// <summary>
@@ -88,7 +84,7 @@ namespace HumDrum.Structures
 		/// Add a pre-bound list of associations to the table
 		/// </summary>
 		/// <param name="associations">The associations to add to the list</param>
-		public void Associate(List<Tuple<T, W>> associations)
+		public void Associate(IEnumerable<Tuple<T, W>> associations)
 		{
 			Bindings.AddRange (associations);
 		}
@@ -99,7 +95,7 @@ namespace HumDrum.Structures
 		public IEnumerable<T> Keyset()
 		{
 			return Transformations.RemoveDuplicates((from x in Bindings
-				select x.Item1).ToArray());
+				select x.Item1));
 		}
 
 		/// <summary>
@@ -108,18 +104,28 @@ namespace HumDrum.Structures
 		public IEnumerable<W> Values()
 		{
 			return Transformations.RemoveDuplicates((from x in Bindings
-				select x.Item2).ToArray ());
+				select x.Item2));
 		}
 
 		/// <summary>
 		/// Return all of the values associated with this key
 		/// </summary>
 		/// <param name="key">The key to look up in the bindings table</param>
-		public W[] Lookup(T key)
+		public IEnumerable<W> Lookup(T key)
 		{
 			return (from x in Bindings
 			        where x.Item1.Equals (key)
-			        select x.Item2).ToArray ();
+			        select x.Item2);
+		}
+
+		/// <summary>
+		/// Determines whether this instance has  key.
+		/// </summary>
+		/// <returns><c>true</c> if this instance has key; otherwise, <c>false</c>.</returns>
+		/// <param name="key">The key to search for</param>
+		public bool Has(T key)
+		{
+			return Keyset ().Has (key);
 		}
 	}
 }

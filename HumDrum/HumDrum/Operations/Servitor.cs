@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
 
 using HumDrum.Collections;
+using HumDrum.Structures;
 
 namespace HumDrum.Operations
 {
-	//TODO: Allow responses to be sent to the server
 	/// <summary>
 	/// Servitor is a wrapper of TcpListener. It buffers incoming requests
 	/// so that another thread can read them when they'd ready.
@@ -41,7 +43,19 @@ namespace HumDrum.Operations
 		int LastIndex { get; set; }
 
 		/// <summary>
-		/// Set up the servitor with the default settings
+		/// Gets or sets the IO table.
+		/// The IO Table determines, given an input, what to send to the server.
+		/// </summary>
+		/// <value>The IO table</value>
+		public BindingsTable<string, string> IOTable{ get; set;}
+
+		/// <summary>
+		/// The default port to that Servitor listens to
+		/// </summary>
+		public const int DEFAULT_PORT = 4206;
+
+		/// <summary>
+		/// Set up the servitor with the default settings.
 		/// </summary>
 		public Servitor()
 		{
@@ -49,7 +63,8 @@ namespace HumDrum.Operations
 			AllInput = new List<string>();
 			LastIndex = 0;
 			Changed = false;
-			Port = 4206;
+			Port = DEFAULT_PORT;
+			IOTable = new BindingsTable<string, string> ();
 		}
 
 		/// <summary>
@@ -65,6 +80,18 @@ namespace HumDrum.Operations
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="HumDrum.Operations.Servitor"/> class.
+		/// This allows the creation of a Servitor instance with an IOTable
+		/// </summary>
+		/// <param name="address">The address to listen to</param>
+		/// <param name="port">The port to listen to</param>
+		/// <param name="table">The table of inputs and outputs</param>
+		public Servitor(IPAddress address, int port, BindingsTable<string, string> table) : this(address, port)
+		{
+			IOTable = table;
+		}
+
+		/// <summary>
 		/// Gets all the input that the servitor has received since the last
 		/// time it got any.
 		/// </summary>
@@ -75,10 +102,13 @@ namespace HumDrum.Operations
 			{
 				// It has not changed, because we just looked.
 				Changed = false;
+
 				// The index when this was triggered
 				int oldIndex = LastIndex;
+
 				// The last index is now. We just accessed it.
 				LastIndex = AllInput.Count - 1;
+
 				return Transformations.Subsequence(AllInput, oldIndex, AllInput.Count);
 			}
 		}
@@ -92,12 +122,32 @@ namespace HumDrum.Operations
 
 			// Continuously accept clients
 			for(;/*ever*/;){
+
+				// Something is connecting
 				TcpClient client = listener.AcceptTcpClient();
+
+				// Make a stream of it so we can IO with it
 				NetworkStream nwStream = client.GetStream();
 
+				// Make an array equal to the message size
 				var buffer = new byte[client.ReceiveBufferSize];
+
+				// NetworkStream.Read returns the size of the message
 				int bytesRead = nwStream.Read(buffer, 0, client.ReceiveBufferSize);
+
+				// Convert this buffer to a string so we can work with it
 				string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+
+				// If the IOTable defines this interaction, reply how it wants.
+				if (IOTable.Has (dataReceived)) {
+					var clientWriter = new StreamWriter (nwStream);
+					foreach (string s in IOTable.Lookup(dataReceived)) {
+						clientWriter.WriteLine (s);
+					}
+					clientWriter.Close ();
+				}
+
+				nwStream.Close ();
 
 				lock (AllInput)
 				{
@@ -106,6 +156,21 @@ namespace HumDrum.Operations
 
 				Changed = true;
 			}
+		}
+
+		/// <summary>
+		/// Sends the specified data to the port at address
+		/// </summary>
+		/// <param name="data">The data to send as a string</param>
+		/// <param name="address">The address to send the data to</param>
+		/// <param name="port">The port to which the data should be sent</param>
+		public static void Send(string data, string host, int port)
+		{
+			TcpClient client = new TcpClient (host, port);
+			NetworkStream ns = client.GetStream ();
+			StreamWriter s = new StreamWriter (ns);
+			s.WriteLine (data);
+			s.Close ();
 		}
 	}
 }
