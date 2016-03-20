@@ -36,6 +36,16 @@ namespace HumDrum.Collections.Markov
 			States = new List<MarkovState<T>> ();
 			var markovPairs = new List<T> ();
 
+			AppendChain (dataset, degree);
+		}
+
+		/// <summary>
+		/// Appends the dataset to the current markov chain 
+		/// </summary>
+		/// <param name="dataset">The data to gather statistics from</param>
+		/// <param name="degree">The degree of the markov chain</param>
+		public void AppendChain(IEnumerable<T> dataset, int degree)
+		{
 			// Pass 1: Determine the current state and the next element
 			for (int i = 0; i < dataset.Length () - 1; i++) {
 				var state = Transformations.Subsequence (dataset, i, degree).ToArray ();

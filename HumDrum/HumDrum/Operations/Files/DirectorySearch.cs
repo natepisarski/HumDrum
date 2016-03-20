@@ -85,6 +85,24 @@ namespace HumDrum.Operations.Files
 						yield return line;
 			yield break;
 		}
+
+		/// <summary>
+		/// Get all of the lines in this DirectorySearch
+		/// </summary>
+		public IEnumerable<Line> Lines()
+		{
+			return LinesWhere (x => true);
+		}
+
+		/// <summary>
+		/// Check to see whether or not this DirectorySearch has the given file in its files
+		/// </summary>
+		/// <returns><c>true</c> if this instance has filename; otherwise, <c>false</c>.</returns>
+		/// <param name="filename">Filename.</param>
+		public bool Has(string filename)
+		{
+			return Files.Contains (filename);
+		}
 	}
 }
 

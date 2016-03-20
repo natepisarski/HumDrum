@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
+using HumDrum.Collections;
 namespace HumDrum.Operations.Files
 {
 	/// <summary>
@@ -22,15 +23,23 @@ namespace HumDrum.Operations.Files
 		public string Filename { get; set; }
 
 		/// <summary>
+		/// The line number where this line occured
+		/// </summary>
+		/// <value>The line number</value>
+		public int LineNumber { get; set; }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Operations.Files.Line"/> class.
 		/// This uses the text from a line and the filename
 		/// </summary>
 		/// <param name="text">The text</param>
 		/// <param name="file">The filename</param>
-		public Line (string text, string file)
+		/// <param name="number"> The line number</param>
+		public Line (string text, string file, int number)
 		{
 			Text = text;
 			Filename = file;
+			LineNumber = number;
 		}
 
 		/// <summary>
@@ -40,8 +49,9 @@ namespace HumDrum.Operations.Files
 		/// <param name="filename">The filename to take in</param>
 		public static IEnumerable<Line> AllLines(string filename)
 		{
-			foreach (string line in File.ReadAllLines(filename))
-				yield return new Line (line, filename);
+			IEnumerable<string> lines = File.ReadAllLines (filename);
+			for(int i = 0; i < lines.Length(); i++)
+				yield return new Line (lines.Get(i), filename, i);
 			yield break;
 		}
 	}

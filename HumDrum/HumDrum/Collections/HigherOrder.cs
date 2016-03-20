@@ -29,7 +29,7 @@ namespace HumDrum.Collections
 		/// <param name="t">The transformer (lambda)</param>
 		/// <typeparam name="T">The type of the list</typeparam>
 		/// <typeparam name="W">The return type of the lambda</typeparam>
-		public static IEnumerable<W> ForEvery<T, W>(IEnumerable<T> list, Transformer<T, W> t)
+		public static IEnumerable<W> ForEvery<T, W>(this IEnumerable<T> list, Transformer<T, W> t)
 		{
 			foreach (T item in list)
 				yield return t (item);

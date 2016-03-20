@@ -1,4 +1,4 @@
-# HumDrum Project Map
+# Hum Drum Project Map
 This nifty document will guide you around the HumDrum library, describing both what each wing of the library does and what its sub-sections consist of.
 
 ## Collections
@@ -48,6 +48,12 @@ DirectorySearch is a library for searching directories recursively for files mee
 
 #### Line
 Line is a simple class that represents the line of a file. Lines are wrapped in this class so that their parent file and line number can be referenced even after it is separated from such a context.
+
+#### ISequentialWriter
+SequentialWriter is an interface defining two things: the writing of a file with an extension and the naming of such a file based on the directory. In short, anything that scans the directory to determine what the next file should be named can be a SequentialWriter
+
+#### NumericalWriter
+NumericalWriter is a SequentialWriter that scans the directory for numbered files, starting at 0.
 
 ### ImageManager
 A library for calculating image metadata. This includes functions such as the average color, most similar image based on color, and image searching.

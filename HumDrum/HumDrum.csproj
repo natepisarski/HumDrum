@@ -52,6 +52,8 @@
     <Compile Include="HumDrum\Collections\HigherOrder.cs" />
     <Compile Include="HumDrum\Operations\Files\DirectorySearch.cs" />
     <Compile Include="HumDrum\Operations\Files\Line.cs" />
+    <Compile Include="HumDrum\Operations\Files\NumericalWriter.cs" />
+    <Compile Include="HumDrum\Operations\Files\ISequentialWriter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
