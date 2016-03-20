@@ -25,6 +25,12 @@ namespace HumDrum.Collections.Markov
 		public List<MarkovState<T>> States { get; private set; }
 
 		/// <summary>
+		/// Gets or sets the degree of this chian
+		/// </summary>
+		/// <value>The degree</value>
+		public int Degree {get; private set;}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Collections.Markov.Markov`1"/> class.
 		/// This will automatically parse dataset into States as MarkovStates. Obviously, with a large
 		/// dataset this function (neighborhood ~ O(n^3)) will take a very long time.
@@ -37,6 +43,17 @@ namespace HumDrum.Collections.Markov
 			var markovPairs = new List<T> ();
 
 			AppendChain (dataset, degree);
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="HumDrum.Collections.Markov.Markov`1"/> class.
+		/// This can initialize an instance of Markov without a dataset.
+		/// </summary>
+		/// <param name="degree">The degree of this chain</param>
+		public Markov(int degree)
+		{
+			States = new List<MarkovState<T>> ();
+			Degree = degree;
 		}
 
 		/// <summary>
@@ -132,6 +149,7 @@ namespace HumDrum.Collections.Markov
 		{
 			IEnumerable<T> selectedState = seed;
 
+			yield return SelectRandom (seed);
 			for (; count > 0; count--) {
 				selectedState = TailHelper.Concatenate (
 					Transformations.Subsequence (seed, 1, seed.Length ()),

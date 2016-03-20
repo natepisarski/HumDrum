@@ -77,6 +77,7 @@ namespace HumDrum.Operations
 			AllInput = new List<string> ();
 			LastIndex = 0;
 			Port = port;
+			IOTable = new BindingsTable<string, string> ();
 		}
 
 		/// <summary>
