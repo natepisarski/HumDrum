@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 
+using HumDrum.Collections;
+
 namespace HumDrum.Collections
 {
 	public static class Transformations
@@ -30,14 +32,13 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Create a subsequence of the given collection.
+		/// Create a subsequence of the given collection. The length includes the first element
 		/// </summary>
 		/// <param name="list">The list to take the subsequence of</param>
 		/// <param name="start">Where to start collecting</param>
 		/// <param name="length">How many items to take</param>
 		/// <typeparam name="T">T - type</typeparam>
 		public static IEnumerable<T> Subsequence<T>(this IEnumerable<T> list, int start, int length){
-			var returnCollection = new List<T> ();
 
 			for (int i = start; length>0 && i < list.Length(); i++) {
 				yield return (list.Get (i));
@@ -59,53 +60,13 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Collects elements of the list while the predicate is true, and includes
-		/// the element that causes failure.
+		/// Gets the last element of a specified list
 		/// </summary>
-		/// <returns>The list</returns>
-		/// <param name="list">The data to filter</param>
-		/// <param name="predicate">The predicate used for filtering</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static IEnumerable<T> WhileInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		/// <param name="list">The list to find the last element of</param>
+		/// <typeparam name="T">Generic type parameter</typeparam>
+		public static T Last<T>(this IEnumerable<T> list)
 		{
-			// If it's true, collect it then stop collecting
-			foreach (T item in list) {
-				if (!predicate(item)) {
-					yield return item;
-					break;
-				}
-
-				yield return item;
-			}
-
-			yield break;
-		}
-
-		/// <summary>
-		/// Collects the elements of the list after an element causes the predicate to be true.
-		/// This includes the element which causes it.
-		/// </summary>
-		/// <returns>The trigger, and everything after it/returns>
-		/// <param name="list">The list to filter</param>
-		/// <param name="predicate">The predicate used for filtering</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static IEnumerable<T> AfterInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
-		{
-			bool collecting = false;
-
-			foreach (T item in list) {
-
-				// If it's true, start collecting on it
-				if (predicate (item)) {
-					yield return item;
-					collecting = true;
-					continue;
-
-				} else if (collecting)
-					yield return item;
-			}
-
-			yield break;
+			return list.Get (list.Length () - 1);
 		}
 
 		/// <summary>
@@ -126,34 +87,7 @@ namespace HumDrum.Collections
 			}
 			yield break;
 		}
-
-		/// <summary>
-		/// Collects the elements of a list until the predicate is false.
-		/// </summary>
-		/// <param name="list">The list to filter</param>
-		/// <param name="predicate">Predicate.</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static IEnumerable<T> While<T>(this IEnumerable<T> list, Predicate<T> predicate)
-		{
-			var temp = WhileInclusive (list, predicate);
-			temp.RemoveAt (temp.Length() - 1);
-
-			return temp;
-		}
-
-		/// <summary>
-		/// Once a predicate is true, return everything after it.
-		/// </summary>
-		/// <param name="list">The list to test</param>
-		/// <param name="predicate">The predicate used for testing</param>
-		/// <typeparam name="T">A generic type parameter</typeparam>
-		public static IEnumerable<T> After<T>(this IEnumerable<T> list, Predicate<T> predicate)
-		{
-			var temp = AfterInclusive (list, predicate);
-			temp.RemoveAt (0);
-			return temp;
-		}
-
+			
 		/// <summary>
 		/// Removes the duplicates from the list.
 		/// </summary>
@@ -184,6 +118,9 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The generic type parameter</typeparam>
 		public static IEnumerable<T> StartingWith<T>(IEnumerable<T> sequence, IEnumerable<T> beginning)
 		{
+			if (beginning.Length() == 1 && sequence.Last ().Equals (beginning.Get (0)))
+				return Make(sequence.Last ());
+			
 			// The sequence cannot be less than "beginning", so the loop doesn't get that far.
 			for (int i = 0; i < sequence.Length () - beginning.Length (); i++) {
 				
@@ -208,7 +145,7 @@ namespace HumDrum.Collections
 		public static int SequencePosition<T>(IEnumerable<T> sequence, IEnumerable<T> beginning)
 		{
 			// The sequence cannot be less than "beginning", so the loop doesn't get that far.
-			for (int i = 0; i < sequence.Length () - beginning.Length (); i++) {
+			for (int i = 0; i < (sequence.Length () - beginning.Length () + 1); i++) {
 
 				//An amount of text equal to the length of the beginning sequence
 				var chunk = Transformations.Subsequence (sequence, i, beginning.Length ());
@@ -242,7 +179,7 @@ namespace HumDrum.Collections
 		/// </summary>
 		/// <param name="originalList">The list to unbind from</param>
 		/// <typeparam name="T">The type of this list.</typeparam>
-		public static Tuple<T[], T[]> Unbind<T>(T[] originalList){
+		public static Tuple<IEnumerable<T>, IEnumerable<T>> Unbind<T>(IEnumerable<T> originalList){
 			var firstList = new List<T> ();
 			var secondList = new List<T> ();
 
@@ -258,7 +195,8 @@ namespace HumDrum.Collections
 				firstOrSecond = !firstOrSecond;
 			}
 
-			return new Tuple<T[], T[]>(firstList.ToArray(), secondList.ToArray());
+			return new Tuple<IEnumerable<T>, IEnumerable<T>>
+				(firstList.Genericize(), secondList.Genericize());
 		}
 	}
 }

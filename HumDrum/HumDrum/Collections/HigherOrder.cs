@@ -64,6 +64,83 @@ namespace HumDrum.Collections
 
 			return true;
 		}
+
+		/// <summary>
+		/// Collects elements of the list while the predicate is true, and includes
+		/// the element that causes failure.
+		/// </summary>
+		/// <returns>The list</returns>
+		/// <param name="list">The data to filter</param>
+		/// <param name="predicate">The predicate used for filtering</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> WhileInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			// If it's true, collect it then stop collecting
+			foreach (T item in list) {
+				if (!predicate(item)) {
+					yield return item;
+					break;
+				}
+
+				yield return item;
+			}
+
+			yield break;
+		}
+
+		/// <summary>
+		/// Collects the elements of the list after an element causes the predicate to be true.
+		/// This includes the element which causes it.
+		/// </summary>
+		/// <returns>The trigger, and everything after it/returns>
+		/// <param name="list">The list to filter</param>
+		/// <param name="predicate">The predicate used for filtering</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> AfterInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			bool collecting = false;
+
+			foreach (T item in list) {
+
+				// If it's true, start collecting on it
+				if (predicate (item)) {
+					yield return item;
+					collecting = true;
+					continue;
+
+				} else if (collecting)
+					yield return item;
+			}
+
+			yield break;
+		}
+
+		/// <summary>
+		/// Collects the elements of a list until the predicate is false.
+		/// </summary>
+		/// <param name="list">The list to filter</param>
+		/// <param name="predicate">Predicate.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> While<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			var temp = HigherOrder.WhileInclusive (list, predicate);
+			temp.RemoveAt (temp.Length() - 1);
+
+			return temp;
+		}
+
+		/// <summary>
+		/// Once a predicate is true, return everything after it.
+		/// </summary>
+		/// <param name="list">The list to test</param>
+		/// <param name="predicate">The predicate used for testing</param>
+		/// <typeparam name="T">A generic type parameter</typeparam>
+		public static IEnumerable<T> After<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			var temp = HigherOrder.AfterInclusive (list, predicate);
+			temp.RemoveAt (0);
+			return temp;
+		}
 	}
 }
 
