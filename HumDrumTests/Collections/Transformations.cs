@@ -7,6 +7,10 @@ using TR = HumDrum.Collections.Transformations;
 
 namespace HumDrumTests.Collections
 {
+	/// <summary>
+	/// Test Fixture for HumDrum's Transformations library. 
+	/// This attempts to find points of failure by testing odd cases.
+	/// </summary>
 	[TestFixture ()]
 	public class Transformations
 	{

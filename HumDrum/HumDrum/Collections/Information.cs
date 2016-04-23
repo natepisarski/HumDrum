@@ -14,6 +14,9 @@ namespace HumDrum.Collections
 		/// <param name="list">The list to count on</param>
 		/// <typeparam name="T">The type parameter</typeparam>
 		public static int Length<T>(this IEnumerable<T> list){
+			if (list == null)
+				return 0;
+			
 			int counter = 0;
 
 			foreach (T item in list) 
