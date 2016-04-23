@@ -47,6 +47,23 @@ namespace HumDrum.Collections
 			foreach (T item in list)
 				action (item);
 		}
+
+		/// <summary>
+		/// Do all of the elements in this list return true for the predicate?
+		/// </summary>
+		/// <returns><c>true</c>, if all was done, <c>false</c> otherwise.</returns>
+		/// <param name="list">The list to test</param>
+		/// <param name="pred">The predicate to test the list with</param>
+		/// <typeparam name="T">A generic type parameter</typeparam>
+		public static bool DoAll<T>(this IEnumerable<T> list, Predicate<T> pred)
+		{
+			foreach (T item in list) {
+				if (!pred (item))
+					return false;
+			}
+
+			return true;
+		}
 	}
 }
 

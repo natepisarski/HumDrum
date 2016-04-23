@@ -90,7 +90,7 @@ namespace HumDrum.Collections
 		/// <returns>The split.</returns>
 		/// <param name="text">The text to split on.</param>
 		/// <param name="splitOn">The character to split this string on.</param>
-		public static IEnumerable<string> EscapeSplit(string text, char splitOn){
+		public static IEnumerable<string> EscapeSplit(string text, IEnumerable<char> splitOn){
 			// The total collection
 			var collection = new List<string> ();
 
@@ -116,7 +116,7 @@ namespace HumDrum.Collections
 				}
 
 				// Found your delimiter? Push the buffer and start collecting again
-				if (c.Equals (splitOn)) {
+				if (splitOn.Has(c)) {
 					collection.Add (selection);
 					selection = "";
 					continue;
@@ -132,6 +132,17 @@ namespace HumDrum.Collections
 			collection.RemoveAll (x => x.Equals (""));
 
 			return collection.Genericize();
+		}
+
+		/// <summary>
+		/// Performs an EscapeSplit with just one delimiter.
+		/// </summary>
+		/// <returns>The varying sections</returns>
+		/// <param name="text">The text to split up</param>
+		/// <param name="splitOn">The character to split on</param>
+		public static IEnumerable<string> EscapeSplit(string text, char splitOn)
+		{
+			return EscapeSplit (text, Transformations.Make (splitOn));
 		}
 
 		/// <summary>
