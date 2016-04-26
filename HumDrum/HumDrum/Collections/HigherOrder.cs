@@ -37,18 +37,6 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Performs an action to every item in a list
-		/// </summary>
-		/// <param name="list">The list to perform an action to</param>
-		/// <param name="action">The action to perform</param>
-		/// <typeparam name="T">A generic type parameter</typeparam>
-		public static void ForEvery<T>(this IEnumerable<T> list, Action<T> action)
-		{
-			foreach (T item in list)
-				action (item);
-		}
-
-		/// <summary>
 		/// Do all of the elements in this list return true for the predicate?
 		/// </summary>
 		/// <returns><c>true</c>, if all was done, <c>false</c> otherwise.</returns>
@@ -124,9 +112,7 @@ namespace HumDrum.Collections
 		public static IEnumerable<T> While<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			var temp = HigherOrder.WhileInclusive (list, predicate);
-			temp.RemoveAt (temp.Length() - 1);
-
-			return temp;
+			return temp.RemoveAt (temp.Length() - 1);
 		}
 
 		/// <summary>
@@ -138,8 +124,7 @@ namespace HumDrum.Collections
 		public static IEnumerable<T> After<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			var temp = HigherOrder.AfterInclusive (list, predicate);
-			temp.RemoveAt (0);
-			return temp;
+			return temp.RemoveAt (0);
 		}
 	}
 }

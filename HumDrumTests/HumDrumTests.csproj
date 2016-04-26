@@ -37,6 +37,7 @@
     <Compile Include="Test.cs" />
     <Compile Include="Collections\Transformations.cs" />
     <Compile Include="Collections\Information.cs" />
+    <Compile Include="Collections\HigherOrder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

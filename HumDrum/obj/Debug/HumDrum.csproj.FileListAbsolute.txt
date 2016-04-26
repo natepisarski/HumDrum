@@ -31,3 +31,14 @@ C:\Users\lab1\Downloads\DC\DC\HumDrum-master\HumDrum-master\HumDrum\bin\Debug\no
 C:\Users\lab1\Downloads\DC\DC\HumDrum-master\HumDrum-master\HumDrum\obj\Debug\HumDrum.csprojResolveAssemblyReference.cache
 C:\Users\lab1\Downloads\DC\DC\HumDrum-master\HumDrum-master\HumDrum\obj\Debug\HumDrum.dll
 C:\Users\lab1\Downloads\DC\DC\HumDrum-master\HumDrum-master\HumDrum\obj\Debug\HumDrum.pdb
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\HumDrum.dll
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\HumDrum.pdb
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\mscorlib.dll
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\normidna.nlp
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\normnfc.nlp
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\normnfd.nlp
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\normnfkc.nlp
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\bin\Debug\normnfkd.nlp
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\obj\Debug\HumDrum.csprojResolveAssemblyReference.cache
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\obj\Debug\HumDrum.dll
+C:\Users\public.LIB-N01\Documents\GitHub\HumDrum\HumDrum\obj\Debug\HumDrum.pdb

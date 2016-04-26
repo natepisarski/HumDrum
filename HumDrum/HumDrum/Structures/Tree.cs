@@ -6,6 +6,7 @@ using HumDrum.Collections;
 
 namespace HumDrum.Structures
 {
+	[Obsolete]
 	public class Tree<T>
 	{
 		/// <summary>
@@ -97,7 +98,7 @@ namespace HumDrum.Structures
 		/// </summary>
 		/// <param name="function">The function to map</param>
 		public void Map(Action<T> function){
-			Flatten ().ForEvery (function);
+			//Flatten ().ForEvery (function);
 		}
 
 		/// <summary>
