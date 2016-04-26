@@ -54,6 +54,7 @@
     <Compile Include="HumDrum\Operations\Files\Line.cs" />
     <Compile Include="HumDrum\Operations\Files\NumericalWriter.cs" />
     <Compile Include="HumDrum\Operations\Files\ISequentialWriter.cs" />
+    <Compile Include="HumDrum\Constants.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

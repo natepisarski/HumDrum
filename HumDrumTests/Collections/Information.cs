@@ -46,6 +46,17 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests GetIndices
+		/// </summary>
+		[Test]
+		public void TestGetIndices()
+		{
+			Assert.AreEqual (
+				TR.Make (0, 1, 4, 4),
+				IF.GetIndices (_testList, 0, 1, 4, 4));
+		}
+
+		/// <summary>
 		/// Tests Get
 		/// </summary>
 		[Test()]
@@ -132,6 +143,44 @@ namespace HumDrumTests.Collections
 			Assert.AreEqual (
 				IF.Genericize (TR.MakeList (1, 2, 3, 4, 5)),
 				TR.Make (1, 2, 3, 4, 5));
+		}
+
+		/// <summary>
+		/// Tests the positions function
+		/// </summary>
+		[Test]
+		public void TestPositions()
+		{
+			Assert.AreEqual (
+				IF.Positions (TR.Make (0, 1, 2, 3, 0, 4), 0),
+				TR.Make (0, 4));
+		}
+
+		/// <summary>
+		/// By virtue of both Head and Position passing the
+		/// test, Position should as well. However I am still
+		/// including a test for it
+		/// </summary>
+		[Test]
+		public void TestPosition()
+		{
+			Assert.AreEqual (
+				IF.Position (_testList, 4),
+				4);
+		}
+
+		/// <summary>
+		/// Tests the RelativeMembers function
+		/// </summary>
+		[Test]
+		public void TestRelativeMembers()
+		{
+			Assert.AreEqual (
+				TR.Make ('a', 'c', 'e'),
+				IF.RelativeMembers (
+					TR.Make (0, 2, 0, 4, 0, 6, 7, 8, 9, 10),
+					0,
+					TR.Make ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h')));
 		}
 	}
 }

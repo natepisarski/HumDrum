@@ -60,6 +60,16 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Gets the first element of the list. Commonly used with Tail.
+		/// </summary>
+		/// <param name="list">The list</param>
+		/// <typeparam name="T">The type of the list</typeparam>
+		public static T Head<T>(this IEnumerable<T> list)
+		{
+			return list.Get (0);
+		}
+
+		/// <summary>
 		/// Gets the last element of a specified list
 		/// </summary>
 		/// <param name="list">The list to find the last element of</param>

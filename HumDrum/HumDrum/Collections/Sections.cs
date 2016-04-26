@@ -10,6 +10,76 @@ namespace HumDrum.Collections
 	public static class Sections
 	{
 		/// <summary>
+		/// Parses a section from a generic collection
+		/// The documentation for the string version of ParseSections does an adequate job of
+		/// describing what a section is.
+		/// </summary>
+		/// <returns>The sections.</returns>
+		/// <param name="sequence">The partitioned generic subslices</param>
+		/// <param name="startDelim">The character defining partitions</param>
+		/// <param name="endDelim"> The character defining the end of the partitions</param>
+		/// <param name="separator"> The character defining a buffer flush </param> 
+		/// <param name="escape"> The character that makes it possible to escape </param>
+		public static IEnumerable<IEnumerable<T>> ParseSections<T>(IEnumerable<IEnumerable<T>> sequence, char startDelim, char endDelim, char separator, char? escape){
+
+			// What is being collected right now
+			List<T> selection = new List<T>();
+
+			// Test to see if we need to find another | to flush selection
+			bool collecting = false;
+
+			// If the escape character \ appears, the next character is added to the selection
+			bool escaped = false;
+
+			// The final collection
+			var collection = new List<IEnumerable<T>> ();
+
+			foreach(IEnumerable<T> c in sequence){
+
+				// Escaped? Add this character no matter what
+				if (escaped) {
+					escaped = false;
+					selection.AddRange(c);
+					continue;
+				}
+
+				// This is an escape character? Escape the next one if escaping is enabled
+				if (escape != null) {
+					if (c.Equals (escape)) {
+						escaped = true;
+						continue;
+					}
+				}
+
+				// Stop collecting this selection
+				if (collecting && c.Equals (endDelim)) {
+					collection.Add (selection);
+					selection = new List<T> ();
+					collecting = false;
+					continue;
+				} 
+
+				// Start collecting this selection
+				if (!collecting && c.Equals (startDelim)) {
+					collecting = true;
+					continue;
+				}
+
+				// Words done? Clear selection. Otherwise, add the char.
+				if (c.Equals (separator) && !collecting) {
+					collection.Add (selection);
+					selection = new List<T> ();
+				} else
+					selection.AddRange (c);
+			}
+
+			// Remove any empty strings that this found.
+			collection.RemoveAll (x => x.Equals (new List<T>()));
+
+			return collection;
+		}
+
+		/// <summary>
 		/// Parses a section.
 		/// Example: { these are words. |this is a string|. |this has a \| in it |
 		/// </summary>

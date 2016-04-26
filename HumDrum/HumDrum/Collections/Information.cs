@@ -46,6 +46,17 @@ namespace HumDrum.Collections
 			throw new Exception ("Array Index out of bounds. Index: " + index + ". Array length: " + list.Length ());
 		}
 
+		/// <summary>
+		/// Returns a collection of the members found at the indices provided
+		/// </summary>
+		/// <returns>The positions in the list to get</returns>
+		/// <param name="">.</param>
+		public static IEnumerable<T> GetIndices<T>(this IEnumerable<T> list, params int[] indices)
+		{
+			foreach (int index in indices)
+				yield return list.Get (index);
+			yield break;
+		}
 
 		/// <summary>
 		/// Tests to see if two lists of the same type are equal based on each individual
@@ -106,6 +117,52 @@ namespace HumDrum.Collections
 				yield return item;
 			
 			yield break;
+		}
+
+		/// <summary>
+		/// Gets the indices of an occurence within the list
+		/// </summary>
+		/// <param name="list">The list to examine</param>
+		/// <param name="item">The item to find within the list</param>
+		/// <typeparam name="T">The type parameter</typeparam>
+		public static IEnumerable<int> Positions<T>(this IEnumerable<T> list, T item)
+		{
+			int counter = 0;
+
+			foreach(T it in list)
+			{
+				if(item.Equals(it))
+					yield return counter;
+				counter++;
+			}
+
+			yield break;
+		}
+
+		/// <summary>
+		/// Returns the first position of this item within the list
+		/// </summary>
+		/// <param name="list">The list to examine</param>
+		/// <param name="item">The item to look for within the list</param>
+		/// <typeparam name="T">The type of the list and item</typeparam>
+		public static int Position<T>(this IEnumerable<T> list, T item)
+		{
+			return list.Positions (item).Head ();
+		}
+
+		/// <summary>
+		/// Gets the element from the second list that occurs at the same place that 
+		/// item occurs in this list
+		/// </summary>
+		/// <returns>The member within the second list</returns>
+		/// <param name="list">The list to look up the member in</param>
+		/// <param name="item">The item to look up</param>
+		/// <param name="otherList">The other list</param>
+		/// <typeparam name="T">The type of the first list</typeparam>
+		/// <typeparam name="W">The type of the second list (and return value)</typeparam>
+		public static IEnumerable<W> RelativeMembers<T, W>(this IEnumerable<T> list, T item, IEnumerable<W> otherList)
+		{
+			return otherList.GetIndices (list.Positions (item).AsArray());
 		}
 	}
 }

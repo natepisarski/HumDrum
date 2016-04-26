@@ -1,20 +1,32 @@
-﻿<Properties StartupItem="HumDrum/HumDrum.csproj">
+﻿<Properties StartupItem="HumDrum\HumDrum.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum\HumDrum\Structures\Tree.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests\Collections\Sections.cs">
     <Files>
       <File FileName="HumDrum\HumDrum\Operations\ImageManager.cs" Line="1" Column="1" />
-      <File FileName="HumDrum\HumDrum\Collections\Information.cs" Line="1" Column="1" />
-      <File FileName="HumDrum\HumDrum\Collections\Transformations.cs" Line="1" Column="1" />
+      <File FileName="HumDrum\HumDrum\Collections\Information.cs" Line="150" Column="41" />
+      <File FileName="HumDrum\HumDrum\Collections\Transformations.cs" Line="69" Column="24" />
       <File FileName="HumDrum\HumDrum\Collections\Predicates.cs" Line="1" Column="1" />
       <File FileName="HumDrum\HumDrum\Collections\Markov\Markov.cs" Line="1" Column="1" />
       <File FileName="HumDrum\HumDrum\Structures\BindingsTable.cs" Line="1" Column="1" />
-      <File FileName="HumDrum\HumDrum\Collections\HigherOrder.cs" Line="45" Column="39" />
-      <File FileName="HumDrum\HumDrum\Collections\Sections.cs" Line="1" Column="1" />
+      <File FileName="HumDrum\HumDrum\Collections\Sections.cs" Line="35" Column="44" />
       <File FileName="HumDrum\HumDrum\Operations\Files\DirectorySearch.cs" Line="1" Column="1" />
       <File FileName="HumDrum\HumDrum\Operations\Files\Line.cs" Line="1" Column="1" />
-      <File FileName="HumDrum\HumDrum\Recursion\TailHelper.cs" Line="41" Column="4" />
-      <File FileName="HumDrum\HumDrum\Structures\Tree.cs" Line="6" Column="1" />
+      <File FileName="HumDrum\HumDrum\Recursion\TailHelper.cs" Line="1" Column="1" />
+      <File FileName="HumDrum\HumDrum\Structures\Tree.cs" Line="13" Column="4" />
+      <File FileName="HumDrumTests\Collections\Information.cs" Line="184" Column="4" />
+      <File FileName="HumDrum\HumDrum\Collections\HigherOrder.cs" Line="127" Column="29" />
+      <File FileName="HumDrumTests\Collections\Transformations.cs" Line="109" Column="29" />
+      <File FileName="HumDrum\HumDrum\Constants.cs" Line="5" Column="8" />
+      <File FileName="HumDrumTests\Collections\HigherOrder.cs" Line="153" Column="1" NotebookId="1" />
+      <File FileName="HumDrumTests\Collections\Sections.cs" Line="26" Column="4" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="HumDrum" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

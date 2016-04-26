@@ -83,6 +83,33 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests Head
+		/// </summary>
+		[Test]
+		public void TestHead()
+		{
+			// It should simply return the first element
+			Assert.AreEqual (
+				TR.Head (TR.Make (1, 2, 3)),
+				1);
+		}
+
+		/// <summary>
+		/// Tests the Last function
+		/// </summary>
+		[Test]
+		public void TestLast()
+		{
+			// Test on longish list
+			Assert.AreEqual (
+				TR.Last (TR.Make (1, 2, 3, 4, 5)), 5);
+
+			// Test on singleton list
+			Assert.AreEqual (
+				TR.Last (TR.Make (1)), 1);
+		}
+
+		/// <summary>
 		/// Tests HumDrum.Collections.Transformations.RemoveAt
 		/// </summary>
 		[Test()]
