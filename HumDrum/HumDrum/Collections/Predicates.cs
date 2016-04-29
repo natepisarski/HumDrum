@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using HumDrum.Collections;
 
+
 namespace HumDrum.Collections
 {
 	/// <summary>
@@ -48,7 +49,46 @@ namespace HumDrum.Collections
 				return list.Get<bool> (0) && Any (list.Tail<bool> ());
 		}
 
+		/// <summary>
+		/// Creates a predicate that checks for equality against a certain member.
+		/// </summary>
+		/// <returns>The equality predicate</returns>
+		/// <param name="equalTo">The member to check equality against</param>
+		/// <typeparam name="T">A generic type parameter</typeparam>
+		public static Predicate<T> GenerateEqualityPredicate<T>(T equalTo)
+		{
+			return (x => x.Equals (equalTo));
+		}
 
+		/// <summary>
+		/// Creates a predicate that checks to see if something is equal to
+		/// any of the items in the list
+		/// </summary>
+		/// <returns>The generated predicate</returns>
+		/// <param name="equalTo">A list of things to check equality against</param>
+		/// <typeparam name="T">The type parameter</typeparam>
+		public static Predicate<T> GenerateEqualityPredicate<T>(IEnumerable<T> equalTo)
+		{
+			return (x => equalTo.Has (x));
+		}
+
+		/// <summary>
+		/// Returns a Tautology, a predicare which always returns true.
+		/// </summary>
+		/// <typeparam name="T">The type</typeparam>
+		public static Predicate<T> Tautology<T>()
+		{
+			return x => true;
+		}
+
+		/// <summary>
+		/// Returns a contradiction, a predicate which always returns false.
+		/// </summary>
+		/// <typeparam name="T">The type the contradiction works with this type</typeparam>
+		public static Predicate<T> Contradiction<T>()
+		{
+			return x => false;
+		}
 	}
 }
 

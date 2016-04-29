@@ -164,6 +164,19 @@ namespace HumDrum.Collections
 		{
 			return otherList.GetIndices (list.Positions (item).AsArray());
 		}
+
+		/// <summary>
+		/// Present a sequence of characters in any form as a string
+		/// </summary>
+		/// <returns>The string in question</returns>
+		/// <param name="list">The list to create the string from</param>
+		public static string AsString(IEnumerable<char> list)
+		{
+			List<char> str = new List<char> ();
+			str.AddRange (list);
+
+			return new string (str.ToArray ());
+		}
 	}
 }
 
