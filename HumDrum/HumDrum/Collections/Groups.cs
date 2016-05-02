@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
 namespace HumDrum.Collections
@@ -91,13 +92,14 @@ namespace HumDrum.Collections
 		/// <param name="list">The list to group</param>
 		/// <param name="StateCheck">The StateObject to use in grouping</param>
 		/// <typeparam name="T">A generic type parameter</typeparam>
-		public static List<List<T>> Group<T>(IEnumerable<T> list, StateObject<T> StateCheck)
+		public static IEnumerable<IEnumerable<T>> Group<T>(IEnumerable<T> list, StateObject<T> StateCheck)
 		{
 			var Collection = new List<List<T>> ();
 			var Buffer = new List<T> ();
 
 			foreach (T item in list) {
 				Buffer.Add (item);
+
 				if(StateCheck.ModifyState (item))
 				{
 					Collection.Add (Buffer);
@@ -105,6 +107,9 @@ namespace HumDrum.Collections
 					Buffer = new List<T> ();
 				}
 			}
+
+			// Push any last minute data into the collection
+			Collection.Add (Buffer);
 
 			return Collection;
 		}
@@ -118,13 +123,14 @@ namespace HumDrum.Collections
 		/// <param name="StateCheck">The StateObject to use</param>
 		/// <typeparam name="T">The type of the list</typeparam>
 		/// <typeparam name="W">The type the StateObject works with (almost always T)</typeparam>
-		public static List<List<T>> Group<T,W>(IEnumerable<T> list, StateObject<W> StateCheck)
+		public static IEnumerable<IEnumerable<T>> Group<T,W>(IEnumerable<T> list, StateObject<W> StateCheck)
 		{
 			var Collection = new List<List<T>> ();
 			var Buffer = new List<T> ();
 
 			foreach (T item in list) {
 				Buffer.Add (item);
+
 				if(StateCheck.ModifyState ())
 				{
 					Collection.Add (Buffer);
@@ -133,6 +139,7 @@ namespace HumDrum.Collections
 				}
 			}
 
+			Collection.Add (Buffer);
 			return Collection;
 		}
 	}
