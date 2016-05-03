@@ -40,6 +40,7 @@
     <Compile Include="Collections\HigherOrder.cs" />
     <Compile Include="Collections\Sections.cs" />
     <Compile Include="Collections\Groups.cs" />
+    <Compile Include="Collections\Markov\Markov.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -47,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Collections\" />
+    <Folder Include="Collections\Markov\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HumDrum\HumDrum.csproj">

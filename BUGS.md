@@ -10,3 +10,11 @@ STATUS: FIXED;
 LOCATION(S): HumDrum.Collections.HigherOrder in After and While
 DESCRIPTION: A return value was being ignored, causing After and While to be synonymous with their inclusive counterparts
 ==STOP==
+
+==BUG REPORT==
+BUG_INDEX: 1;
+PRIORITY: MEDIUM;
+STATUS: FIXED;
+-
+LOCATION(S): HumDrum.Collections.Markov in Markov(IEnumerable<T>, int)
+DESCRIPTION: The degree was not affecting the aggregation properly.

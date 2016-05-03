@@ -54,7 +54,6 @@ namespace HumDrum.Collections.Markov
 		{
 			Probability = probability;
 		}
-			
 	}
 }
 

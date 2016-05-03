@@ -63,10 +63,11 @@ namespace HumDrum.Collections.Markov
 		/// <param name="degree">The degree of the markov chain</param>
 		public void AppendChain(IEnumerable<T> dataset, int degree)
 		{
+			Degree = degree;
 			// Pass 1: Determine the current state and the next element
-			for (int i = 0; i < dataset.Length () - 1; i++) {
+			for (int i = 0; i < dataset.Length () - degree; i++) {
 				var state = Transformations.Subsequence (dataset, i, degree).ToArray ();
-				var future = dataset.Get (i + 1);
+				var future = dataset.Get (i + degree);
 				States.Add(
 					new MarkovState<T>(
 						state,
@@ -81,6 +82,21 @@ namespace HumDrum.Collections.Markov
 				// Probability is equal to the times this future state occured compared to how many there are.
 				ms.Probability = ((double)Information.Times<T> (occurences, ms.Next)) / ((double)occurences.Length<T> ());
 			}
+		}
+
+		/// <summary>
+		/// Finds the probability that a particular seed incurs the given state
+		/// </summary>
+		/// <returns>The probability of the event</returns>
+		/// <param name="state">The state to test for</param>
+		public double ProbabilityOf(IEnumerable<T> seed, T next)
+		{
+			foreach (MarkovState<T> state in States) {
+				if (state.State.SequenceEqual (seed))
+					return state.Probability;
+			}
+
+			return 0.00;
 		}
 
 		/// <summary>
@@ -166,6 +182,23 @@ namespace HumDrum.Collections.Markov
 		public IEnumerable<T> RandomState()
 		{
 			return States.Get (new Random ().Next (0, States.Length () - 1)).State;
+		}
+
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="HumDrum.Collections.Markov.Markov`1"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="HumDrum.Collections.Markov.Markov`1"/>.</returns>
+		public override string ToString()
+		{
+			string buffer = "";
+			foreach (MarkovState<T> state in States) {
+				foreach (T item in state.State)
+					buffer += (item + " ");
+				buffer += "| ";
+				buffer += state.Next;
+				buffer += "\n";
+			}
+			return buffer;
 		}
 	}
 }

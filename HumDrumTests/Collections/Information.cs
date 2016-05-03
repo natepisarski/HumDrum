@@ -132,6 +132,17 @@ namespace HumDrumTests.Collections
 
 			// Yes - Last
 			Assert.True(IF.Has(_testList, 10));
+
+			// Middle - Sequence overload
+			Assert.True (IF.Has (_testList, TR.Make (2, 3, 4)));
+
+			// Beginning - Sequence overload
+			Assert.True (IF.Has (_testList, TR.Make(0, 1, 2)));
+
+			// End - Sequence Overload
+			Assert.True (IF.Has (_testList, TR.Make (8, 9, 10)));
+
+			Assert.False (IF.Has (_testList, TR.Make (0, 2, 4)));
 		}
 
 		/// <summary>

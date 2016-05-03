@@ -88,7 +88,6 @@ namespace HumDrum.Collections
 		/// <param name="index">The index to remove</param>
 		public static IEnumerable<T> RemoveAt<T>(this IEnumerable<T> list, int index)
 		{
-			//TODO: Test to see if this will bomb out removing the last element of a list
 			for (int i = 0; i < list.Length (); i++) {
 				if (index == i)
 					continue;
@@ -167,9 +166,7 @@ namespace HumDrum.Collections
 			// This sequence was not present in the list.
 			return -1;
 		}
-
-
-
+			
 		/// <summary>
 		/// Returns the given sequence as an array
 		/// </summary>

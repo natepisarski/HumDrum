@@ -107,6 +107,24 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Tests to see whether or not this list contains a subsequence
+		/// </summary>
+		/// <returns><c>true</c> if has list subsequence; otherwise, <c>false</c>.</returns>
+		/// <param name="list">The list to test</param>
+		/// <param name="subsequence">The subsequence to test is inside the list</param>
+		/// <typeparam name="T">The type of the list</typeparam>
+		public static bool Has<T>(this IEnumerable<T> list, IEnumerable<T> subsequence)
+		{
+			for (int i = 0; i + subsequence.Length () < list.Length () + 1; i++) {
+				List<T> chunk = new List<T> ();
+				chunk.AddRange (list.Subsequence (i, subsequence.Length ()));
+				if (Information.Equal (subsequence, chunk.Genericize()))
+					return true;
+			}
+			return false;
+		}
+
+		/// <summary>
 		/// Turn any type of collection into an IEnumerable
 		/// </summary>
 		/// <param name="list">The list to genericize</param>
