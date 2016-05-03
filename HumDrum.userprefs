@@ -1,13 +1,16 @@
-﻿<Properties StartupItem="HumDrum\HumDrum.csproj">
+﻿<Properties StartupItem="HumDrum/HumDrum.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests\Collections\Sections.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Traits/Method.cs">
     <Files>
-      <File FileName="HumDrumTests\Test.cs" Line="1" Column="1" />
-      <File FileName="HumDrum\HumDrum\Collections\Sections.cs" Line="267" Column="11" />
-      <File FileName="HumDrumTests\Collections\Sections.cs" Line="77" Column="50" />
-      <File FileName="HumDrum\HumDrum\Collections\Predicates.cs" Line="14" Column="1" />
-      <File FileName="HumDrum\HumDrum\Collections\StateModifiers\IntegerCounter.cs" Line="1" Column="1" />
-      <File FileName="HumDrum\HumDrum\Recursion\TailHelper.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Traits/Traits.cs" Line="67" Column="44" />
+      <File FileName="HumDrum/HumDrum/Traits/Trait.cs" Line="125" Column="2" />
+      <File FileName="HumDrum/HumDrum/Traits/Method.cs" Line="10" Column="2" />
+      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Collections/Sections.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Collections/Information.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Traits/Interface.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Traits/Exceptions.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Traits/Class.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">

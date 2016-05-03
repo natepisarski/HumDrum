@@ -1,0 +1,40 @@
+Hey! You\textquotesingle{}ve found your way to the github repository for a general purpose C\# library called \hyperlink{namespaceHumDrum}{Hum\+Drum} (meaning\+: dull. Or, in some cases, a bunch of stuff put together, like this library).
+
+It contains tons of functions for the general purpose tasks you find yourself doing while programming. Its key goals involve having no external (that is -\/ non .N\+E\+T) dependencies, making extensive use of implementing and supporting functions which work on generics (more on this later),
+
+\section*{Version}
+
+At the time of this commit, the version is\+: {\bfseries 1.\+0.\+0}
+\begin{DoxyItemize}
+\item First number\+: Major version. Breaks compatibility in some way.
+\item Second number\+: Minor version. Adds some kind of feature.
+\item Third number\+: Revision version. Bug, documentation, or test related changes.
+\end{DoxyItemize}
+
+\section*{Branches}
+
+\hyperlink{namespaceHumDrum}{Hum\+Drum} is split up into 3 branches with any number of sub branches. Right now, these branches are\+: Operations, Structures, and Collections.
+
+\subsubsection*{Operations}
+
+Operations relates to I\+O or otherwise \char`\"{}impure\char`\"{} functionality. T\+C\+P stuff. Directory searching. Bitmap statistics. Things like that go in here.
+
+\subsubsection*{Structures}
+
+Structures, as its name suggests, relates to generic data structures such as binary trees and binding tables. These also contain the files which rely on such structures, but as of right now no such files exist.
+
+\subsubsection*{Collections}
+
+Collections is by far the largest branch of \hyperlink{namespaceHumDrum}{Hum\+Drum}. It relates to anything that involves functions on sets of data... That\textquotesingle{}s a really generic definition, so you may be able to guess that this handles a L\+O\+T of stuff. Data interchange formats, pure sequence analysis, logic reductions, state-\/based grouping, etc.
+
+\subsection*{Further Reading}
+
+The \hyperlink{MAP_8md_source}{M\+A\+P.\+md} file quickly explains the purpose of each file in this library.
+
+\section*{Methodology}
+
+Why does something end up here? Well, basically, I just program as I normally would. Then, anything that doesn\textquotesingle{}t pertain {\itshape directly} to the project I\textquotesingle{}m working on gets slapped into \hyperlink{namespaceHumDrum}{Hum\+Drum}. If you have something that you think would be a good fit in here, chances are it actually is a good fit -\/ send a pull request.
+
+\section*{License}
+
+B\+S\+D 3-\/clause 

@@ -1,0 +1,272 @@
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable}{}\section{Hum\+Drum.\+Structures.\+Bindings\+Table$<$ T, W $>$ Class Template Reference}
+\label{classHumDrum_1_1Structures_1_1BindingsTable}\index{Hum\+Drum.\+Structures.\+Bindings\+Table$<$ T, W $>$@{Hum\+Drum.\+Structures.\+Bindings\+Table$<$ T, W $>$}}
+
+
+A class representing the binding between two types of data in a list.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a0352c5a77bed26f1353c4da475367f58}{Bindings\+Table} ()
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table} with no associations. \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a16918e78532225c7f7ca16171b4c26f6}{Associate} (T key, W value)
+\begin{DoxyCompactList}\small\item\em Associate the specified key and value. \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a10f46eaead700c94b07e92c58b98a3b5}{Associate} (T key, I\+Enumerable$<$ W $>$ value)
+\begin{DoxyCompactList}\small\item\em Associate the key with multiple values. This will put it into the structure as multiple pairs with the same key. \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a5ccaf6e4b55a1c578e35a80cea966a2b}{Associate} (I\+Enumerable$<$ Tuple$<$ T, W $>$$>$ associations)
+\begin{DoxyCompactList}\small\item\em Add a pre-\/bound list of associations to the table \end{DoxyCompactList}\item 
+I\+Enumerable$<$ T $>$ \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a6459e518f16e1b91c2f199fb47ca8fab}{Keyset} ()
+\begin{DoxyCompactList}\small\item\em Return the U\+N\+I\+Q\+U\+E keyset from this \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table}. \end{DoxyCompactList}\item 
+I\+Enumerable$<$ W $>$ \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a3dc7ea0eed6160de084d905da6a1162b}{Values} ()
+\begin{DoxyCompactList}\small\item\em Get just the U\+N\+I\+Q\+U\+E values from this \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table} \end{DoxyCompactList}\item 
+I\+Enumerable$<$ W $>$ \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_aaa39aeb1f785619603a439dded56b564}{Lookup} (T key)
+\begin{DoxyCompactList}\small\item\em Return all of the values associated with this key \end{DoxyCompactList}\item 
+bool \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a64d2073888b89a4b6b28fe4bfd9e94b5}{Has} (T key)
+\begin{DoxyCompactList}\small\item\em Determines whether this instance has key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static I\+Enumerable$<$ Tuple$<$ T, W $>$ $>$ \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a5ed4c4ae793ad93b7af82df42c70bb0a}{Bind} (I\+Enumerable$<$ T $>$ list1, I\+Enumerable$<$ W $>$ list2)
+\begin{DoxyCompactList}\small\item\em Bind the element in list1 to the corresponding element in list2. This will only associate as many elements as are in either list. \end{DoxyCompactList}\item 
+static I\+Enumerable$<$ Tuple$<$ T, W $>$ $>$ \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_a4d34b2fdbfa7d3ab5d32f0e3acc3b0b4}{Cross} (I\+Enumerable$<$ T $>$ list1, I\+Enumerable$<$ W $>$ list2)
+\begin{DoxyCompactList}\small\item\em Cross the specified list1 and list2. This will return a list where every possible combination of 2 elements is returned. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Tuple$<$ T, W $>$ $>$ \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable_af75d299aa8cede939a0b5f0b24244750}{Bindings}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The bindings themselves. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class representing the binding between two types of data in a list. 
+
+
+
+Definition at line 13 of file Bindings\+Table.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a0352c5a77bed26f1353c4da475367f58}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Bindings\+Table@{Bindings\+Table}}
+\index{Bindings\+Table@{Bindings\+Table}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Bindings\+Table()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.{\bf Bindings\+Table} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a0352c5a77bed26f1353c4da475367f58}
+
+
+Creates a \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table} with no associations. 
+
+
+
+Definition at line 24 of file Bindings\+Table.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a16918e78532225c7f7ca16171b4c26f6}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Associate@{Associate}}
+\index{Associate@{Associate}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Associate(\+T key, W value)}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Associate (
+\begin{DoxyParamCaption}
+\item[{T}]{key, }
+\item[{W}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a16918e78532225c7f7ca16171b4c26f6}
+
+
+Associate the specified key and value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key\\
+\hline
+{\em value} & The value\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a10f46eaead700c94b07e92c58b98a3b5}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Associate@{Associate}}
+\index{Associate@{Associate}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Associate(\+T key, I\+Enumerable$<$ W $>$ value)}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Associate (
+\begin{DoxyParamCaption}
+\item[{T}]{key, }
+\item[{I\+Enumerable$<$ W $>$}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a10f46eaead700c94b07e92c58b98a3b5}
+
+
+Associate the key with multiple values. This will put it into the structure as multiple pairs with the same key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to use\\
+\hline
+{\em value} & All of the values to use\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a5ccaf6e4b55a1c578e35a80cea966a2b}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Associate@{Associate}}
+\index{Associate@{Associate}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Associate(\+I\+Enumerable$<$ Tuple$<$ T, W $>$$>$ associations)}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Associate (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ Tuple$<$ T, W $>$$>$}]{associations}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a5ccaf6e4b55a1c578e35a80cea966a2b}
+
+
+Add a pre-\/bound list of associations to the table 
+
+
+\begin{DoxyParams}{Parameters}
+{\em associations} & The associations to add to the list\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 87 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a5ed4c4ae793ad93b7af82df42c70bb0a}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Bind@{Bind}}
+\index{Bind@{Bind}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Bind(\+I\+Enumerable$<$ T $>$ list1, I\+Enumerable$<$ W $>$ list2)}]{\setlength{\rightskip}{0pt plus 5cm}static I\+Enumerable$<$Tuple$<$T, W$>$ $>$ {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Bind (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ T $>$}]{list1, }
+\item[{I\+Enumerable$<$ W $>$}]{list2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a5ed4c4ae793ad93b7af82df42c70bb0a}
+
+
+Bind the element in list1 to the corresponding element in list2. This will only associate as many elements as are in either list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list1} & The first list (keyset)\\
+\hline
+{\em list2} & The second list (values)\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a4d34b2fdbfa7d3ab5d32f0e3acc3b0b4}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Cross@{Cross}}
+\index{Cross@{Cross}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Cross(\+I\+Enumerable$<$ T $>$ list1, I\+Enumerable$<$ W $>$ list2)}]{\setlength{\rightskip}{0pt plus 5cm}static I\+Enumerable$<$Tuple$<$T, W$>$ $>$ {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Cross (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ T $>$}]{list1, }
+\item[{I\+Enumerable$<$ W $>$}]{list2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a4d34b2fdbfa7d3ab5d32f0e3acc3b0b4}
+
+
+Cross the specified list1 and list2. This will return a list where every possible combination of 2 elements is returned. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list1} & The first list\\
+\hline
+{\em list2} & The second list.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a64d2073888b89a4b6b28fe4bfd9e94b5}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Has@{Has}}
+\index{Has@{Has}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Has(\+T key)}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Has (
+\begin{DoxyParamCaption}
+\item[{T}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a64d2073888b89a4b6b28fe4bfd9e94b5}
+
+
+Determines whether this instance has key. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this instance has key; otherwise, {\ttfamily false}.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to search for\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 126 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a6459e518f16e1b91c2f199fb47ca8fab}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Keyset@{Keyset}}
+\index{Keyset@{Keyset}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Keyset()}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$T$>$ {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Keyset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a6459e518f16e1b91c2f199fb47ca8fab}
+
+
+Return the U\+N\+I\+Q\+U\+E keyset from this \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table}. 
+
+
+
+Definition at line 95 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_aaa39aeb1f785619603a439dded56b564}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Lookup@{Lookup}}
+\index{Lookup@{Lookup}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Lookup(\+T key)}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$W$>$ {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Lookup (
+\begin{DoxyParamCaption}
+\item[{T}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_aaa39aeb1f785619603a439dded56b564}
+
+
+Return all of the values associated with this key 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key to look up in the bindings table\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 114 of file Bindings\+Table.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_a3dc7ea0eed6160de084d905da6a1162b}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Values@{Values}}
+\index{Values@{Values}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Values()}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$W$>$ {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_a3dc7ea0eed6160de084d905da6a1162b}
+
+
+Get just the U\+N\+I\+Q\+U\+E values from this \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table} 
+
+
+
+Definition at line 104 of file Bindings\+Table.\+cs.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{classHumDrum_1_1Structures_1_1BindingsTable_af75d299aa8cede939a0b5f0b24244750}{}\index{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}!Bindings@{Bindings}}
+\index{Bindings@{Bindings}!Hum\+Drum\+::\+Structures\+::\+Bindings\+Table@{Hum\+Drum\+::\+Structures\+::\+Bindings\+Table}}
+\subsubsection[{Bindings}]{\setlength{\rightskip}{0pt plus 5cm}List$<$Tuple$<$T, W$>$ $>$ {\bf Hum\+Drum.\+Structures.\+Bindings\+Table}$<$ T, W $>$.Bindings\hspace{0.3cm}{\ttfamily [get]}}\label{classHumDrum_1_1Structures_1_1BindingsTable_af75d299aa8cede939a0b5f0b24244750}
+
+
+The bindings themselves. 
+
+The bindings.
+
+Definition at line 19 of file Bindings\+Table.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hum\+Drum/\+Hum\+Drum/\+Structures/Bindings\+Table.\+cs\end{DoxyCompactItemize}

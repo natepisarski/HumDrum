@@ -1,0 +1,165 @@
+\hypertarget{classHumDrum_1_1Operations_1_1Logger}{}\section{Hum\+Drum.\+Operations.\+Logger Class Reference}
+\label{classHumDrum_1_1Operations_1_1Logger}\index{Hum\+Drum.\+Operations.\+Logger@{Hum\+Drum.\+Operations.\+Logger}}
+
+
+\hyperlink{classHumDrum_1_1Operations_1_1Logger}{Logger} is the class responsible for logging output to a stream, which is usually a file or standard output.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHumDrum_1_1Operations_1_1Logger_af70b3833eec3d10e4db40c7e6155653f}{Logger} (Stream output\+Stream)
+\begin{DoxyCompactList}\small\item\em Create a file from a stream \end{DoxyCompactList}\item 
+\hyperlink{classHumDrum_1_1Operations_1_1Logger_ae14a5d07a65158c2d47e6fd30eeed3c5}{Logger} (string path)
+\begin{DoxyCompactList}\small\item\em Create a logger with a specified file as its output stream. \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Operations_1_1Logger_aa3262d454bca40fcaa50f9efe40f4ecf}{Log\+Raw} (string data)
+\begin{DoxyCompactList}\small\item\em Log a piece of data in its raw, exact format \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Operations_1_1Logger_a104c5e6b818bf0c33c9c3f2b6e5a5b35}{Log} (string data, Date\+Time time)
+\begin{DoxyCompactList}\small\item\em Log a particular moment in time \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Operations_1_1Logger_ad29203e9bf7246a3ee8bef90efa558e6}{Log} (string data)
+\begin{DoxyCompactList}\small\item\em Log the data, using the current time as the timestamp \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Operations_1_1Logger_a517acdd22bdcc327bf508623e0c921a4}{Warn} (string data)
+\begin{DoxyCompactList}\small\item\em Create a warning with the given data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classHumDrum_1_1Operations_1_1Logger}{Logger} is the class responsible for logging output to a stream, which is usually a file or standard output. 
+
+
+
+Definition at line 10 of file Logger.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classHumDrum_1_1Operations_1_1Logger_af70b3833eec3d10e4db40c7e6155653f}{}\index{Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}}
+\subsubsection[{Logger(\+Stream output\+Stream)}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Logger.\+Logger (
+\begin{DoxyParamCaption}
+\item[{Stream}]{output\+Stream}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Logger_af70b3833eec3d10e4db40c7e6155653f}
+
+
+Create a file from a stream 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output\+Stream} & Any stream. Usually Standard\+Output or a file stream\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file Logger.\+cs.
+
+\hypertarget{classHumDrum_1_1Operations_1_1Logger_ae14a5d07a65158c2d47e6fd30eeed3c5}{}\index{Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}}
+\subsubsection[{Logger(string path)}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Logger.\+Logger (
+\begin{DoxyParamCaption}
+\item[{string}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Logger_ae14a5d07a65158c2d47e6fd30eeed3c5}
+
+
+Create a logger with a specified file as its output stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+File} & The path to the file to write to\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file Logger.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classHumDrum_1_1Operations_1_1Logger_a104c5e6b818bf0c33c9c3f2b6e5a5b35}{}\index{Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}!Log@{Log}}
+\index{Log@{Log}!Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}}
+\subsubsection[{Log(string data, Date\+Time time)}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Logger.\+Log (
+\begin{DoxyParamCaption}
+\item[{string}]{data, }
+\item[{Date\+Time}]{time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Logger_a104c5e6b818bf0c33c9c3f2b6e5a5b35}
+
+
+Log a particular moment in time 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to write to the log\\
+\hline
+{\em time} & The time to use for the timestamp\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 49 of file Logger.\+cs.
+
+\hypertarget{classHumDrum_1_1Operations_1_1Logger_ad29203e9bf7246a3ee8bef90efa558e6}{}\index{Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}!Log@{Log}}
+\index{Log@{Log}!Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}}
+\subsubsection[{Log(string data)}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Logger.\+Log (
+\begin{DoxyParamCaption}
+\item[{string}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Logger_ad29203e9bf7246a3ee8bef90efa558e6}
+
+
+Log the data, using the current time as the timestamp 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to write to the log file\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 57 of file Logger.\+cs.
+
+\hypertarget{classHumDrum_1_1Operations_1_1Logger_aa3262d454bca40fcaa50f9efe40f4ecf}{}\index{Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}!Log\+Raw@{Log\+Raw}}
+\index{Log\+Raw@{Log\+Raw}!Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}}
+\subsubsection[{Log\+Raw(string data)}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Logger.\+Log\+Raw (
+\begin{DoxyParamCaption}
+\item[{string}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Logger_aa3262d454bca40fcaa50f9efe40f4ecf}
+
+
+Log a piece of data in its raw, exact format 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to log to the output stream\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file Logger.\+cs.
+
+\hypertarget{classHumDrum_1_1Operations_1_1Logger_a517acdd22bdcc327bf508623e0c921a4}{}\index{Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}!Warn@{Warn}}
+\index{Warn@{Warn}!Hum\+Drum\+::\+Operations\+::\+Logger@{Hum\+Drum\+::\+Operations\+::\+Logger}}
+\subsubsection[{Warn(string data)}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Logger.\+Warn (
+\begin{DoxyParamCaption}
+\item[{string}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Logger_a517acdd22bdcc327bf508623e0c921a4}
+
+
+Create a warning with the given data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to warn about\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file Logger.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hum\+Drum/\+Hum\+Drum/\+Operations/Logger.\+cs\end{DoxyCompactItemize}

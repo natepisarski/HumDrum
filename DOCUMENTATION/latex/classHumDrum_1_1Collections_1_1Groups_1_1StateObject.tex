@@ -1,0 +1,138 @@
+\hypertarget{classHumDrum_1_1Collections_1_1Groups_1_1StateObject}{}\section{Hum\+Drum.\+Collections.\+Groups.\+State\+Object$<$ T $>$ Class Template Reference}
+\label{classHumDrum_1_1Collections_1_1Groups_1_1StateObject}\index{Hum\+Drum.\+Collections.\+Groups.\+State\+Object$<$ T $>$@{Hum\+Drum.\+Collections.\+Groups.\+State\+Object$<$ T $>$}}
+
+
+The construct for the state machines. These functions set and apply the rules for checking and modifying state.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a227e83d9109b0022d195afea296ea0fd}{Modify\+State} (T capture)
+\begin{DoxyCompactList}\small\item\em Modifies the current state based on this instance\textquotesingle{}s Modifier. This method is meant to be overriden to accomodate for the captured element as an additional modification of the machine\textquotesingle{}s state. \end{DoxyCompactList}\item 
+bool \hyperlink{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a633a33ef5ac78aa8686c49a626f50376}{Modify\+State} ()
+\begin{DoxyCompactList}\small\item\em Modify the state using only the modifier. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_aecd06a8d2511a91f5b1422c8fe3836b2}{Reset} ()
+\begin{DoxyCompactList}\small\item\em Function meant to be overriden by \hyperlink{namespaceHumDrum_1_1Collections_1_1StateModifiers}{State\+Modifiers} in order to reset after Groups parsing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+T \hyperlink{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a192fdeea48e27612063d5099456ec217}{State}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets or sets the current state of this machine. \end{DoxyCompactList}\item 
+State\+Check$<$ T $>$ \hyperlink{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_aca3a9433c50c52f7364d5239d3847749}{Check}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The function used to check the state of this machine \end{DoxyCompactList}\item 
+State\+Modify$<$ T $>$ \hyperlink{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a0d961b56d3c86f24a5185cb1812285ac}{Modifier}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The function used to modify the state of this machine \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The construct for the state machines. These functions set and apply the rules for checking and modifying state. 
+
+
+
+Definition at line 30 of file Groups.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a227e83d9109b0022d195afea296ea0fd}{}\index{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}!Modify\+State@{Modify\+State}}
+\index{Modify\+State@{Modify\+State}!Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}}
+\subsubsection[{Modify\+State(\+T capture)}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool {\bf Hum\+Drum.\+Collections.\+Groups.\+State\+Object}$<$ T $>$.Modify\+State (
+\begin{DoxyParamCaption}
+\item[{T}]{capture}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a227e83d9109b0022d195afea296ea0fd}
+
+
+Modifies the current state based on this instance\textquotesingle{}s Modifier. This method is meant to be overriden to accomodate for the captured element as an additional modification of the machine\textquotesingle{}s state. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true}, if the check A\+F\+T\+E\+R modification is true$<$c$>$false otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em capture} & The item in a list\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file Groups.\+cs.
+
+\hypertarget{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a633a33ef5ac78aa8686c49a626f50376}{}\index{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}!Modify\+State@{Modify\+State}}
+\index{Modify\+State@{Modify\+State}!Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}}
+\subsubsection[{Modify\+State()}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Hum\+Drum.\+Collections.\+Groups.\+State\+Object}$<$ T $>$.Modify\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a633a33ef5ac78aa8686c49a626f50376}
+
+
+Modify the state using only the modifier. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true}, if state was modifyed, {\ttfamily false} otherwise.
+\end{DoxyReturn}
+
+
+Definition at line 69 of file Groups.\+cs.
+
+\hypertarget{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_aecd06a8d2511a91f5b1422c8fe3836b2}{}\index{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}!Reset@{Reset}}
+\index{Reset@{Reset}!Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}}
+\subsubsection[{Reset()}]{\setlength{\rightskip}{0pt plus 5cm}virtual void {\bf Hum\+Drum.\+Collections.\+Groups.\+State\+Object}$<$ T $>$.Reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_aecd06a8d2511a91f5b1422c8fe3836b2}
+
+
+Function meant to be overriden by \hyperlink{namespaceHumDrum_1_1Collections_1_1StateModifiers}{State\+Modifiers} in order to reset after Groups parsing. 
+
+
+
+Reimplemented in \hyperlink{classHumDrum_1_1Collections_1_1StateModifiers_1_1IntegerCounter_a8723ab8842f09ee98d9e13b7714d14a7}{Hum\+Drum.\+Collections.\+State\+Modifiers.\+Integer\+Counter}.
+
+
+
+Definition at line 79 of file Groups.\+cs.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_aca3a9433c50c52f7364d5239d3847749}{}\index{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}!Check@{Check}}
+\index{Check@{Check}!Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}}
+\subsubsection[{Check}]{\setlength{\rightskip}{0pt plus 5cm}State\+Check$<$T$>$ {\bf Hum\+Drum.\+Collections.\+Groups.\+State\+Object}$<$ T $>$.Check\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_aca3a9433c50c52f7364d5239d3847749}
+
+
+The function used to check the state of this machine 
+
+The predicate function
+
+Definition at line 44 of file Groups.\+cs.
+
+\hypertarget{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a0d961b56d3c86f24a5185cb1812285ac}{}\index{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}!Modifier@{Modifier}}
+\index{Modifier@{Modifier}!Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}}
+\subsubsection[{Modifier}]{\setlength{\rightskip}{0pt plus 5cm}State\+Modify$<$T$>$ {\bf Hum\+Drum.\+Collections.\+Groups.\+State\+Object}$<$ T $>$.Modifier\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a0d961b56d3c86f24a5185cb1812285ac}
+
+
+The function used to modify the state of this machine 
+
+The pure modifier function
+
+Definition at line 50 of file Groups.\+cs.
+
+\hypertarget{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a192fdeea48e27612063d5099456ec217}{}\index{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}!State@{State}}
+\index{State@{State}!Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object@{Hum\+Drum\+::\+Collections\+::\+Groups\+::\+State\+Object}}
+\subsubsection[{State}]{\setlength{\rightskip}{0pt plus 5cm}T {\bf Hum\+Drum.\+Collections.\+Groups.\+State\+Object}$<$ T $>$.State\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Collections_1_1Groups_1_1StateObject_a192fdeea48e27612063d5099456ec217}
+
+
+Gets or sets the current state of this machine. 
+
+The state
+
+Definition at line 37 of file Groups.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hum\+Drum/\+Hum\+Drum/\+Collections/Groups.\+cs\end{DoxyCompactItemize}

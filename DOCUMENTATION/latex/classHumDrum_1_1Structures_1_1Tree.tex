@@ -1,0 +1,217 @@
+\hypertarget{classHumDrum_1_1Structures_1_1Tree}{}\section{Hum\+Drum.\+Structures.\+Tree$<$ T $>$ Class Template Reference}
+\label{classHumDrum_1_1Structures_1_1Tree}\index{Hum\+Drum.\+Structures.\+Tree$<$ T $>$@{Hum\+Drum.\+Structures.\+Tree$<$ T $>$}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHumDrum_1_1Structures_1_1Tree_a046ae0a9327942fcaa6df370e673b1cb}{Tree} (T current\+Value, \hyperlink{classHumDrum_1_1Structures_1_1Tree}{Tree}$<$ T $>$ parent)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of a tree \end{DoxyCompactList}\item 
+T \hyperlink{classHumDrum_1_1Structures_1_1Tree_a9fc66ed4786f3ab58c1927e9dff6ddc1}{Get\+Value} (\hyperlink{namespaceHumDrum_1_1Structures_a83ca1f04475980cb7e79d471cc746dd3}{Direction} direction)
+\begin{DoxyCompactList}\small\item\em Get the value from the branch in the given direction \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Structures_1_1Tree_a2b9d46fbc4593d107cc63af0283115f8}{Grow} (T value, \hyperlink{namespaceHumDrum_1_1Structures_a83ca1f04475980cb7e79d471cc746dd3}{Direction} direction)
+\begin{DoxyCompactList}\small\item\em Grow the tree in the direction with a seed value \end{DoxyCompactList}\item 
+I\+Enumerable$<$ T $>$ \hyperlink{classHumDrum_1_1Structures_1_1Tree_afbb935f51b88b0ea624f7e79cae89e3a}{Flatten} ()
+\begin{DoxyCompactList}\small\item\em Flattens the entire tree into a list of its Nodes. Working on these directly affects the information in the tree, so be careful. \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Structures_1_1Tree_acc540c9328762ee60972eb201bac1345}{Snip} ()
+\begin{DoxyCompactList}\small\item\em Destroy all sub-\/trees from this node, not including this one. \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Structures_1_1Tree_af9683137e7eca637f2d06c1791ddb880}{Map} (Action$<$ T $>$ function)
+\begin{DoxyCompactList}\small\item\em Map the specified function over this tree \end{DoxyCompactList}\item 
+void \hyperlink{classHumDrum_1_1Structures_1_1Tree_a0cdb68fb23ac6a3c144fa112c5d168ff}{Prune} (Predicate$<$ T $>$ pred)
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Prune\char`\"{} branches of this tree after the predicate returns false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+T \hyperlink{classHumDrum_1_1Structures_1_1Tree_af2d1d062002b9ffbb3587f69f2b03175}{Current\+Node}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em This current node \end{DoxyCompactList}\item 
+\hyperlink{classHumDrum_1_1Structures_1_1Tree}{Tree}$<$ T $>$ \hyperlink{classHumDrum_1_1Structures_1_1Tree_a713658d58f7222e2b3de4878f74abcf2}{Left\+Branch}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The left branch \end{DoxyCompactList}\item 
+\hyperlink{classHumDrum_1_1Structures_1_1Tree}{Tree}$<$ T $>$ \hyperlink{classHumDrum_1_1Structures_1_1Tree_a2b0d1d71d45216c34d14479b04a6c7a8}{Right\+Branch}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The right branch of this binary tree \end{DoxyCompactList}\item 
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_ab9c1b5646424bc2926a944a64bd952c2}{}\hyperlink{classHumDrum_1_1Structures_1_1Tree}{Tree}$<$ T $>$ {\bfseries Parent}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}\label{classHumDrum_1_1Structures_1_1Tree_ab9c1b5646424bc2926a944a64bd952c2}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file Tree.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_a046ae0a9327942fcaa6df370e673b1cb}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Tree@{Tree}}
+\index{Tree@{Tree}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Tree(\+T current\+Value, Tree$<$ T $>$ parent)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.{\bf Tree} (
+\begin{DoxyParamCaption}
+\item[{T}]{current\+Value, }
+\item[{{\bf Tree}$<$ T $>$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1Tree_a046ae0a9327942fcaa6df370e673b1cb}
+
+
+Initializes a new instance of a tree 
+
+
+
+Definition at line 33 of file Tree.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_afbb935f51b88b0ea624f7e79cae89e3a}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Flatten@{Flatten}}
+\index{Flatten@{Flatten}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Flatten()}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$T$>$ {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Flatten (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1Tree_afbb935f51b88b0ea624f7e79cae89e3a}
+
+
+Flattens the entire tree into a list of its Nodes. Working on these directly affects the information in the tree, so be careful. 
+
+
+
+Definition at line 78 of file Tree.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_a9fc66ed4786f3ab58c1927e9dff6ddc1}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Get\+Value@{Get\+Value}}
+\index{Get\+Value@{Get\+Value}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Get\+Value(\+Direction direction)}]{\setlength{\rightskip}{0pt plus 5cm}T {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Get\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Direction}}]{direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1Tree_a9fc66ed4786f3ab58c1927e9dff6ddc1}
+
+
+Get the value from the branch in the given direction 
+
+\begin{DoxyReturn}{Returns}
+The value
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & L\+E\+F\+T or R\+I\+G\+H\+T\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file Tree.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_a2b9d46fbc4593d107cc63af0283115f8}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Grow@{Grow}}
+\index{Grow@{Grow}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Grow(\+T value, Direction direction)}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Grow (
+\begin{DoxyParamCaption}
+\item[{T}]{value, }
+\item[{{\bf Direction}}]{direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1Tree_a2b9d46fbc4593d107cc63af0283115f8}
+
+
+Grow the tree in the direction with a seed value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to use\\
+\hline
+{\em direction} & Which direction to grow\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 67 of file Tree.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_af9683137e7eca637f2d06c1791ddb880}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Map@{Map}}
+\index{Map@{Map}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Map(\+Action$<$ T $>$ function)}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Map (
+\begin{DoxyParamCaption}
+\item[{Action$<$ T $>$}]{function}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1Tree_af9683137e7eca637f2d06c1791ddb880}
+
+
+Map the specified function over this tree 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function} & The function to map\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file Tree.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_a0cdb68fb23ac6a3c144fa112c5d168ff}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Prune@{Prune}}
+\index{Prune@{Prune}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Prune(\+Predicate$<$ T $>$ pred)}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Prune (
+\begin{DoxyParamCaption}
+\item[{Predicate$<$ T $>$}]{pred}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1Tree_a0cdb68fb23ac6a3c144fa112c5d168ff}
+
+
+\char`\"{}\+Prune\char`\"{} branches of this tree after the predicate returns false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pred} & Pred.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file Tree.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_acc540c9328762ee60972eb201bac1345}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Snip@{Snip}}
+\index{Snip@{Snip}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Snip()}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Snip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Structures_1_1Tree_acc540c9328762ee60972eb201bac1345}
+
+
+Destroy all sub-\/trees from this node, not including this one. 
+
+
+
+Definition at line 90 of file Tree.\+cs.
+
+
+
+\subsection{Property Documentation}
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_af2d1d062002b9ffbb3587f69f2b03175}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Current\+Node@{Current\+Node}}
+\index{Current\+Node@{Current\+Node}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Current\+Node}]{\setlength{\rightskip}{0pt plus 5cm}T {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Current\+Node\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Structures_1_1Tree_af2d1d062002b9ffbb3587f69f2b03175}
+
+
+This current node 
+
+
+
+Definition at line 14 of file Tree.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_a713658d58f7222e2b3de4878f74abcf2}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Left\+Branch@{Left\+Branch}}
+\index{Left\+Branch@{Left\+Branch}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Left\+Branch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tree}$<$T$>$ {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Left\+Branch\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Structures_1_1Tree_a713658d58f7222e2b3de4878f74abcf2}
+
+
+The left branch 
+
+The left branch.
+
+Definition at line 20 of file Tree.\+cs.
+
+\hypertarget{classHumDrum_1_1Structures_1_1Tree_a2b0d1d71d45216c34d14479b04a6c7a8}{}\index{Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}!Right\+Branch@{Right\+Branch}}
+\index{Right\+Branch@{Right\+Branch}!Hum\+Drum\+::\+Structures\+::\+Tree@{Hum\+Drum\+::\+Structures\+::\+Tree}}
+\subsubsection[{Right\+Branch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tree}$<$T$>$ {\bf Hum\+Drum.\+Structures.\+Tree}$<$ T $>$.Right\+Branch\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Structures_1_1Tree_a2b0d1d71d45216c34d14479b04a6c7a8}
+
+
+The right branch of this binary tree 
+
+The right branch.
+
+Definition at line 26 of file Tree.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hum\+Drum/\+Hum\+Drum/\+Structures/Tree.\+cs\end{DoxyCompactItemize}

@@ -55,6 +55,10 @@
     <Compile Include="HumDrum\Operations\Files\ISequentialWriter.cs" />
     <Compile Include="HumDrum\Constants.cs" />
     <Compile Include="HumDrum\Traits\Trait.cs" />
+    <Compile Include="HumDrum\Traits\Class.cs" />
+    <Compile Include="HumDrum\Traits\Interface.cs" />
+    <Compile Include="HumDrum\Traits\Exceptions.cs" />
+    <Compile Include="HumDrum\Traits\Method.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
