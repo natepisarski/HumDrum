@@ -6,8 +6,6 @@ using HumDrum.Collections;
 using HumDrum.Collections.StateModifiers;
 using HumDrum.Collections.Markov;
 
-using HumDrum.Recursion;
-
 namespace HumDrum.Collections.Markov
 {
 	/// <summary>
@@ -167,9 +165,9 @@ namespace HumDrum.Collections.Markov
 
 			yield return SelectRandom (seed);
 			for (; count > 0; count--) {
-				selectedState = TailHelper.Concatenate (
+				selectedState = Transformations.Concatenate (
 					Transformations.Subsequence (seed, 1, seed.Length ()),
-					TailHelper.Wrap (SelectRandom (selectedState)));
+					Transformations.Wrap (SelectRandom (selectedState)));
 				yield return SelectRandom (selectedState);
 			}
 			yield break;

@@ -44,7 +44,6 @@
     <Compile Include="HumDrum\Operations\ImageManager.cs" />
     <Compile Include="HumDrum\Operations\Logger.cs" />
     <Compile Include="HumDrum\Operations\Servitor.cs" />
-    <Compile Include="HumDrum\Recursion\TailHelper.cs" />
     <Compile Include="HumDrum\Structures\BindingsTable.cs" />
     <Compile Include="HumDrum\Structures\Direction.cs" />
     <Compile Include="HumDrum\Structures\Tree.cs" />
@@ -55,10 +54,12 @@
     <Compile Include="HumDrum\Operations\Files\NumericalWriter.cs" />
     <Compile Include="HumDrum\Operations\Files\ISequentialWriter.cs" />
     <Compile Include="HumDrum\Constants.cs" />
+    <Compile Include="HumDrum\Traits\Trait.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="HumDrum\" />
     <Folder Include="HumDrum\Operations\Files\" />
+    <Folder Include="HumDrum\Traits\" />
   </ItemGroup>
 </Project>

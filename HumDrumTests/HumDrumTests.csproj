@@ -41,6 +41,7 @@
     <Compile Include="Collections\Sections.cs" />
     <Compile Include="Collections\Groups.cs" />
     <Compile Include="Collections\Markov\Markov.cs" />
+    <Compile Include="Collections\Predicates.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

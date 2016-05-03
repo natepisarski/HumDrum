@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using HumDrum.Recursion;
 using HumDrum.Collections;
 
 namespace HumDrum.Structures
@@ -78,11 +77,11 @@ namespace HumDrum.Structures
 		/// </summary>
 		public IEnumerable<T> Flatten(){
 			if (RightBranch == null && LeftBranch == null)
-				return TailHelper.Wrap<T> (CurrentNode);
+				return Transformations.Wrap<T> (CurrentNode);
 			else
-				return TailHelper.Concatenate( // Returns the current node and all the other nodes
-					TailHelper.Wrap(CurrentNode),
-					TailHelper.Concatenate (RightBranch.Flatten (), LeftBranch.Flatten ()));
+				return Transformations.Concatenate( // Returns the current node and all the other nodes
+					Transformations.Wrap(CurrentNode),
+					Transformations.Concatenate (RightBranch.Flatten (), LeftBranch.Flatten ()));
 		}
 
 		/// <summary>

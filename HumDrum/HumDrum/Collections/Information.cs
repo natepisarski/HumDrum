@@ -11,15 +11,15 @@ namespace HumDrum.Collections
 		/// <summary>
 		/// Gets the number of elements in this IEnumerable
 		/// </summary>
-		/// <param name="list">The list to count on</param>
+		/// <param name="theList">The list to count on</param>
 		/// <typeparam name="T">The type parameter</typeparam>
-		public static int Length<T>(this IEnumerable<T> list){
-			if (list == null)
+		public static int Length<T>(this IEnumerable<T> theList){
+			if (theList == null)
 				return 0;
 			
 			int counter = 0;
 
-			foreach (T item in list) 
+			foreach (T current in theList) 
 				counter++;
 
 			return counter;			

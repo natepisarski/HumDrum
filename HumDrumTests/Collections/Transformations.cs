@@ -80,6 +80,10 @@ namespace HumDrumTests.Collections
 			Assert.AreEqual (
 				TR.Tail (_testList),
 				TR.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+			Assert.AreEqual (
+				new List<int> (),
+				TR.Tail (TR.Make (1)));
 		}
 
 		/// <summary>
@@ -221,6 +225,40 @@ namespace HumDrumTests.Collections
 			Assert.AreEqual (
 				unbound.Item2, 
 				TR.Make(1, 3, 5, 7, 9));
+		}
+
+		/// <summary>
+		/// Tests Wrap
+		/// </summary>
+		[Test]
+		public void TestWrap()
+		{
+			var x = new List<int> ();
+			x.Add (1);
+
+			Assert.AreEqual (x, TR.Wrap (1));
+		}
+
+		/// <summary>
+		/// Tests Concatenate
+		/// </summary>
+		[Test]
+		public void TestConcatenate()
+		{
+			Assert.AreEqual (
+				_testList, 
+				TR.Concatenate (TR.Make (0, 1, 2, 3, 4, 5), TR.Make (6, 7, 8, 9, 10)));
+		}
+
+		/// <summary>
+		/// Tests Tack
+		/// </summary>
+		[Test]
+		public void TestTack()
+		{
+			Assert.AreEqual (
+				_testList,
+				TR.Tack (TR.Make (0, 1, 2, 3, 4, 5, 6, 7, 8, 9), 10));
 		}
 	}
 }

@@ -17,24 +17,21 @@ namespace HumDrum.Collections
 		/// <param name="list">A list of booleans</param>
 		public static bool Any(IEnumerable<bool> list)
 		{
-			if (list.Length() == 0)
-				return true;
-			else
-				return list.Get<bool> (0) || Any (list.Tail ());
+			foreach (bool item in list)
+				if (item)
+					return true;
+			return false;
 		}
 
 		/// <summary>
-		/// Checks to see if the predicate 
+		/// Checks to see if the predicate holds true for any members of this list
 		/// </summary>
-		/// <param name="list">List.</param>
-		/// <param name="p">P.</param>
+		/// <param name="list">The list to check</param>
+		/// <param name="p">The predicate to use</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static bool Any<T>(IEnumerable<T> list, Predicate<T> p)
 		{
-			foreach (T item in list)
-				if (p (item))
-					return true;
-			return false;
+			return Any (list.ForEvery (x => p (x)));
 		}
 
 		/// <summary>
@@ -43,10 +40,21 @@ namespace HumDrum.Collections
 		/// <param name="list">The list of booleans to test</param>
 		public static bool All(IEnumerable<bool> list)
 		{
-			if (list.Length() == 0)
-				return true;
-			else
-				return list.Get<bool> (0) && Any (list.Tail<bool> ());
+			foreach (bool item in list)
+				if (!item)
+					return false;
+			return true;
+		}
+
+		/// <summary>
+		/// Test to see if this predicate holds true for every member
+		/// of the list.
+		/// </summary>
+		/// <param name="list">The list to test</param>
+		/// <param name="predicate">The predicate to test with</param>
+		public static bool All<T>(IEnumerable<T> list, Predicate<T> predicate)
+		{
+			return All (list.ForEvery (x => predicate (x)));
 		}
 
 		/// <summary>
@@ -91,4 +99,3 @@ namespace HumDrum.Collections
 		}
 	}
 }
-
