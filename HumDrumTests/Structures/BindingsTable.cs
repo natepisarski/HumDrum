@@ -83,8 +83,6 @@ namespace HumDrumTests.Structures
 		{
 			Assert.AreEqual (_Table.Values (), TR.Make (0, 1, 2, 3));
 		}
-
-		public void Test
 	}
 }
 

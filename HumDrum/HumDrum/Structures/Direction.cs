@@ -1,5 +1,7 @@
 ﻿using System;
 
+using HumDrum.Collections;
+
 namespace HumDrum.Structures
 {
 	/// <summary>
@@ -36,21 +38,32 @@ namespace HumDrum.Structures
 	/// <summary>
 	/// Class for translating between the two direction variants
 	/// </summary>
-	public static class DirectionOperations
+	public class DirectionOperations
 	{
 		/// <summary>
 		/// Translates the direction.
 		/// </summary>
-		/// <returns>The direction.</returns>
-		/// <param name="direction">Direction.</param>
+		/// <returns>The direction's cardinal equivelant</returns>
+		/// <param name="direction">The direction to translate</param>
 		public static Cardinal TranslateDirection(Direction direction)
 		{
+			Cardinal[] orderedCardinals = {Cardinal.NORTH, Cardinal.EAST, Cardinal.SOUTH, Cardinal.WEST};
+			Direction[] orderedDirections = {Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT};
 
+			return Information.RelativeMembers (orderedDirections, direction, orderedCardinals).Get (0);
 		}
 
-		public static Direction TranslateCardinal(Cardinal cardianl)
+		/// <summary>
+		/// Translates the Cardinal into a Direction
+		/// </summary>
+		/// <returns>The Direction</returns>
+		/// <param name="cardinal">The Cardinal</param>
+		public static Direction TranslateCardinal(Cardinal cardinal)
 		{
+			Cardinal[] orderedCardinals = {Cardinal.NORTH, Cardinal.EAST, Cardinal.SOUTH, Cardinal.WEST};
+			Direction[] orderedDirections = {Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT};
 
+			return Information.RelativeMembers (orderedCardinals, cardinal, orderedDirections).Get (0);
 		}
 
 		/// <summary>
@@ -81,6 +94,9 @@ namespace HumDrum.Structures
 			case Direction.LEFT:
 				return (direction == OrbitalDirection.CLOCKWISE ? Direction.UP : Direction.DOWN);
 			}
+
+			// Default. Should never happen. Ever.
+			return Direction.UP;
 		}
 
 		/// <summary>
@@ -98,4 +114,3 @@ namespace HumDrum.Structures
 		}
 	}
 }
-
