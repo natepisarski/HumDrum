@@ -29,7 +29,7 @@ namespace HumDrum.Collections
 		/// <param name="list">The list to check</param>
 		/// <param name="p">The predicate to use</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static bool Any<T>(IEnumerable<T> list, Predicate<T> p)
+		public static bool Any<T>(this IEnumerable<T> list, Predicate<T> p)
 		{
 			return Any (list.ForEvery (x => p (x)));
 		}
@@ -38,7 +38,7 @@ namespace HumDrum.Collections
 		/// Will return true if all of the booleans in this list are true.
 		/// </summary>
 		/// <param name="list">The list of booleans to test</param>
-		public static bool All(IEnumerable<bool> list)
+		public static bool All(this IEnumerable<bool> list)
 		{
 			foreach (bool item in list)
 				if (!item)
@@ -52,7 +52,7 @@ namespace HumDrum.Collections
 		/// </summary>
 		/// <param name="list">The list to test</param>
 		/// <param name="predicate">The predicate to test with</param>
-		public static bool All<T>(IEnumerable<T> list, Predicate<T> predicate)
+		public static bool All<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
 			return All (list.ForEvery (x => predicate (x)));
 		}
@@ -75,7 +75,7 @@ namespace HumDrum.Collections
 		/// <returns>The generated predicate</returns>
 		/// <param name="equalTo">A list of things to check equality against</param>
 		/// <typeparam name="T">The type parameter</typeparam>
-		public static Predicate<T> GenerateEqualityPredicate<T>(IEnumerable<T> equalTo)
+		public static Predicate<T> GenerateEqualityPredicate<T>(this IEnumerable<T> equalTo)
 		{
 			return (x => equalTo.Has (x));
 		}

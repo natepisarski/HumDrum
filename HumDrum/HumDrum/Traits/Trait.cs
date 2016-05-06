@@ -32,7 +32,7 @@ namespace HumDrum.Traits
 		/// The class which implements the methods that the interface requires
 		/// </summary>
 		/// <value>The implementing class</value>
-		public Class ImplementingClass { get;}
+		public Class ImplementingClass { get; set;}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Traits.Trait"/> class.

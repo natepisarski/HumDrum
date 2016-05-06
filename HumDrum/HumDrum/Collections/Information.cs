@@ -80,6 +80,34 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Test to see if two lists are equal based on an equality type
+		/// </summary>
+		/// <returns><c>true</c>, if the lists are equal<c>false</c> otherwise.</returns>
+		/// <param name="list1">The first list to compare</param>
+		/// <param name="list2">The second list to compare</param>
+		/// <param name="eq"> The EqualityType specifying how the lists should be compared</param>
+		/// <typeparam name="T">The type parameter</typeparam>
+		public static bool Equal<T>(IEnumerable<T> list1, IEnumerable<T> list2, EqualityType eq)
+		{
+			switch (eq) {
+
+			case EqualityType.ONE_TO_ONE:
+				return Equal (list1, list2);
+
+			case EqualityType.SUBSTANTIAL:
+				if (!list1.Length ().Equals (list2.Length ()))
+					return false;
+				return list1.All (x => list1.Times (x).Equals (list2.Times (x))) && list2.All (x => list2.Times (x).Equals (list1.Times (x)));
+
+			case EqualityType.SET_EQUALITY:
+				return list1.All (x => list2.Has (x)) && list2.All (x => list1.Has (x));
+			}
+
+			// ONE_TO_ONE is assumed if eq is null 
+			return Equal (list1, list2);
+		}
+
+		/// <summary>
 		/// Checks the number of times that an element occurs within
 		/// a given sequence.
 		/// </summary>
@@ -188,7 +216,7 @@ namespace HumDrum.Collections
 		/// </summary>
 		/// <returns>The string in question</returns>
 		/// <param name="list">The list to create the string from</param>
-		public static string AsString(IEnumerable<char> list)
+		public static string AsString(this IEnumerable<char> list)
 		{
 			List<char> str = new List<char> ();
 			str.AddRange (list);

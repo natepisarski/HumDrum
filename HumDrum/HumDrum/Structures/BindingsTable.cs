@@ -34,9 +34,8 @@ namespace HumDrum.Structures
 		/// <param name="list2">The second list (values)</param>
 		public static IEnumerable<Tuple<T, W>> Bind(IEnumerable<T> list1, IEnumerable<W> list2)
 		{
-			for (int i = 0; i < list1.Length () - 1 && i < list2.Length() - 1; i++) 
-				yield return (new Tuple<T, W> (list1.Get (i), list2.Get (i)));
-
+			for (int index = 0; index < list1.Length () && index < list2.Length (); index++)
+				yield return new Tuple<T, W> (list1.Get (index), list2.Get (index));
 			yield break;
 		}
 
@@ -119,6 +118,17 @@ namespace HumDrum.Structures
 		}
 
 		/// <summary>
+		/// Goes through this BindingsTable and finds the first occurence
+		/// of the key, returning its value
+		/// </summary>
+		/// <returns>The first value associated with this key</returns>
+		/// <param name="key">The key to look up</param>
+		public W LookupFirst(T key)
+		{
+			return Lookup (key).Get (0);
+		}
+
+		/// <summary>
 		/// Determines whether this instance has  key.
 		/// </summary>
 		/// <returns><c>true</c> if this instance has key; otherwise, <c>false</c>.</returns>
@@ -127,6 +137,7 @@ namespace HumDrum.Structures
 		{
 			return Keyset ().Has (key);
 		}
+			
 	}
 }
 

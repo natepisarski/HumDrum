@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using TR = HumDrum.Collections.Transformations;
 using IF = HumDrum.Collections.Information;
+using ET = HumDrum.Collections.EqualityType;
 
 using NUnit.Framework;
 
@@ -85,7 +86,20 @@ namespace HumDrumTests.Collections
 		[Test()]
 		public void TestEqual()
 		{
+			// ONE_TO_ONE
 			Assert.True (IF.Equal (_testList, TR.Make (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+
+			// ONE_TO_ONE explicit
+			Assert.True(IF.Equal(TR.Make(1, 2, 3), TR.Make(1, 2, 3), ET.ONE_TO_ONE));
+			Assert.False (IF.Equal (TR.Make (1, 2, 3), TR.Make (1, 3, 2), ET.ONE_TO_ONE));
+
+			// SUBSTANTIAL explicit
+			Assert.True(IF.Equal(TR.Make(1, 2, 3), TR.Make(3, 2, 1), ET.SUBSTANTIAL));
+			Assert.False (IF.Equal (TR.Make (1, 2, 3), TR.Make (1, 2, 3, 4), ET.SUBSTANTIAL));
+
+			// SET_EQUALITY explicit
+			Assert.True(IF.Equal(TR.Make(1, 1, 2, 2, 3, 3, 3), TR.Make(1, 2, 3), ET.SET_EQUALITY));
+			Assert.False (IF.Equal (TR.Make (1), TR.Make (1, 2, 3)));
 		}
 
 		/// <summary>

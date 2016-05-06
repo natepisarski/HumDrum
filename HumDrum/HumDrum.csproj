@@ -59,6 +59,7 @@
     <Compile Include="HumDrum\Traits\Interface.cs" />
     <Compile Include="HumDrum\Traits\Exceptions.cs" />
     <Compile Include="HumDrum\Traits\Method.cs" />
+    <Compile Include="HumDrum\Collections\EqualityType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

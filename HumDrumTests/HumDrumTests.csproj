@@ -43,6 +43,7 @@
     <Compile Include="Collections\Markov\Markov.cs" />
     <Compile Include="Collections\Predicates.cs" />
     <Compile Include="Traits\Traits.cs" />
+    <Compile Include="Structures\BindingsTable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -52,6 +53,7 @@
     <Folder Include="Collections\" />
     <Folder Include="Collections\Markov\" />
     <Folder Include="Traits\" />
+    <Folder Include="Structures\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HumDrum\HumDrum.csproj">
