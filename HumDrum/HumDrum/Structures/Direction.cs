@@ -71,7 +71,7 @@ namespace HumDrum.Structures
 		/// </summary>
 		/// <returns>Clockwise if given counterclockwise, Counterclockwise if given clockwise</returns>
 		/// <param name="orbit">The original orbit</param>
-		public static OrbitalDirection FlipOrbital(OrbitalDirection orbit)
+		public static OrbitalDirection RotateOrbital(OrbitalDirection orbit)
 		{
 			return (orbit == OrbitalDirection.CLOCKWISE ? OrbitalDirection.COUNTERCLOCKWISE : OrbitalDirection.CLOCKWISE);
 		}

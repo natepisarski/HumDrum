@@ -59,6 +59,33 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Gets an index. When the end of the list is reached, it will
+		/// restart the counting from the beginning of the list.
+		/// </summary>
+		/// <returns>The element at the index</returns>
+		/// <param name="list">The list to search</param>
+		/// <param name="index">How many places to move from the beginning</param>
+		/// <typeparam name="T">A generic type parameter</typeparam>
+		public static T LoopGet<T>(this IEnumerable<T> list, int index)
+		{
+			for (int i = 0; i < list.Length (); i++) {
+
+				if (index < 0)
+					break;
+				
+				if (index == 0)
+					return list.Get (i);
+
+				if (i == list.Length () - 1)
+					i = 0;
+
+				index--;
+			}
+
+			throw new Exception ("Error: Index not found within list. Was your index negative?");
+		}
+
+		/// <summary>
 		/// Tests to see if two lists of the same type are equal based on each individual
 		/// element's specification of equality.
 		/// </summary>

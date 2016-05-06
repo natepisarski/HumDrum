@@ -58,6 +58,31 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests the looping version of Get
+		/// </summary>
+		[Test]
+		public void TestLoopGet()
+		{
+			var alphabet = HumDrum.Constants.LOWERCASE_EN_US_ALPHABET.ToCharArray ();
+
+			Assert.AreEqual (
+				'a',
+				IF.LoopGet (alphabet, 0));
+
+			Assert.AreEqual (
+				'h',  
+				IF.LoopGet (alphabet, 7));
+
+			Assert.AreEqual (
+				'z',
+				IF.LoopGet (alphabet, 25));
+
+			Assert.AreEqual (
+				'z',
+				IF.LoopGet (alphabet, 50));
+		}
+
+		/// <summary>
 		/// Tests Get
 		/// </summary>
 		[Test()]
