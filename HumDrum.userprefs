@@ -1,16 +1,12 @@
 ﻿<Properties StartupItem="HumDrum/HumDrum.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Traits/Method.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Structures/Tree.cs">
     <Files>
-      <File FileName="HumDrumTests/Traits/Traits.cs" Line="67" Column="44" />
-      <File FileName="HumDrum/HumDrum/Traits/Trait.cs" Line="125" Column="2" />
-      <File FileName="HumDrum/HumDrum/Traits/Method.cs" Line="10" Column="2" />
-      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="1" Column="1" />
-      <File FileName="HumDrumTests/Collections/Sections.cs" Line="1" Column="1" />
-      <File FileName="HumDrumTests/Collections/Information.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Traits/Interface.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Traits/Exceptions.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Traits/Class.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Structures/Direction.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Structures/Direction.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Structures/BindingsTable.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Structures/Tree.cs" Line="29" Column="3" />
+      <File FileName="HumDrum/HumDrum/Structures/Tree.cs" Line="206" Column="24" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">

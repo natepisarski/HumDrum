@@ -45,6 +45,7 @@
     <Compile Include="Traits\Traits.cs" />
     <Compile Include="Structures\BindingsTable.cs" />
     <Compile Include="Structures\Direction.cs" />
+    <Compile Include="Structures\Tree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
