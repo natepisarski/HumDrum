@@ -4,6 +4,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using System.Threading.Tasks;
 
 using HumDrum.Collections;
 using HumDrum.Structures;
@@ -97,7 +98,7 @@ namespace HumDrum.Operations
 		/// time it got any.
 		/// </summary>
 		/// <returns>The list of the new input</returns>
-		public IEnumerable<string> Collect()
+		public async Task<IEnumerable<string>> Collect()
 		{
 			lock (AllInput)
 			{
@@ -110,7 +111,8 @@ namespace HumDrum.Operations
 				// The last index is now. We just accessed it.
 				LastIndex = AllInput.Count - 1;
 
-				return Transformations.Subsequence(AllInput, oldIndex, AllInput.Count);
+				var r = Transformations.Subsequence(AllInput, oldIndex, AllInput.Count);
+				return r;
 			}
 		}
 		/// <summary>
