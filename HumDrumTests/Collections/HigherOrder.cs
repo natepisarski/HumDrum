@@ -147,6 +147,17 @@ namespace HumDrumTests.Collections
 				new List<int> (),
 				HO.After (_testList, x => x == 11));
 		}
+
+		/// <summary>
+		/// Tests the generate function
+		/// </summary>
+		[Test]
+		public void TestGenerate()
+		{
+			Assert.AreEqual (
+				TR.Make (0, 1, 2, 3, 4, 5),
+				HO.Generate (0, 5, (x => x + 1)));
+		}
 	}
 }
 

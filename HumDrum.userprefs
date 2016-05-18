@@ -1,12 +1,8 @@
-﻿<Properties StartupItem="HumDrum/HumDrum.csproj">
+﻿<Properties StartupItem="HumDrum\HumDrum.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Structures/Tree.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum\HumDrum\Collections\Sections.cs">
     <Files>
-      <File FileName="HumDrumTests/Structures/Direction.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Structures/Direction.cs" Line="1" Column="1" />
-      <File FileName="HumDrumTests/Structures/BindingsTable.cs" Line="1" Column="1" />
-      <File FileName="HumDrumTests/Structures/Tree.cs" Line="29" Column="3" />
-      <File FileName="HumDrum/HumDrum/Structures/Tree.cs" Line="206" Column="24" />
+      <File FileName="HumDrum\HumDrum\Collections\Sections.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">
@@ -17,7 +13,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\lab1\Downloads\HumDrum\HumDrum\HumDrum\Structures\Tree.cs" line="350" column="14" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

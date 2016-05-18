@@ -126,6 +126,42 @@ namespace HumDrum.Collections
 			var temp = HigherOrder.AfterInclusive (list, predicate);
 			return temp.RemoveAt (0);
 		}
+
+		/// <summary>
+		/// Generate a sequence of values based on a function that turns the 
+		/// previous step into the next step.
+		/// </summary>
+		/// <param name="starting">The starting value.</param>
+		/// <param name="steps">How many steps to take it, with 0 making a list of 1 element</param>
+		/// <param name="function">The function to generate the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		private static IEnumerable<T> GenerateReplace<T>(T starting, int steps, Func<T, T> function)
+		{
+			if (steps < 0)
+				return new List<T> ();
+			
+			if (steps == 0)
+				return Transformations.Wrap (function (starting));
+
+			return Transformations.Concatenate (
+				Transformations.Wrap (function (starting)),
+				HigherOrder.GenerateReplace (function (starting), steps - 1, function));
+					
+		}
+
+		/// <summary>
+		/// Generate a sequence of values based on a function that turns the 
+		/// previous step into the next step.
+		/// </summary>
+		/// <param name="starting">The starting value.</param>
+		/// <param name="steps">How many steps to take it, with 0 making a list of 1 element</param>
+		/// <param name="function">The function to generate the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> Generate<T>(T starting, int steps, Func<T, T> function)
+		{
+			return Transformations.Concatenate (Transformations.Wrap(starting),
+				GenerateReplace (starting, steps - 1, function));
+		}
 	}
 }
 
