@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 
+using HumDrum.Collections;
+
 namespace HumDrum.Operations.Files
 {
 	/// <summary>
@@ -102,6 +104,15 @@ namespace HumDrum.Operations.Files
 		public bool Has(string filename)
 		{
 			return Files.Contains (filename);
+		}
+
+		/// <summary>
+		/// Gets a random file from the files that this DirectorySearch controls
+		/// </summary>
+		/// <returns>The filename</returns>
+		public string RandomFile()
+		{
+			return Files.Get (new Random ().Next (Files.Length () - 1));
 		}
 	}
 }
