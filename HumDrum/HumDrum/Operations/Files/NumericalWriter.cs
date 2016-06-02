@@ -17,6 +17,7 @@ namespace HumDrum.Operations.Files
 		{
 
 		}
+
 		/// <summary>
 		/// Attempt to find a number with the given extension that is not 
 		/// currently present in this directory.
