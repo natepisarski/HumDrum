@@ -81,6 +81,17 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests the Collapse function
+		/// </summary>
+		[Test]
+		public void TestCollapse()
+		{
+			Assert.AreEqual (
+				10,
+				HO.Collapse (TR.Make (1, 2, 3, 4), ((x, y) => x + y)));
+		}
+
+		/// <summary>
 		/// Tests the inclusive version of While
 		/// </summary>
 		[Test]

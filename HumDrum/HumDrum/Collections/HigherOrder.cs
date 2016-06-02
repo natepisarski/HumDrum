@@ -54,6 +54,24 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Fold the specified list to the right
+		/// </summary>
+		/// <param name="list">The list to fold</param>
+		/// <param name="collapsor">The function to fold the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		/// <typeparam name="W">The 2nd type parameter.</typeparam>
+		public static T Collapse<T>(this IEnumerable<T> list, Func<T, T, T> collapsor)
+		{
+			T currentValue = list.Get (0);
+
+			for (int i = 1; i < list.Length (); i++) {
+				currentValue = collapsor (currentValue, list.Get(i));
+			}
+
+			return currentValue;
+		}
+
+		/// <summary>
 		/// Collects elements of the list while the predicate is true, and includes
 		/// the element that causes failure.
 		/// </summary>
