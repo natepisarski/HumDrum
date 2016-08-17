@@ -47,6 +47,50 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Performs an action on a unique member of the list
+		/// </summary>
+		/// <returns>The item from the list with the function applied to it</returns>
+		/// <param name="list">The list of information</param>
+		/// <param name="predicate">The predicate which determines which item to use</param>
+		/// <param name="function">The function to use to transform the item</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		/// <typeparam name="W">The 2nd type parameter.</typeparam>
+		public static W DoTo<T, W>(this IEnumerable<T> list, Predicate<T> predicate, Func<T, W> function)
+		{
+			foreach (T item in list)
+				if (predicate (item))
+					return function (item);
+
+			return default(W);
+		}
+
+		/// <summary>
+		/// Performs the same 
+		/// </summary>
+		/// <returns>The to sequence.</returns>
+		/// <param name="list">List.</param>
+		/// <param name="predicate">Predicate.</param>
+		/// <param name="function">Function.</param>
+		public static IEnumerable<W> DoToSequence<T, W>(this IEnumerable<T> list, Predicate<T> predicate, Func<T, W> function)
+		{
+			foreach (T item in list)
+				if (predicate (item))
+					yield return function (item);
+			yield break;
+		}
+
+		/// <summary>
+		/// Returns the first element of the list to yield true for the predicate
+		/// </summary>
+		/// <param name="list">The list to search</param>
+		/// <param name="predicate">The predicate to use for filtering</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static T First<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			return HigherOrder.When (list, predicate).Get (0);
+		}
+
+		/// <summary>
 		/// Test to see if this predicate holds true for every member
 		/// of the list.
 		/// </summary>

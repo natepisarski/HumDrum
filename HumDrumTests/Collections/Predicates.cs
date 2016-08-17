@@ -82,6 +82,21 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests DoTo and DoToSequence
+		/// </summary>
+		public void TestDoTo()
+		{
+			/* Tests DoTo */
+			Assert.Equals (PR.DoTo (TR.Make (1, 2, 3, 4, 5), ((x) => x + 1 == 4), (x) => {
+				return x + 2;
+			}), 5);
+
+			/* Tests DoTo Sequence */
+			Assert.Equals (PR.DoToSequence (TR.Make (1, 2, 3, 4, 5), (x => (x % 2) == 0), (x => x + 1)), TR.Make (3, 5));
+
+		}
+
+		/// <summary>
 		/// Tests the predicate generators. Currently the only
 		/// generators in Predicates are for judging equality or membership.
 		/// </summary>
