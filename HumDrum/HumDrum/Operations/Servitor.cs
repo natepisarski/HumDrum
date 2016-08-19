@@ -23,6 +23,12 @@ namespace HumDrum.Operations
 		List<string> AllInput {get; set;}
 
 		/// <summary>
+		/// Binds the string that a client transfered to the servitor to the client itself.
+		/// </summary>
+		/// <value>The logbook</value>
+		List<Tuple<string, TcpClient>> Logbook {get; set;}
+
+		/// <summary>
 		/// The port to listen to (defaults to 4206)
 		/// </summary>
 		int Port { get; set; }
@@ -115,6 +121,8 @@ namespace HumDrum.Operations
 				return r;
 			}
 		}
+			
+
 		/// <summary>
 		/// Start the Servitor, listening on its thread.
 		/// </summary>
@@ -174,6 +182,26 @@ namespace HumDrum.Operations
 			StreamWriter s = new StreamWriter (ns);
 			s.WriteLine (data);
 			s.Close ();
+		}
+
+		/// <summary>
+		/// Turns a TcpClient into text
+		/// </summary>
+		/// <returns>The text encoded in the stream</returns>
+		/// <param name="ns">The TcpClient</param>
+		public static string LineFromClient(TcpClient client)
+		{
+			NetworkStream nwStream = client.GetStream ();
+			// Make an array equal to the message size
+			var buffer = new byte[client.ReceiveBufferSize];
+
+			// NetworkStream.Read returns the size of the message
+			int bytesRead = nwStream.Read(buffer, 0, client.ReceiveBufferSize);
+
+			// Convert this buffer to a string so we can work with it
+			string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+
+			return dataReceived;
 		}
 	}
 }

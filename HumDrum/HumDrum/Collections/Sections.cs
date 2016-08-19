@@ -382,6 +382,22 @@ namespace HumDrum.Collections
 		{
 			return RepairString (toRepair.AsArray ());
 		}
+
+		/// <summary>
+		/// Repairs a string by interpolating it with a given string
+		/// </summary>
+		/// <returns>The string collection flattened, with "with" interpolated.</returns>
+		/// <param name="toRepair">The string to repair</param>
+		/// <param name="with">What to interpolate the string with</param>
+		public static string RepairStringWith(IEnumerable<string> toRepair, string with)
+		{
+			string words = "";
+
+			foreach (string word in toRepair)
+				words += (word + with);
+
+			return words;
+		}
 	}
 }
 

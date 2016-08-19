@@ -19,6 +19,12 @@ namespace HumDrum.Operations.Files
 		public List<string> Files {get; set;}
 
 		/// <summary>
+		/// The subdirectories within this DirectorySearch's root direcory
+		/// </summary>
+		/// <value>The directories</value>
+		public List<string> Directories { get; set;}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Operations.DirectorySearch"/> class.
 		/// </summary>
 		/// <param name="filepath">Filepath.</param>
@@ -26,6 +32,7 @@ namespace HumDrum.Operations.Files
 		public DirectorySearch (string filepath, SearchOption option)
 		{
 			Files = new List<string> ();
+			Directories = new List<string> ();
 
 			Include (filepath, option);
 		}
@@ -38,6 +45,7 @@ namespace HumDrum.Operations.Files
 		public DirectorySearch(IEnumerable<string> filepaths, SearchOption option)
 		{
 			Files = new List<string> ();
+			Directories = new List<string> ();
 
 			foreach (string s in filepaths) 
 				Include (s, option);
@@ -50,8 +58,15 @@ namespace HumDrum.Operations.Files
 		/// <param name="option">Whether or not to just scan the top directory lvel</param>
 		public void Include(string directory, SearchOption option)
 		{
+			// Only process directories
+			if (!File.GetAttributes (directory).HasFlag (FileAttributes.Directory))
+				return;
+			
 			foreach(string name in Directory.EnumerateFiles(directory, "*", option))
 				Files.Add (name);
+
+			foreach (string name in Directory.EnumerateDirectories(directory, "*", option))
+				Directories.Add (name);
 		}
 
 		/// <summary>
