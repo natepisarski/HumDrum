@@ -4,7 +4,7 @@ It contains tons of functions for the general purpose tasks you find yourself do
 
 # Version
 At the time of this commit, the version is:
-**1.0.0**
+**1.0.1**
 * First number: Major version. Breaks compatibility in some way.
 * Second number: Minor version. Adds some kind of feature.
 * Third number: Revision version. Bug, documentation, or test related changes.
