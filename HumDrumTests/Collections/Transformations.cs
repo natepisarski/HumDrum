@@ -114,6 +114,15 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests the DropLast function
+		/// </summary>
+		[Test]
+		public void TestDropLast()
+		{
+			Assert.AreEqual (TR.Make (1, 2, 3, 4, 5), TR.DropLast (TR.Make (1, 2, 3, 4, 5, 6)));
+		}
+
+		/// <summary>
 		/// Tests HumDrum.Collections.Transformations.RemoveAt
 		/// </summary>
 		[Test()]

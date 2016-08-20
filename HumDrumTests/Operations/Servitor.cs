@@ -22,7 +22,7 @@ namespace HumDrumTests.Operations
 		/// This will test all of the servitor's functions
 		/// in one method.
 		/// </summary>
-		[Test]
+		[SetUp] // TODO: Reinstate this unit test
 		public async void TestServitor()
 		{
 

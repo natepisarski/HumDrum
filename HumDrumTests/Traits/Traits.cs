@@ -37,6 +37,7 @@ namespace HumDrumTests.Traits
 		}
 
 		public int doWork(int x) { return x + 1;}
+
 		/// <summary>
 		/// Tests whether or not traits work on the interface
 		/// and class

@@ -80,6 +80,28 @@ namespace HumDrumTests.Collections
 				TR.Make ("this{will test globs}", "{this{will{test}}internal}", "|this", "will", "{}", "test", "sections|"),
 				actual);
 		}
+
+		/// <summary>
+		/// Tests the "repair suite", which includes the functions:
+		/// RepairSequenceWith, RepairSequence, RepairString, RepairStringWIth
+		/// </summary>
+		[Test]
+		public void TestRepair()
+		{
+			/* Sequence */
+
+			//RepairSequence
+			Assert.AreEqual(TR.Make(1, 2, 3, 4, 5), SE.RepairSequence(TR.Make(TR.Make(1, 2, 3), TR.Make(4, 5))));
+
+			// RepairSequenceWith
+			Assert.AreEqual(TR.Make(1, 2, 3, 2, 5), SE.RepairSequenceWith(TR.Make(TR.Make(1), TR.Make(3), TR.Make(5)), 2));
+
+			// RepairString
+			Assert.AreEqual("the full string", SE.RepairString(TR.Make("the ", "full ", "string")));
+
+			// RepairStringWith
+			Assert.AreEqual("the full string", SE.RepairStringWith(TR.Make("the", "full", "string"), " ")); // Note: No spaces
+		}
 	}
 }
 

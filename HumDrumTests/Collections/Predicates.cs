@@ -84,16 +84,28 @@ namespace HumDrumTests.Collections
 		/// <summary>
 		/// Tests DoTo and DoToSequence
 		/// </summary>
+		[Test]
 		public void TestDoTo()
 		{
-			/* Tests DoTo */
-			Assert.Equals (PR.DoTo (TR.Make (1, 2, 3, 4, 5), ((x) => x + 1 == 4), (x) => {
+			var actual = PR.DoTo (TR.Make (1, 2, 3, 4, 5), ((x) => x + 1 == 4), (x) => {
 				return x + 2;
-			}), 5);
+			});
+
+			/* Tests DoTo */
+			Assert.AreEqual (5, actual);
 
 			/* Tests DoTo Sequence */
-			Assert.Equals (PR.DoToSequence (TR.Make (1, 2, 3, 4, 5), (x => (x % 2) == 0), (x => x + 1)), TR.Make (3, 5));
+			Assert.AreEqual(PR.DoToSequence (TR.Make (1, 2, 3, 4, 5), (x => (x % 2) == 0), (x => x + 1)), TR.Make (3, 5));
 
+		}
+
+		/// <summary>
+		/// Tests the first function
+		/// </summary>
+		[Test]
+		public void TestFirst()
+		{
+			Assert.AreEqual(5, PR.First (TR.Make (1, 2, 3, 4, 5, 6), (x => x > 4)));
 		}
 
 		/// <summary>

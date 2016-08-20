@@ -366,6 +366,37 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Flattens the nested list, but also intersperses the items with the item list.
+		/// </summary>
+		/// <returns>The repaired sequence</returns>
+		/// <param name="sequence">Sequence.</param>
+		/// <param name="item">Item.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> RepairSequenceWith<T>(IEnumerable<IEnumerable<T>> sequence, IEnumerable<T> item)
+		{
+			List<T> flattened = new List<T> ();
+
+			foreach (IEnumerable<T> innerList in sequence) {
+				flattened.AddRange (innerList);
+				flattened.AddRange (item);
+			}
+
+			return Transformations.Subsequence (flattened, 0, flattened.Length () - item.Length ()); // Drops the last item
+		}
+
+		/// <summary>
+		/// Repairs the sequence by interspersing the inner list with the given item.
+		/// </summary>
+		/// <returns>The repaired sequence</returns>
+		/// <param name="sequence">The nested list structure</param>
+		/// <param name="item">The item to intersperse with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> RepairSequenceWith<T>(IEnumerable<IEnumerable<T>> sequence, T item)
+		{
+			return RepairSequenceWith (sequence, Transformations.Wrap (item));
+		}
+
+		/// <summary>
 		/// Turn an array of strings back into the original string
 		/// </summary>
 		/// <param name="toRepair">The array of strings to flatten</param>
@@ -396,7 +427,7 @@ namespace HumDrum.Collections
 			foreach (string word in toRepair)
 				words += (word + with);
 
-			return words;
+			return Information.AsString(words.Subsequence(0, words.Length - with.Length));
 		}
 	}
 }

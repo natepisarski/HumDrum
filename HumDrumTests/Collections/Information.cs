@@ -47,7 +47,7 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
-		/// Tests GetIndices
+		/// Tests GetIndices, and, by virtue, Get.
 		/// </summary>
 		[Test]
 		public void TestGetIndices()
@@ -231,6 +231,17 @@ namespace HumDrumTests.Collections
 					TR.Make (0, 2, 0, 4, 0, 6, 7, 8, 9, 10),
 					0,
 					TR.Make ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h')));
+		}
+
+		/// <summary>
+		/// Tests the AsString function
+		/// </summary>
+		public void TestAsString()
+		{
+			Assert.AreEqual (
+				"The string",
+				IF.AsString (TR.Make ('T', 'h', 'e', ' ', 's', 't', 'r', 'i', 'n', 'g')));
+
 		}
 	}
 }
