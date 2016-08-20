@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['map',['Map',['../classHumDrum_1_1Structures_1_1Tree.html#af9683137e7eca637f2d06c1791ddb880',1,'HumDrum::Structures::Tree']]],
+  ['map',['Map',['../classHumDrum_1_1Structures_1_1Tree.html#a5d3243f43f874bf9b74df1421cce76ce',1,'HumDrum::Structures::Tree']]],
   ['markov',['Markov',['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html',1,'HumDrum::Collections::Markov']]],
   ['markov',['Markov',['../classHumDrumTests_1_1Collections_1_1Markov_1_1Markov.html',1,'HumDrumTests::Collections::Markov']]],
   ['markov',['Markov',['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html#ac73669b0a13f9fd1b67986167a2de447',1,'HumDrum.Collections.Markov.Markov.Markov(IEnumerable&lt; T &gt; dataset, int degree)'],['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html#a696a700a50647bbe73376845bbbc3d16',1,'HumDrum.Collections.Markov.Markov.Markov(int degree)']]],

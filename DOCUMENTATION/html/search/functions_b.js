@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['map',['Map',['../classHumDrum_1_1Structures_1_1Tree.html#af9683137e7eca637f2d06c1791ddb880',1,'HumDrum::Structures::Tree']]],
+  ['map',['Map',['../classHumDrum_1_1Structures_1_1Tree.html#a5d3243f43f874bf9b74df1421cce76ce',1,'HumDrum::Structures::Tree']]],
   ['markov',['Markov',['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html#ac73669b0a13f9fd1b67986167a2de447',1,'HumDrum.Collections.Markov.Markov.Markov(IEnumerable&lt; T &gt; dataset, int degree)'],['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html#a696a700a50647bbe73376845bbbc3d16',1,'HumDrum.Collections.Markov.Markov.Markov(int degree)']]],
   ['markovstate',['MarkovState',['../classHumDrum_1_1Collections_1_1Markov_1_1MarkovState.html#a9a0ab2d8e1f4e31c3317af0fe81251bf',1,'HumDrum.Collections.Markov.MarkovState.MarkovState(IEnumerable&lt; T &gt; state, T next)'],['../classHumDrum_1_1Collections_1_1Markov_1_1MarkovState.html#a710de5d361e56453e7c57c7597eb600d',1,'HumDrum.Collections.Markov.MarkovState.MarkovState(IEnumerable&lt; T &gt; state, T next, double probability)']]],
   ['method',['Method',['../classHumDrum_1_1Traits_1_1Method.html#a459d9bc4db6e1d1572d1f34fb92c19d1',1,'HumDrum.Traits.Method.Method(MethodInfo method)'],['../classHumDrum_1_1Traits_1_1Method.html#ac822929c7b6871193f958fcd223e2693',1,'HumDrum.Traits.Method.Method(MethodInfo method, string name)']]],

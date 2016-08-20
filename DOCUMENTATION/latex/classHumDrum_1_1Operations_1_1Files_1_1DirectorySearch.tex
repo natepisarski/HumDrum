@@ -21,7 +21,14 @@ I\+Enumerable$<$ \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1Line}{Line} $
 I\+Enumerable$<$ \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1Line}{Line} $>$ \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a97721cf17c7a08ca86cc1692cc0543fd}{Lines} ()
 \begin{DoxyCompactList}\small\item\em Get all of the lines in this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} \end{DoxyCompactList}\item 
 bool \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_acd1d24435e4213a0b6637dcfcb0ae912}{Has} (string filename)
-\begin{DoxyCompactList}\small\item\em Check to see whether or not this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} has the given file in its files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Check to see whether or not this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} has the given file in its files \end{DoxyCompactList}\item 
+string \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ab7cab2ae15d22f5c61969961e3c0e433}{Random\+File} ()
+\begin{DoxyCompactList}\small\item\em Gets a random file from the files that this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} controls \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_aeb357481f2a6da6120ef91257f810cbd}{Is\+Directory} (string filename)
+\begin{DoxyCompactList}\small\item\em Determines whether or not the filename is a directory \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,7 +38,9 @@ bool \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_acd1d2443
 \begin{DoxyCompactItemize}
 \item 
 List$<$ string $>$ \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ae7bda27ea2f731ad9bbc04ae27d48fa9}{Files}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\begin{DoxyCompactList}\small\item\em The files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The files \end{DoxyCompactList}\item 
+List$<$ string $>$ \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a6795fc572ba723e404c68ebec38508f6}{Directories}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The subdirectories within this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search}\textquotesingle{}s root direcory \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -39,19 +48,19 @@ Searches directories for matching files
 
 
 
-Definition at line 11 of file Directory\+Search.\+cs.
+Definition at line 13 of file Directory\+Search.\+cs.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a0f89c3520fbeff9824802b3c56f0028d}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Directory\+Search@{Directory\+Search}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Directory\+Search@{Directory\+Search}}
 \index{Directory\+Search@{Directory\+Search}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Directory\+Search(string filepath, Search\+Option option)}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Directory\+Search (
+\subsubsection[{\texorpdfstring{Directory\+Search(string filepath, Search\+Option option)}{DirectorySearch(string filepath, SearchOption option)}}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Directory\+Search (
 \begin{DoxyParamCaption}
 \item[{string}]{filepath, }
 \item[{Search\+Option}]{option}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a0f89c3520fbeff9824802b3c56f0028d}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a0f89c3520fbeff9824802b3c56f0028d}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a0f89c3520fbeff9824802b3c56f0028d}
 
 
 Initializes a new instance of the Hum\+Drum.\+Operations.\+Directory\+Search class. 
@@ -65,16 +74,16 @@ Initializes a new instance of the Hum\+Drum.\+Operations.\+Directory\+Search cla
 \end{DoxyParams}
 
 
-Definition at line 24 of file Directory\+Search.\+cs.
+Definition at line 32 of file Directory\+Search.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a71545ff9227fa57dc696fed8e9f0c639}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Directory\+Search@{Directory\+Search}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Directory\+Search@{Directory\+Search}}
 \index{Directory\+Search@{Directory\+Search}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Directory\+Search(\+I\+Enumerable$<$ string $>$ filepaths, Search\+Option option)}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Directory\+Search (
+\subsubsection[{\texorpdfstring{Directory\+Search(\+I\+Enumerable$<$ string $>$ filepaths, Search\+Option option)}{DirectorySearch(IEnumerable< string > filepaths, SearchOption option)}}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Directory\+Search (
 \begin{DoxyParamCaption}
 \item[{I\+Enumerable$<$ string $>$}]{filepaths, }
 \item[{Search\+Option}]{option}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a71545ff9227fa57dc696fed8e9f0c639}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a71545ff9227fa57dc696fed8e9f0c639}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a71545ff9227fa57dc696fed8e9f0c639}
 
 
 Initializes a \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} containing multiple directories. 
@@ -88,15 +97,15 @@ Initializes a \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}
 \end{DoxyParams}
 
 
-Definition at line 36 of file Directory\+Search.\+cs.
+Definition at line 45 of file Directory\+Search.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ad00c0c8f19b6a6e26aa50c4521a5dba4}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Directory\+Search@{Directory\+Search}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Directory\+Search@{Directory\+Search}}
 \index{Directory\+Search@{Directory\+Search}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Directory\+Search(\+List$<$ string $>$ files)}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Directory\+Search (
+\subsubsection[{\texorpdfstring{Directory\+Search(\+List$<$ string $>$ files)}{DirectorySearch(List< string > files)}}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Directory\+Search (
 \begin{DoxyParamCaption}
 \item[{List$<$ string $>$}]{files}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ad00c0c8f19b6a6e26aa50c4521a5dba4}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ad00c0c8f19b6a6e26aa50c4521a5dba4}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ad00c0c8f19b6a6e26aa50c4521a5dba4}
 
 
 
@@ -108,18 +117,18 @@ Definition at line 36 of file Directory\+Search.\+cs.
 \end{DoxyParams}
 
 
-Definition at line 59 of file Directory\+Search.\+cs.
+Definition at line 76 of file Directory\+Search.\+cs.
 
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_acd1d24435e4213a0b6637dcfcb0ae912}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Has@{Has}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Has@{Has}}
 \index{Has@{Has}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Has(string filename)}]{\setlength{\rightskip}{0pt plus 5cm}bool Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Has (
+\subsubsection[{\texorpdfstring{Has(string filename)}{Has(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Has (
 \begin{DoxyParamCaption}
 \item[{string}]{filename}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_acd1d24435e4213a0b6637dcfcb0ae912}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_acd1d24435e4213a0b6637dcfcb0ae912}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_acd1d24435e4213a0b6637dcfcb0ae912}
 
 
 Check to see whether or not this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} has the given file in its files 
@@ -134,16 +143,16 @@ Check to see whether or not this \hyperlink{classHumDrum_1_1Operations_1_1Files_
 \end{DoxyParams}
 
 
-Definition at line 102 of file Directory\+Search.\+cs.
+Definition at line 119 of file Directory\+Search.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a8c2e6b3858b3be6637ec872bb558c678}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Include@{Include}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Include@{Include}}
 \index{Include@{Include}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Include(string directory, Search\+Option option)}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Include (
+\subsubsection[{\texorpdfstring{Include(string directory, Search\+Option option)}{Include(string directory, SearchOption option)}}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Include (
 \begin{DoxyParamCaption}
 \item[{string}]{directory, }
 \item[{Search\+Option}]{option}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a8c2e6b3858b3be6637ec872bb558c678}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a8c2e6b3858b3be6637ec872bb558c678}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a8c2e6b3858b3be6637ec872bb558c678}
 
 
 Include this directory in the resulting files 
@@ -157,30 +166,53 @@ Include this directory in the resulting files
 \end{DoxyParams}
 
 
-Definition at line 49 of file Directory\+Search.\+cs.
+Definition at line 59 of file Directory\+Search.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a97721cf17c7a08ca86cc1692cc0543fd}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Lines@{Lines}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Is\+Directory@{Is\+Directory}}
+\index{Is\+Directory@{Is\+Directory}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
+\subsubsection[{\texorpdfstring{Is\+Directory(string filename)}{IsDirectory(string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}static bool Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Is\+Directory (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_aeb357481f2a6da6120ef91257f810cbd}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_aeb357481f2a6da6120ef91257f810cbd}
+
+
+Determines whether or not the filename is a directory 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if is directory the specified filename; otherwise, {\ttfamily false}.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The path to the file\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 138 of file Directory\+Search.\+cs.
+
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Lines@{Lines}}
 \index{Lines@{Lines}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Lines()}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<${\bf Line}$>$ Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Lines (
+\subsubsection[{\texorpdfstring{Lines()}{Lines()}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<${\bf Line}$>$ Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Lines (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a97721cf17c7a08ca86cc1692cc0543fd}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a97721cf17c7a08ca86cc1692cc0543fd}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a97721cf17c7a08ca86cc1692cc0543fd}
 
 
 Get all of the lines in this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} 
 
 
 
-Definition at line 92 of file Directory\+Search.\+cs.
+Definition at line 109 of file Directory\+Search.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a34bffb903db014a0d91d7b1faae3b387}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Lines\+Where@{Lines\+Where}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Lines\+Where@{Lines\+Where}}
 \index{Lines\+Where@{Lines\+Where}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Lines\+Where(\+Predicate$<$ string $>$ predicate)}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<${\bf Line}$>$ Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Lines\+Where (
+\subsubsection[{\texorpdfstring{Lines\+Where(\+Predicate$<$ string $>$ predicate)}{LinesWhere(Predicate< string > predicate)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<${\bf Line}$>$ Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Lines\+Where (
 \begin{DoxyParamCaption}
 \item[{Predicate$<$ string $>$}]{predicate}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a34bffb903db014a0d91d7b1faae3b387}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a34bffb903db014a0d91d7b1faae3b387}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a34bffb903db014a0d91d7b1faae3b387}
 
 
 Goes through all of the files in this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search}, returning \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1Line}{Line} objects that match a certain string predicate 
@@ -195,15 +227,33 @@ The matching \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1Line}{Line} objec
 \end{DoxyParams}
 
 
-Definition at line 80 of file Directory\+Search.\+cs.
+Definition at line 97 of file Directory\+Search.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a053a117d9a66d3d9098c92dd9f50645a}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Refine@{Refine}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Random\+File@{Random\+File}}
+\index{Random\+File@{Random\+File}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
+\subsubsection[{\texorpdfstring{Random\+File()}{RandomFile()}}]{\setlength{\rightskip}{0pt plus 5cm}string Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Random\+File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ab7cab2ae15d22f5c61969961e3c0e433}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ab7cab2ae15d22f5c61969961e3c0e433}
+
+
+Gets a random file from the files that this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search} controls 
+
+\begin{DoxyReturn}{Returns}
+The filename
+\end{DoxyReturn}
+
+
+Definition at line 128 of file Directory\+Search.\+cs.
+
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Refine@{Refine}}
 \index{Refine@{Refine}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Refine(\+Predicate$<$ string $>$ refiner)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Directory\+Search} Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Refine (
+\subsubsection[{\texorpdfstring{Refine(\+Predicate$<$ string $>$ refiner)}{Refine(Predicate< string > refiner)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Directory\+Search} Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Refine (
 \begin{DoxyParamCaption}
 \item[{Predicate$<$ string $>$}]{refiner}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a053a117d9a66d3d9098c92dd9f50645a}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a053a117d9a66d3d9098c92dd9f50645a}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a053a117d9a66d3d9098c92dd9f50645a}
 
 
 Refines the selection of files based on a predicate. 
@@ -215,21 +265,32 @@ Refines the selection of files based on a predicate.
 \end{DoxyParams}
 
 
-Definition at line 68 of file Directory\+Search.\+cs.
+Definition at line 85 of file Directory\+Search.\+cs.
 
 
 
 \subsection{Property Documentation}
-\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ae7bda27ea2f731ad9bbc04ae27d48fa9}{}\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Files@{Files}}
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Directories@{Directories}}
+\index{Directories@{Directories}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
+\subsubsection[{\texorpdfstring{Directories}{Directories}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$string$>$ Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Directories\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a6795fc572ba723e404c68ebec38508f6}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_a6795fc572ba723e404c68ebec38508f6}
+
+
+The subdirectories within this \hyperlink{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch}{Directory\+Search}\textquotesingle{}s root direcory 
+
+The directories
+
+Definition at line 25 of file Directory\+Search.\+cs.
+
+\index{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}!Files@{Files}}
 \index{Files@{Files}!Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search@{Hum\+Drum\+::\+Operations\+::\+Files\+::\+Directory\+Search}}
-\subsubsection[{Files}]{\setlength{\rightskip}{0pt plus 5cm}List$<$string$>$ Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Files\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ae7bda27ea2f731ad9bbc04ae27d48fa9}
+\subsubsection[{\texorpdfstring{Files}{Files}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$string$>$ Hum\+Drum.\+Operations.\+Files.\+Directory\+Search.\+Files\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ae7bda27ea2f731ad9bbc04ae27d48fa9}{}\label{classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch_ae7bda27ea2f731ad9bbc04ae27d48fa9}
 
 
 The files 
 
 The files.
 
-Definition at line 17 of file Directory\+Search.\+cs.
+Definition at line 19 of file Directory\+Search.\+cs.
 
 
 

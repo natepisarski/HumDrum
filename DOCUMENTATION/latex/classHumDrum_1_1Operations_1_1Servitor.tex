@@ -14,7 +14,7 @@
 \begin{DoxyCompactList}\small\item\em Create a new servitor given an I\+P\+Adress and a port. \end{DoxyCompactList}\item 
 \hyperlink{classHumDrum_1_1Operations_1_1Servitor_aed529778829ebe0befe5da40f403470c}{Servitor} (I\+P\+Address address, int port, \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table}$<$ string, string $>$ table)
 \begin{DoxyCompactList}\small\item\em Initializes a new instance of the \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Hum\+Drum.\+Operations.\+Servitor} class. This allows the creation of a \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Servitor} instance with an I\+O\+Table \end{DoxyCompactList}\item 
-I\+Enumerable$<$ string $>$ \hyperlink{classHumDrum_1_1Operations_1_1Servitor_af199facc3fcd3b231a75864e2c0c974b}{Collect} ()
+async Task$<$ I\+Enumerable$<$ string $>$ $>$ \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a3565d07ac8c4b4cde722f4dcc6f629ff}{Collect} ()
 \begin{DoxyCompactList}\small\item\em Gets all the input that the servitor has received since the last time it got any. \end{DoxyCompactList}\item 
 void \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a6b5653f2dc424b576a6cfdf9bfe3f021}{Start} ()
 \begin{DoxyCompactList}\small\item\em Start the \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Servitor}, listening on its thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -22,11 +22,13 @@ void \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a6b5653f2dc424b576a6cfdf9
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a2e2fe524ce089bcd5f0f481ff3315c40}{Send} (string data, string host, int port)
-\begin{DoxyCompactList}\small\item\em Sends the specified data to the port at address \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sends the specified data to the port at address \end{DoxyCompactList}\item 
+static string \hyperlink{classHumDrum_1_1Operations_1_1Servitor_aefa043103591c578afce5db32f389b43}{Line\+From\+Client} (Tcp\+Client client)
+\begin{DoxyCompactList}\small\item\em Turns a Tcp\+Client into text \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-const int \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a97c78f85fb9cc1c96c61ea771cc97201}{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+R\+T} = 4206
+const int \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a97c78f85fb9cc1c96c61ea771cc97201}{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT} = 4206
 \begin{DoxyCompactList}\small\item\em The default port to that \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Servitor} listens to \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
@@ -34,7 +36,7 @@ const int \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a97c78f85fb9cc1c96c6
 bool \hyperlink{classHumDrum_1_1Operations_1_1Servitor_aacd5394a7844c38e5d4bfd96b00deefe}{Changed}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 \begin{DoxyCompactList}\small\item\em A boolean set up to determine whether input has been given since the last time it has been collected. \end{DoxyCompactList}\item 
 \hyperlink{classHumDrum_1_1Structures_1_1BindingsTable}{Bindings\+Table}$<$ string, string $>$ \hyperlink{classHumDrum_1_1Operations_1_1Servitor_a01c71b67a5ca6154fd1938106b17ebf5}{I\+O\+Table}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\begin{DoxyCompactList}\small\item\em Gets or sets the I\+O table. The I\+O Table determines, given an input, what to send to the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets or sets the IO table. The IO Table determines, given an input, what to send to the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -42,58 +44,58 @@ bool \hyperlink{classHumDrum_1_1Operations_1_1Servitor_aacd5394a7844c38e5d4bfd96
 
 
 
-Definition at line 17 of file Servitor.\+cs.
+Definition at line 18 of file Servitor.\+cs.
 
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a3da58c881e82de9be18014a186e115f5}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Servitor@{Servitor}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Servitor@{Servitor}}
 \index{Servitor@{Servitor}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{Servitor()}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Servitor.\+Servitor (
+\subsubsection[{\texorpdfstring{Servitor()}{Servitor()}}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Servitor.\+Servitor (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Servitor_a3da58c881e82de9be18014a186e115f5}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a3da58c881e82de9be18014a186e115f5}{}\label{classHumDrum_1_1Operations_1_1Servitor_a3da58c881e82de9be18014a186e115f5}
 
 
 Set up the servitor with the default settings. 
 
 
 
-Definition at line 60 of file Servitor.\+cs.
+Definition at line 67 of file Servitor.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_ac77fd091ee638a61e42fa013c7a330ff}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Servitor@{Servitor}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Servitor@{Servitor}}
 \index{Servitor@{Servitor}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{Servitor(\+I\+P\+Address address, int port)}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Servitor.\+Servitor (
+\subsubsection[{\texorpdfstring{Servitor(\+I\+P\+Address address, int port)}{Servitor(IPAddress address, int port)}}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Servitor.\+Servitor (
 \begin{DoxyParamCaption}
 \item[{I\+P\+Address}]{address, }
 \item[{int}]{port}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Servitor_ac77fd091ee638a61e42fa013c7a330ff}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_ac77fd091ee638a61e42fa013c7a330ff}{}\label{classHumDrum_1_1Operations_1_1Servitor_ac77fd091ee638a61e42fa013c7a330ff}
 
 
 Create a new servitor given an I\+P\+Adress and a port. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em address} & The I\+P address to listen to\\
+{\em address} & The IP address to listen to\\
 \hline
 {\em port} & The port to listen on\\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 75 of file Servitor.\+cs.
+Definition at line 82 of file Servitor.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_aed529778829ebe0befe5da40f403470c}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Servitor@{Servitor}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Servitor@{Servitor}}
 \index{Servitor@{Servitor}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{Servitor(\+I\+P\+Address address, int port, Bindings\+Table$<$ string, string $>$ table)}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Servitor.\+Servitor (
+\subsubsection[{\texorpdfstring{Servitor(\+I\+P\+Address address, int port, Bindings\+Table$<$ string, string $>$ table)}{Servitor(IPAddress address, int port, BindingsTable< string, string > table)}}]{\setlength{\rightskip}{0pt plus 5cm}Hum\+Drum.\+Operations.\+Servitor.\+Servitor (
 \begin{DoxyParamCaption}
 \item[{I\+P\+Address}]{address, }
 \item[{int}]{port, }
 \item[{{\bf Bindings\+Table}$<$ string, string $>$}]{table}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Servitor_aed529778829ebe0befe5da40f403470c}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_aed529778829ebe0befe5da40f403470c}{}\label{classHumDrum_1_1Operations_1_1Servitor_aed529778829ebe0befe5da40f403470c}
 
 
 Initializes a new instance of the \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Hum\+Drum.\+Operations.\+Servitor} class. This allows the creation of a \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Servitor} instance with an I\+O\+Table 
@@ -109,18 +111,18 @@ Initializes a new instance of the \hyperlink{classHumDrum_1_1Operations_1_1Servi
 \end{DoxyParams}
 
 
-Definition at line 90 of file Servitor.\+cs.
+Definition at line 97 of file Servitor.\+cs.
 
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_af199facc3fcd3b231a75864e2c0c974b}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Collect@{Collect}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Collect@{Collect}}
 \index{Collect@{Collect}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{Collect()}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$string$>$ Hum\+Drum.\+Operations.\+Servitor.\+Collect (
+\subsubsection[{\texorpdfstring{Collect()}{Collect()}}]{\setlength{\rightskip}{0pt plus 5cm}async Task$<$I\+Enumerable$<$string$>$ $>$ Hum\+Drum.\+Operations.\+Servitor.\+Collect (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Servitor_af199facc3fcd3b231a75864e2c0c974b}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a3565d07ac8c4b4cde722f4dcc6f629ff}{}\label{classHumDrum_1_1Operations_1_1Servitor_a3565d07ac8c4b4cde722f4dcc6f629ff}
 
 
 Gets all the input that the servitor has received since the last time it got any. 
@@ -130,17 +132,40 @@ The list of the new input
 \end{DoxyReturn}
 
 
-Definition at line 100 of file Servitor.\+cs.
+Definition at line 107 of file Servitor.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a2e2fe524ce089bcd5f0f481ff3315c40}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Send@{Send}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Line\+From\+Client@{Line\+From\+Client}}
+\index{Line\+From\+Client@{Line\+From\+Client}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
+\subsubsection[{\texorpdfstring{Line\+From\+Client(\+Tcp\+Client client)}{LineFromClient(TcpClient client)}}]{\setlength{\rightskip}{0pt plus 5cm}static string Hum\+Drum.\+Operations.\+Servitor.\+Line\+From\+Client (
+\begin{DoxyParamCaption}
+\item[{Tcp\+Client}]{client}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_aefa043103591c578afce5db32f389b43}{}\label{classHumDrum_1_1Operations_1_1Servitor_aefa043103591c578afce5db32f389b43}
+
+
+Turns a Tcp\+Client into text 
+
+\begin{DoxyReturn}{Returns}
+The text encoded in the stream
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em ns} & The Tcp\+Client\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 192 of file Servitor.\+cs.
+
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Send@{Send}}
 \index{Send@{Send}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{Send(string data, string host, int port)}]{\setlength{\rightskip}{0pt plus 5cm}static void Hum\+Drum.\+Operations.\+Servitor.\+Send (
+\subsubsection[{\texorpdfstring{Send(string data, string host, int port)}{Send(string data, string host, int port)}}]{\setlength{\rightskip}{0pt plus 5cm}static void Hum\+Drum.\+Operations.\+Servitor.\+Send (
 \begin{DoxyParamCaption}
 \item[{string}]{data, }
 \item[{string}]{host, }
 \item[{int}]{port}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{classHumDrum_1_1Operations_1_1Servitor_a2e2fe524ce089bcd5f0f481ff3315c40}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a2e2fe524ce089bcd5f0f481ff3315c40}{}\label{classHumDrum_1_1Operations_1_1Servitor_a2e2fe524ce089bcd5f0f481ff3315c40}
 
 
 Sends the specified data to the port at address 
@@ -156,61 +181,61 @@ Sends the specified data to the port at address
 \end{DoxyParams}
 
 
-Definition at line 168 of file Servitor.\+cs.
+Definition at line 178 of file Servitor.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a6b5653f2dc424b576a6cfdf9bfe3f021}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Start@{Start}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Start@{Start}}
 \index{Start@{Start}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{Start()}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Servitor.\+Start (
+\subsubsection[{\texorpdfstring{Start()}{Start()}}]{\setlength{\rightskip}{0pt plus 5cm}void Hum\+Drum.\+Operations.\+Servitor.\+Start (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}\label{classHumDrum_1_1Operations_1_1Servitor_a6b5653f2dc424b576a6cfdf9bfe3f021}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a6b5653f2dc424b576a6cfdf9bfe3f021}{}\label{classHumDrum_1_1Operations_1_1Servitor_a6b5653f2dc424b576a6cfdf9bfe3f021}
 
 
 Start the \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Servitor}, listening on its thread. 
 
 
 
-Definition at line 119 of file Servitor.\+cs.
+Definition at line 129 of file Servitor.\+cs.
 
 
 
 \subsection{Member Data Documentation}
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a97c78f85fb9cc1c96c61ea771cc97201}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+R\+T@{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+R\+T}}
-\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+R\+T@{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+R\+T}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}const int Hum\+Drum.\+Operations.\+Servitor.\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+R\+T = 4206}\label{classHumDrum_1_1Operations_1_1Servitor_a97c78f85fb9cc1c96c61ea771cc97201}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT@{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT@{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
+\subsubsection[{\texorpdfstring{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT}{DEFAULT\_PORT}}]{\setlength{\rightskip}{0pt plus 5cm}const int Hum\+Drum.\+Operations.\+Servitor.\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT = 4206}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a97c78f85fb9cc1c96c61ea771cc97201}{}\label{classHumDrum_1_1Operations_1_1Servitor_a97c78f85fb9cc1c96c61ea771cc97201}
 
 
 The default port to that \hyperlink{classHumDrum_1_1Operations_1_1Servitor}{Servitor} listens to 
 
 
 
-Definition at line 55 of file Servitor.\+cs.
+Definition at line 62 of file Servitor.\+cs.
 
 
 
 \subsection{Property Documentation}
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_aacd5394a7844c38e5d4bfd96b00deefe}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Changed@{Changed}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!Changed@{Changed}}
 \index{Changed@{Changed}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{Changed}]{\setlength{\rightskip}{0pt plus 5cm}bool Hum\+Drum.\+Operations.\+Servitor.\+Changed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Operations_1_1Servitor_aacd5394a7844c38e5d4bfd96b00deefe}
+\subsubsection[{\texorpdfstring{Changed}{Changed}}]{\setlength{\rightskip}{0pt plus 5cm}bool Hum\+Drum.\+Operations.\+Servitor.\+Changed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_aacd5394a7844c38e5d4bfd96b00deefe}{}\label{classHumDrum_1_1Operations_1_1Servitor_aacd5394a7844c38e5d4bfd96b00deefe}
 
 
 A boolean set up to determine whether input has been given since the last time it has been collected. 
 
 
 
-Definition at line 38 of file Servitor.\+cs.
+Definition at line 45 of file Servitor.\+cs.
 
-\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a01c71b67a5ca6154fd1938106b17ebf5}{}\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!I\+O\+Table@{I\+O\+Table}}
+\index{Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}!I\+O\+Table@{I\+O\+Table}}
 \index{I\+O\+Table@{I\+O\+Table}!Hum\+Drum\+::\+Operations\+::\+Servitor@{Hum\+Drum\+::\+Operations\+::\+Servitor}}
-\subsubsection[{I\+O\+Table}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bindings\+Table}$<$string, string$>$ Hum\+Drum.\+Operations.\+Servitor.\+I\+O\+Table\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\label{classHumDrum_1_1Operations_1_1Servitor_a01c71b67a5ca6154fd1938106b17ebf5}
+\subsubsection[{\texorpdfstring{I\+O\+Table}{IOTable}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bindings\+Table}$<$string, string$>$ Hum\+Drum.\+Operations.\+Servitor.\+I\+O\+Table\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{classHumDrum_1_1Operations_1_1Servitor_a01c71b67a5ca6154fd1938106b17ebf5}{}\label{classHumDrum_1_1Operations_1_1Servitor_a01c71b67a5ca6154fd1938106b17ebf5}
 
 
-Gets or sets the I\+O table. The I\+O Table determines, given an input, what to send to the server. 
+Gets or sets the IO table. The IO Table determines, given an input, what to send to the server. 
 
-The I\+O table
+The IO table
 
-Definition at line 50 of file Servitor.\+cs.
+Definition at line 57 of file Servitor.\+cs.
 
 
 

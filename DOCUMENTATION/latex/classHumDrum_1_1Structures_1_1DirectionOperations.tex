@@ -1,0 +1,158 @@
+\hypertarget{classHumDrum_1_1Structures_1_1DirectionOperations}{}\section{Hum\+Drum.\+Structures.\+Direction\+Operations Class Reference}
+\label{classHumDrum_1_1Structures_1_1DirectionOperations}\index{Hum\+Drum.\+Structures.\+Direction\+Operations@{Hum\+Drum.\+Structures.\+Direction\+Operations}}
+
+
+Class for translating between the two direction variants  
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{namespaceHumDrum_1_1Structures_ac777de8ca588ec37dd8793047a84192a}{Cardinal} \hyperlink{classHumDrum_1_1Structures_1_1DirectionOperations_a1ee6e6a9d8ba26808470b7397c6dbb21}{Translate\+Direction} (\hyperlink{namespaceHumDrum_1_1Structures_a83ca1f04475980cb7e79d471cc746dd3}{Direction} direction)
+\begin{DoxyCompactList}\small\item\em Translates the direction. \end{DoxyCompactList}\item 
+static \hyperlink{namespaceHumDrum_1_1Structures_a83ca1f04475980cb7e79d471cc746dd3}{Direction} \hyperlink{classHumDrum_1_1Structures_1_1DirectionOperations_a6160deccca7c960b0d741b31ec6ad324}{Translate\+Cardinal} (\hyperlink{namespaceHumDrum_1_1Structures_ac777de8ca588ec37dd8793047a84192a}{Cardinal} cardinal)
+\begin{DoxyCompactList}\small\item\em Translates the Cardinal into a Direction \end{DoxyCompactList}\item 
+static \hyperlink{namespaceHumDrum_1_1Structures_a1b5e67f976aea8954390bccad43a9c9e}{Orbital\+Direction} \hyperlink{classHumDrum_1_1Structures_1_1DirectionOperations_a39107515f5aa57531524b20a611f3f42}{Rotate\+Orbital} (\hyperlink{namespaceHumDrum_1_1Structures_a1b5e67f976aea8954390bccad43a9c9e}{Orbital\+Direction} orbit)
+\begin{DoxyCompactList}\small\item\em Inverts this Orbital\+Direction \end{DoxyCompactList}\item 
+static \hyperlink{namespaceHumDrum_1_1Structures_a83ca1f04475980cb7e79d471cc746dd3}{Direction} \hyperlink{classHumDrum_1_1Structures_1_1DirectionOperations_a52ec773a9bf9ae47392afffaf1e993ba}{Rotate\+Direction} (\hyperlink{namespaceHumDrum_1_1Structures_a83ca1f04475980cb7e79d471cc746dd3}{Direction} beginning, \hyperlink{namespaceHumDrum_1_1Structures_a1b5e67f976aea8954390bccad43a9c9e}{Orbital\+Direction} direction)
+\begin{DoxyCompactList}\small\item\em Rotates the direction a certain way, based on the second parameter \end{DoxyCompactList}\item 
+static \hyperlink{namespaceHumDrum_1_1Structures_ac777de8ca588ec37dd8793047a84192a}{Cardinal} \hyperlink{classHumDrum_1_1Structures_1_1DirectionOperations_af9d00d5c3f5b3304ae181c61a47f11d5}{Rotate\+Cardinal} (\hyperlink{namespaceHumDrum_1_1Structures_ac777de8ca588ec37dd8793047a84192a}{Cardinal} cardinal, \hyperlink{namespaceHumDrum_1_1Structures_a1b5e67f976aea8954390bccad43a9c9e}{Orbital\+Direction} direction)
+\begin{DoxyCompactList}\small\item\em Rotates the Cardinal direction a certain way, based on the second parameter \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for translating between the two direction variants 
+
+
+
+Definition at line 41 of file Direction.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}!Rotate\+Cardinal@{Rotate\+Cardinal}}
+\index{Rotate\+Cardinal@{Rotate\+Cardinal}!Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}}
+\subsubsection[{\texorpdfstring{Rotate\+Cardinal(\+Cardinal cardinal, Orbital\+Direction direction)}{RotateCardinal(Cardinal cardinal, OrbitalDirection direction)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Cardinal} Hum\+Drum.\+Structures.\+Direction\+Operations.\+Rotate\+Cardinal (
+\begin{DoxyParamCaption}
+\item[{{\bf Cardinal}}]{cardinal, }
+\item[{{\bf Orbital\+Direction}}]{direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Structures_1_1DirectionOperations_af9d00d5c3f5b3304ae181c61a47f11d5}{}\label{classHumDrum_1_1Structures_1_1DirectionOperations_af9d00d5c3f5b3304ae181c61a47f11d5}
+
+
+Rotates the Cardinal direction a certain way, based on the second parameter 
+
+\begin{DoxyReturn}{Returns}
+The cardinal direction after rotation
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cardinal} & The starting cardinal direction\\
+\hline
+{\em direction} & The direction in which to move it\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 108 of file Direction.\+cs.
+
+\index{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}!Rotate\+Direction@{Rotate\+Direction}}
+\index{Rotate\+Direction@{Rotate\+Direction}!Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}}
+\subsubsection[{\texorpdfstring{Rotate\+Direction(\+Direction beginning, Orbital\+Direction direction)}{RotateDirection(Direction beginning, OrbitalDirection direction)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Direction} Hum\+Drum.\+Structures.\+Direction\+Operations.\+Rotate\+Direction (
+\begin{DoxyParamCaption}
+\item[{{\bf Direction}}]{beginning, }
+\item[{{\bf Orbital\+Direction}}]{direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Structures_1_1DirectionOperations_a52ec773a9bf9ae47392afffaf1e993ba}{}\label{classHumDrum_1_1Structures_1_1DirectionOperations_a52ec773a9bf9ae47392afffaf1e993ba}
+
+
+Rotates the direction a certain way, based on the second parameter 
+
+\begin{DoxyReturn}{Returns}
+The rotated direction
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em beginning} & The beginning direction\\
+\hline
+{\em direction} & The way in which to turn it\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Direction.\+cs.
+
+\index{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}!Rotate\+Orbital@{Rotate\+Orbital}}
+\index{Rotate\+Orbital@{Rotate\+Orbital}!Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}}
+\subsubsection[{\texorpdfstring{Rotate\+Orbital(\+Orbital\+Direction orbit)}{RotateOrbital(OrbitalDirection orbit)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Orbital\+Direction} Hum\+Drum.\+Structures.\+Direction\+Operations.\+Rotate\+Orbital (
+\begin{DoxyParamCaption}
+\item[{{\bf Orbital\+Direction}}]{orbit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Structures_1_1DirectionOperations_a39107515f5aa57531524b20a611f3f42}{}\label{classHumDrum_1_1Structures_1_1DirectionOperations_a39107515f5aa57531524b20a611f3f42}
+
+
+Inverts this Orbital\+Direction 
+
+\begin{DoxyReturn}{Returns}
+Clockwise if given counterclockwise, Counterclockwise if given clockwise
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em orbit} & The original orbit\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file Direction.\+cs.
+
+\index{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}!Translate\+Cardinal@{Translate\+Cardinal}}
+\index{Translate\+Cardinal@{Translate\+Cardinal}!Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}}
+\subsubsection[{\texorpdfstring{Translate\+Cardinal(\+Cardinal cardinal)}{TranslateCardinal(Cardinal cardinal)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Direction} Hum\+Drum.\+Structures.\+Direction\+Operations.\+Translate\+Cardinal (
+\begin{DoxyParamCaption}
+\item[{{\bf Cardinal}}]{cardinal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Structures_1_1DirectionOperations_a6160deccca7c960b0d741b31ec6ad324}{}\label{classHumDrum_1_1Structures_1_1DirectionOperations_a6160deccca7c960b0d741b31ec6ad324}
+
+
+Translates the Cardinal into a Direction 
+
+\begin{DoxyReturn}{Returns}
+The Direction
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em cardinal} & The Cardinal\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file Direction.\+cs.
+
+\index{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}!Translate\+Direction@{Translate\+Direction}}
+\index{Translate\+Direction@{Translate\+Direction}!Hum\+Drum\+::\+Structures\+::\+Direction\+Operations@{Hum\+Drum\+::\+Structures\+::\+Direction\+Operations}}
+\subsubsection[{\texorpdfstring{Translate\+Direction(\+Direction direction)}{TranslateDirection(Direction direction)}}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Cardinal} Hum\+Drum.\+Structures.\+Direction\+Operations.\+Translate\+Direction (
+\begin{DoxyParamCaption}
+\item[{{\bf Direction}}]{direction}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classHumDrum_1_1Structures_1_1DirectionOperations_a1ee6e6a9d8ba26808470b7397c6dbb21}{}\label{classHumDrum_1_1Structures_1_1DirectionOperations_a1ee6e6a9d8ba26808470b7397c6dbb21}
+
+
+Translates the direction. 
+
+\begin{DoxyReturn}{Returns}
+The direction\textquotesingle{}s cardinal equivelant
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & The direction to translate\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file Direction.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hum\+Drum/\+Hum\+Drum/\+Structures/Direction.\+cs\end{DoxyCompactItemize}

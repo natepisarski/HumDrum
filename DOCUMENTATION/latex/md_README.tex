@@ -1,23 +1,68 @@
-Hey! You\textquotesingle{}ve found your way to the github repository for a general purpose C\# library called \hyperlink{namespaceHumDrum}{Hum\+Drum} (meaning\+: dull. Or, in some cases, a bunch of stuff put together, like this library).
+If you wanna see this library in action, take a quick peak at this source code. It won\textquotesingle{}t be too hard to read!
 
-It contains tons of functions for the general purpose tasks you find yourself doing while programming. Its key goals involve having no external (that is -\/ non .N\+E\+T) dependencies, making extensive use of implementing and supporting functions which work on generics (more on this later),
 
-\section*{Version}
+\begin{DoxyCode}
+1 \{C#\}
+2 /* Generic Collections manipulation */
+3 // Let's make a test list
+4 var oneToTen = HumDrum.Collections.Transformations.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+5 // HumDrum.Collections.Transformations.Genericize
+6 IEnumerable<int> list = oneToTen.Genericize ();
+7 // HumDrum.Collections.Transformations.DropLast
+8 var oneToNine = list.DropLast ();
+9 // HumDrum.Collections.Predicates.DoTo
+10 var number6 = list.DoTo (x => (x == 5), (x => (x + 1)));
+11 // HumDrum.Collections.Information.Get
+12 var number5 = list.Get (4);
+13 // HumDrum.Collections.Transformations.RemoveAt
+14 var twoToNine = list.RemoveAt (0);
+15 // HumDrum.Collections.Transformations.Subsequence
+16 var threeToSeven = list.Subsequence (2, 6);
+17 /* Convenience functions for system tasks */
+18 var systemScanner = new DirectorySearch ("/", System.IO.SearchOption.AllDirectories);
+19 var executableThings = systemScanner.Refine (x => x.Contains (".exe")).Refine (y => y.Contains
+       ("thing")).Files;
+20 /* Traits, implemented with reflection */
+21 // Outside of the class: interface exampleInterface \{ void someCode(int x); \}
+22 // HumDrum.Traits
+23 Interface exampleSupplement = new Interface (typeof(exampleInterface));
+24 // HumDrum.Traits
+25 Class implementor = new Class (typeof(Object));
+26 implementor.AddMethod(new Method(new Action<int>(x => \{\}).Method, "someCode"));
+27 // HumDrum.Traits
+28 Trait writable = new Trait (exampleSupplement, implementor);
+29 // HumDrum.Traits
+30 writable.IsSatisfied(); // True
+31 /* And anything else imaginable */
+32 // HumDrum.Collections.Markov
+33 var markovChain = new HumDrum.Collections.Markov.Markov<int> (Transformations.Make (1, 2, 3, 1), 2);
+34 // HumDrum.Structures
+35 Tree<int> tree = new Tree<int>(0);
+36 var alphabet = HumDrum.Constants.LOWERCASE\_EN\_US\_ALPHABET;
+37 // HumDrum.Structures
+38 var south = HumDrum.Structures.DirectionOperations.TranslateDirection (Direction.DOWN);
+39 /*
+40 * License : BSD 3-clause
+41 * Author: Nathaniel Pisarski
+42 * */
+\end{DoxyCode}
 
-At the time of this commit, the version is\+: {\bfseries 1.\+0.\+0}
-\begin{DoxyItemize}
-\item First number\+: Major version. Breaks compatibility in some way.
-\item Second number\+: Minor version. Adds some kind of feature.
-\item Third number\+: Revision version. Bug, documentation, or test related changes.
-\end{DoxyItemize}
+
+\hyperlink{namespaceHumDrum}{Hum\+Drum} in a hundred letters or less is this\+:
+
+Anything you could want in C\#. If the function isn\textquotesingle{}t domain-\/specific, it winds up in \hyperlink{namespaceHumDrum}{Hum\+Drum}.
+
+So, as a result, it has code from a whole bunch of different domains. Image processing, directory searching, statistical analysis, light AI stuff, collections manipulation, tree traversal, traits, whatever you want.
+
+To deal with the breadth of what winds up in \hyperlink{namespaceHumDrum}{Hum\+Drum}, it\textquotesingle{}s split up into a few branches.
 
 \section*{Branches}
 
-\hyperlink{namespaceHumDrum}{Hum\+Drum} is split up into 3 branches with any number of sub branches. Right now, these branches are\+: Operations, Structures, and Collections.
+\hyperlink{namespaceHumDrum}{Hum\+Drum} is split up into 4 branches with any number of sub branches. Right now, these branches are\+: Operations, Structures, Collections, and Traits.
 
 \subsubsection*{Operations}
 
-Operations relates to I\+O or otherwise \char`\"{}impure\char`\"{} functionality. T\+C\+P stuff. Directory searching. Bitmap statistics. Things like that go in here.
+Operations relates to IO or otherwise \char`\"{}impure\char`\"{} functionality. T\+CP stuff. Directory searching. Bitmap statistics. Things like that go in here.
 
 \subsubsection*{Structures}
 
@@ -25,16 +70,35 @@ Structures, as its name suggests, relates to generic data structures such as bin
 
 \subsubsection*{Collections}
 
-Collections is by far the largest branch of \hyperlink{namespaceHumDrum}{Hum\+Drum}. It relates to anything that involves functions on sets of data... That\textquotesingle{}s a really generic definition, so you may be able to guess that this handles a L\+O\+T of stuff. Data interchange formats, pure sequence analysis, logic reductions, state-\/based grouping, etc.
+Collections is by far the largest branch of \hyperlink{namespaceHumDrum}{Hum\+Drum}. It relates to anything that involves functions on sets of data... That\textquotesingle{}s a really generic definition, so you may be able to guess that this handles a L\+OT of stuff. Data interchange formats, pure sequence analysis, logic reductions, state-\/based grouping, etc.
+
+\subsubsection*{Traits}
+
+Traits is an experimental branch of \hyperlink{namespaceHumDrum}{Hum\+Drum} that, really, should not be relied on. It\textquotesingle{}s overdue for some hacking. Currently, it enables Trait-\/based programming by making its own definition for classes and interfaces, which is obviously pretty cumbersome. However, if your code R\+E\+A\+L\+LY needs Traits to operate, this branch gives you the ability to do that.
+
+\#\+Status \hyperlink{namespaceHumDrum}{Hum\+Drum} is under active development. As such, there are breakages. However, these breakages almost never effect code that is already unit tested (which is the vast majority of the library, including all of Collections).
+
+Almost every week, new functions get put into the library. This should (in theory) kick the minor version number up. These additions are obviously not breaking existing code.
+
+As for removals, well... Almost nothing gets removed. If I deem something to be pretty straight-\/up awful, it gets taken out. That almost never happens, as I said.
+
+Modifications to code happen. When these happen, it\textquotesingle{}s usually when I\textquotesingle{}m cleaning things up, so there should be unit tests to reflect the change, which make it a bit safer than just going in and toying with things blind.
+
+So, what I\textquotesingle{}m saying is -\/ yes. You won\textquotesingle{}t have any trouble relying on \hyperlink{namespaceHumDrum}{Hum\+Drum}. Although, I\textquotesingle{}m not vouching for its stability.
+
+\section*{Version}
+
+At the time of this commit, the version is\+: {\bfseries 1.\+2.\+1}
+\begin{DoxyItemize}
+\item First number\+: Major version. Breaks compatibility in some way.
+\item Second number\+: Minor version. Adds some kind of feature.
+\item Third number\+: Revision version. Bug, documentation, or test related changes.
+\end{DoxyItemize}
 
 \subsection*{Further Reading}
 
-The \hyperlink{MAP_8md_source}{M\+A\+P.\+md} file quickly explains the purpose of each file in this library.
-
-\section*{Methodology}
-
-Why does something end up here? Well, basically, I just program as I normally would. Then, anything that doesn\textquotesingle{}t pertain {\itshape directly} to the project I\textquotesingle{}m working on gets slapped into \hyperlink{namespaceHumDrum}{Hum\+Drum}. If you have something that you think would be a good fit in here, chances are it actually is a good fit -\/ send a pull request.
+The \hyperlink{MAP_8md_source}{M\+A\+P.\+md} file quickly explains the purpose of each file in this library. It tends to lag behind the actual directory structure, though.
 
 \section*{License}
 
-B\+S\+D 3-\/clause 
+B\+SD 3-\/clause 

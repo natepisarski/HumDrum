@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['selectrandom',['SelectRandom',['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html#a840ff3b5256b93f3a73b6332a237bc41',1,'HumDrum::Collections::Markov::Markov']]],
-  ['selectrandomsequence',['SelectRandomSequence',['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html#a20d111872b9aac86b8852c1825aea822',1,'HumDrum::Collections::Markov::Markov']]],
-  ['send',['Send',['../classHumDrum_1_1Operations_1_1Servitor.html#a2e2fe524ce089bcd5f0f481ff3315c40',1,'HumDrum::Operations::Servitor']]],
-  ['servitor',['Servitor',['../classHumDrum_1_1Operations_1_1Servitor.html#a3da58c881e82de9be18014a186e115f5',1,'HumDrum.Operations.Servitor.Servitor()'],['../classHumDrum_1_1Operations_1_1Servitor.html#ac77fd091ee638a61e42fa013c7a330ff',1,'HumDrum.Operations.Servitor.Servitor(IPAddress address, int port)'],['../classHumDrum_1_1Operations_1_1Servitor.html#aed529778829ebe0befe5da40f403470c',1,'HumDrum.Operations.Servitor.Servitor(IPAddress address, int port, BindingsTable&lt; string, string &gt; table)']]],
-  ['setup',['Setup',['../classHumDrumTests_1_1Collections_1_1Information.html#a18127bd4a65ef987c229c90d6281dd08',1,'HumDrumTests.Collections.Information.Setup()'],['../classHumDrumTests_1_1Collections_1_1Predicates.html#a80acbc3096ffc25d141eceb13442f22c',1,'HumDrumTests.Collections.Predicates.Setup()'],['../classHumDrumTests_1_1Traits_1_1Traits.html#aa635ce010edebd450a9e0373b5e070a0',1,'HumDrumTests.Traits.Traits.Setup()']]],
-  ['snip',['Snip',['../classHumDrum_1_1Structures_1_1Tree.html#acc540c9328762ee60972eb201bac1345',1,'HumDrum::Structures::Tree']]],
-  ['start',['Start',['../classHumDrum_1_1Operations_1_1Servitor.html#a6b5653f2dc424b576a6cfdf9bfe3f021',1,'HumDrum::Operations::Servitor']]]
+  ['randomfile',['RandomFile',['../classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch.html#ab7cab2ae15d22f5c61969961e3c0e433',1,'HumDrum::Operations::Files::DirectorySearch']]],
+  ['randomstate',['RandomState',['../classHumDrum_1_1Collections_1_1Markov_1_1Markov.html#a4a6b25a6f0aba3a22c8b6e183edbbd0f',1,'HumDrum::Collections::Markov::Markov']]],
+  ['refine',['Refine',['../classHumDrum_1_1Operations_1_1Files_1_1DirectorySearch.html#a053a117d9a66d3d9098c92dd9f50645a',1,'HumDrum::Operations::Files::DirectorySearch']]],
+  ['reset',['Reset',['../classHumDrum_1_1Collections_1_1Groups_1_1StateObject.html#aecd06a8d2511a91f5b1422c8fe3836b2',1,'HumDrum.Collections.Groups.StateObject.Reset()'],['../classHumDrum_1_1Collections_1_1StateModifiers_1_1IntegerCounter.html#a8723ab8842f09ee98d9e13b7714d14a7',1,'HumDrum.Collections.StateModifiers.IntegerCounter.Reset()']]],
+  ['rotatecardinal',['RotateCardinal',['../classHumDrum_1_1Structures_1_1DirectionOperations.html#af9d00d5c3f5b3304ae181c61a47f11d5',1,'HumDrum::Structures::DirectionOperations']]],
+  ['rotatedirection',['RotateDirection',['../classHumDrum_1_1Structures_1_1DirectionOperations.html#a52ec773a9bf9ae47392afffaf1e993ba',1,'HumDrum::Structures::DirectionOperations']]],
+  ['rotateorbital',['RotateOrbital',['../classHumDrum_1_1Structures_1_1DirectionOperations.html#a39107515f5aa57531524b20a611f3f42',1,'HumDrum::Structures::DirectionOperations']]]
 ];

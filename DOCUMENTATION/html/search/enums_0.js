@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['direction',['Direction',['../namespaceHumDrum_1_1Structures.html#a83ca1f04475980cb7e79d471cc746dd3',1,'HumDrum::Structures']]]
+  ['cardinal',['Cardinal',['../namespaceHumDrum_1_1Structures.html#ac777de8ca588ec37dd8793047a84192a',1,'HumDrum::Structures']]]
 ];
