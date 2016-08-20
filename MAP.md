@@ -64,12 +64,6 @@ Logger writes information to an OutputStream. Logger is commonly used on FileOut
 ### Servitor
 Servitor is a server program that listens on a given port and buffers input. Then, the client can read information from this buffer. This wraps the shockingly low-level .NET network library.
 
-## Recursion
-Recursion is a suite of libraries that assist or make heavy use of recursive functions.
-
-### TailHelper
-TailHelper contains functions that assist in tail-recursion, especially in translating data.
-
 ## Structures
 Structures is the wing of HumDrum that defines data structures.
 
@@ -82,3 +76,23 @@ A very simple enum for Up, Down, Left, Right.
 ### Tree
 A simple implementation of a binary tree.
 
+## Traits
+Traits contains functions and classes relating to implementing trait-based programming in C#. It allows you to use the custom definition of what a Class is so that classes which already satisfy some interface automatically qualify, and you can dynamically add methods to.
+
+### Class
+Class is a custom definition of the `class` keyword in C#. It will scan the methods that a given class already has, adding them to its "method bank". However, this also allows you to add named delegates, which will be used when scanning custom interfaces to see if a need is met.
+
+### Exception.cs
+Exceptions contains the exceptions that can possibly be thrown when working with traits. Many of these are empty, as there is no true workaround to the problems that may arise, and should only be caught for informational purposes.
+
+### Implementor.cs
+Implementor simply keeps track of what interfaces, both native and custom, a certain Class object implements.
+
+### Interface
+Interface is a custom version of a native `interface`. It, like the custom class, lets you dynamically add methods that you would like to be satiated for the Interface to be met.
+
+### Method
+Method is a custom definition of a Method. The closest native C# idiom to method would be a `delegate`, although, Methods are meant to be named. Classes contain Method objects, which represent the methods that a class has, and custom-named delegates.
+
+### Trait
+Trait is the star of the Traits namespace. It allows you to set up a binding between a class and an interface, and ensure that all of the interface's method requirements are met. If you're going to be using Trait based programming, you'll be accepting Trait objects, and instantiating them before you send them to your method.
