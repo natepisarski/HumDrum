@@ -129,6 +129,19 @@ namespace HumDrum.Operations.Files
 		{
 			return Files.Get (new Random ().Next (Files.Length () - 1));
 		}
+
+		/// <summary>
+		/// Determines whether or not the filename is a directory
+		/// </summary>
+		/// <returns><c>true</c> if is directory the specified filename; otherwise, <c>false</c>.</returns>
+		/// <param name="filename">The path to the file</param>
+		public static bool IsDirectory(string filename)
+		{
+			if (!File.Exists (filename))
+				return false;
+			
+			return File.GetAttributes (filename).HasFlag (FileAttributes.Directory);
+		}
 	}
 }
 

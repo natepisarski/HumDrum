@@ -80,6 +80,17 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Returns the list with the last element removed
+		/// </summary>
+		/// <returns>The list, with no last element</returns>
+		/// <param name="list">The list to parse</param>
+		/// <typeparam name="T">The type of information in this list</typeparam>
+		public static IEnumerable<T> DropLast<T>(this IEnumerable<T> list)
+		{
+			return Transformations.RemoveAt (list, list.Length () - 1);
+		}
+
+		/// <summary>
 		/// Remove an element at a specified index. This is meant to replace System.Generic.List.RemoveAt
 		/// since this library works primarily with extending IEnumerable
 		/// </summary>
