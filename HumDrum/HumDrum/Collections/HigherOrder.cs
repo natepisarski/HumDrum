@@ -94,32 +94,6 @@ namespace HumDrum.Collections
 			yield break;
 		}
 
-		/// <summary>
-		/// Collects the elements of the list after an element causes the predicate to be true.
-		/// This includes the element which causes it.
-		/// </summary>
-		/// <returns>The trigger, and everything after it/returns>
-		/// <param name="list">The list to filter</param>
-		/// <param name="predicate">The predicate used for filtering</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static IEnumerable<T> AfterInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
-		{
-			bool collecting = false;
-
-			foreach (T item in list) {
-
-				// If it's true, start collecting on it
-				if (predicate (item)) {
-					yield return item;
-					collecting = true;
-					continue;
-
-				} else if (collecting)
-					yield return item;
-			}
-
-			yield break;
-		}
 
 		/// <summary>
 		/// Collects the elements of a list until the predicate is false.
@@ -131,18 +105,6 @@ namespace HumDrum.Collections
 		{
 			var temp = HigherOrder.WhileInclusive (list, predicate);
 			return temp.RemoveAt (temp.Length() - 1);
-		}
-
-		/// <summary>
-		/// Once a predicate is true, return everything after it.
-		/// </summary>
-		/// <param name="list">The list to test</param>
-		/// <param name="predicate">The predicate used for testing</param>
-		/// <typeparam name="T">A generic type parameter</typeparam>
-		public static IEnumerable<T> After<T>(this IEnumerable<T> list, Predicate<T> predicate)
-		{
-			var temp = HigherOrder.AfterInclusive (list, predicate);
-			return temp.RemoveAt (0);
 		}
 
 		/// <summary>
@@ -179,6 +141,93 @@ namespace HumDrum.Collections
 		{
 			return Transformations.Concatenate (Transformations.Wrap(starting),
 				GenerateReplace (starting, steps - 1, function));
+		}
+
+		/// <summary>
+		/// Finds the position in the list where the predicate holds true, starting at index 0.
+		/// </summary>
+		/// <param name="predicate">The predicate to scan the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<int> Positions<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			int counter = 0;
+
+			foreach (T item in list) {
+				if (predicate (item))
+					yield return counter;
+				counter++;
+			}
+
+			yield break;
+		}
+
+		/// <summary>
+		/// Returns everything after the predicate yields true for the first time,
+		/// including the item that made the predicate true.
+		/// </summary>
+		/// <returns>The list, after, but including the item that made the predicate true</returns>
+		/// <param name="list">The list test</param>
+		/// <param name="predicate">The predicate to test the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> AfterInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			bool collecting = false;
+
+			foreach (T item in list) {
+				if (predicate (item)) 
+					collecting = true;
+
+				if (collecting)
+					yield return item;
+			}
+
+			yield break;
+		}
+
+		/// <summary>
+		/// Returns everything before the predicate is true for the first time, including it
+		/// </summary>
+		/// <returns>The list before the predite is true, including what makes the predicate true</returns>
+		/// <param name="list">The list to test</param>
+		/// <param name="predicate">The predicate to test the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> BeforeInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			bool collecting = true;
+
+			foreach (T item in list) {
+				if (collecting)
+					yield return item;
+
+				if (predicate (item)) {
+					yield return item;
+					break;
+				}
+			}
+
+			yield break;
+		}
+
+		/// <summary>
+		/// Return everything after a predicate yields true, not including the item that does it
+		/// </summary>
+		/// <param name="list">The list to test</param>
+		/// <param name="predicate">The predicate to test the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> After<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			return AfterInclusive (list, predicate).Tail ();
+		}
+
+		/// <summary>
+		/// Return everything before the predicate yields true in the list
+		/// </summary>
+		/// <param name="list">The list to test</param>
+		/// <param name="predicate">Thepredicate to test the list with</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> Before<T>(this IEnumerable<T> list, Predicate<T> predicate)
+		{
+			return BeforeInclusive (list, predicate).Tail ();
 		}
 	}
 }
