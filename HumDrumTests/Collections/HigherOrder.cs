@@ -5,6 +5,7 @@ using NUnit.Framework;
 
 using HO = HumDrum.Collections.HigherOrder;
 using TR = HumDrum.Collections.Transformations;
+using PR = HumDrum.Collections.Predicates;
 
 namespace HumDrumTests.Collections
 {
@@ -169,6 +170,40 @@ namespace HumDrumTests.Collections
 				TR.Make (0, 1, 2, 3, 4, 5),
 				HO.Generate (0, 5, (x => x + 1)));
 		}
+
+		/// <summary>
+		/// Tests both the before and beforeInclusive
+		/// </summary>
+		[Test]
+		public void TestBefore()
+		{
+			var testList = TR.Make (0, 1, 2, 3, 4, 5);
+
+			var expectedBefore = HO.Before (testList, (PR.GenerateEqualityPredicate (3)));
+			// Before
+			Assert.AreEqual (
+				expectedBefore,
+				TR.Make (0, 1, 2));
+
+			// BeforeInclusive
+			Assert.AreEqual (
+				TR.Make (0, 1, 2, 3), 
+				HO.BeforeInclusive (testList, PR.GenerateEqualityPredicate (3)));
+		}
+
+		/// <summary>
+		/// Tests the after and afterInclusive functions
+		/// </summary>
+		[Test]
+		public void TestAfterHigherOrder()
+		{
+			var testList = TR.Make (0, 1, 2, 3, 4, 5);
+
+			// After
+			Assert.AreEqual(TR.Make(2, 3, 4, 5), HO.After(testList, PR.GenerateEqualityPredicate(1)));
+
+			// AfterInclusive
+			Assert.AreEqual(TR.Make(1, 2, 3, 4, 5), HO.AfterInclusive(testList, PR.GenerateEqualityPredicate(1)));
+		}
 	}
 }
-

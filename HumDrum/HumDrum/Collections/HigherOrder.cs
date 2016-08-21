@@ -193,16 +193,12 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static IEnumerable<T> BeforeInclusive<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
-			bool collecting = true;
 
 			foreach (T item in list) {
-				if (collecting)
-					yield return item;
+				yield return item;
 
-				if (predicate (item)) {
-					yield return item;
+				if (predicate (item)) 
 					break;
-				}
 			}
 
 			yield break;
@@ -227,7 +223,8 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static IEnumerable<T> Before<T>(this IEnumerable<T> list, Predicate<T> predicate)
 		{
-			return BeforeInclusive (list, predicate).Tail ();
+			var withItem = BeforeInclusive (list, predicate);
+			return withItem.DropLast ();
 		}
 	}
 }

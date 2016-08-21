@@ -1,16 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../HumDrum/HumDrum/Collections/Transformations.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../HumDrum/HumDrum/Collections/HigherOrder.cs">
     <Files>
-      <File FileName="Traits/Traits.cs" Line="28" Column="4" />
-      <File FileName="Collections/HigherOrder.cs" Line="9" Column="1" />
+      <File FileName="Traits/Traits.cs" Line="1" Column="1" />
+      <File FileName="Collections/HigherOrder.cs" Line="180" Column="20" />
       <File FileName="Collections/Information.cs" Line="243" Column="79" />
-      <File FileName="Operations/Servitor.cs" Line="16" Column="15" />
+      <File FileName="Operations/Servitor.cs" Line="1" Column="1" />
       <File FileName="Collections/Predicates.cs" Line="108" Column="21" />
-      <File FileName="Collections/Sections.cs" Line="103" Column="1" />
-      <File FileName="../HumDrum/HumDrum/Collections/Sections.cs" Line="413" Column="4" />
+      <File FileName="Collections/Sections.cs" Line="1" Column="1" />
+      <File FileName="../HumDrum/HumDrum/Collections/Sections.cs" Line="1" Column="1" />
       <File FileName="../HumDrum/HumDrum/Collections/Transformations.cs" Line="88" Column="49" />
-      <File FileName="Collections/Transformations.cs" Line="105" Column="25" />
+      <File FileName="Collections/Transformations.cs" Line="1" Column="1" />
+      <File FileName="../HumDrum/HumDrum/Collections/Information.cs" Line="203" Column="32" />
+      <File FileName="../HumDrum/HumDrum/Collections/Predicates.cs" Line="33" Column="4" />
+      <File FileName="../HumDrum/HumDrum/Collections/HigherOrder.cs" Line="225" Column="4" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">
@@ -27,7 +30,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/nate/Code/HumDrum/HumDrumTests/Collections/HigherOrder.cs" line="184" column="15" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

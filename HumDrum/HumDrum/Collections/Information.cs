@@ -200,16 +200,7 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The type parameter</typeparam>
 		public static IEnumerable<int> Positions<T>(this IEnumerable<T> list, T item)
 		{
-			int counter = 0;
-
-			foreach(T it in list)
-			{
-				if(item.Equals(it))
-					yield return counter;
-				counter++;
-			}
-
-			yield break;
+			return HigherOrder.Positions (list, Predicates.GenerateEqualityPredicate<T> (item));
 		}
 
 		/// <summary>
