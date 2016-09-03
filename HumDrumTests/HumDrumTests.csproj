@@ -49,6 +49,7 @@
     <Compile Include="Structures\Direction.cs" />
     <Compile Include="Structures\Tree.cs" />
     <Compile Include="Operations\Servitor.cs" />
+    <Compile Include="Operations\Database\DatabaseTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -60,6 +61,7 @@
     <Folder Include="Traits\" />
     <Folder Include="Structures\" />
     <Folder Include="Operations\" />
+    <Folder Include="Operations\Database\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HumDrum\HumDrum.csproj">
