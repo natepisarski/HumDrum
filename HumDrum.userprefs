@@ -1,15 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests/Collections/Transformations.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests\Collections\Predicates.cs">
     <Files>
-      <File FileName="HumDrumTests/Collections/Predicates.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Collections/Predicates.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/Column.cs" Line="71" Column="94" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/TableBuilder.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Operations/Files/DirectorySearch.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/Table.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Collections/Transformations.cs" Line="232" Column="4" />
-      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="233" Column="10" />
+      <File FileName="HumDrum\HumDrum\Collections\Predicates.cs" Line="114" Column="3" />
+      <File FileName="HumDrumTests\Collections\Predicates.cs" Line="136" Column="7" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">

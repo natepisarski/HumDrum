@@ -127,6 +127,20 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests the reduce function
+		/// </summary>
+		[Test]
+		public void TestReduce()
+		{
+			Assert.AreEqual (
+				15, 
+				PR.Reduce (
+					TR.Make (1, 2, 3, 4, 5),
+					(x, y) => (x + y),
+					0));
+		}
+
+		/// <summary>
 		/// This tests the two predicate constants,
 		/// Tautology and Contradiction
 		/// </summary>

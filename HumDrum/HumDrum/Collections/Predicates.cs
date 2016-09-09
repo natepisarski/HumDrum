@@ -113,6 +113,22 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Reduces a function over the list. Will use the first item of the list an an
+		/// initial value for the first value.
+		/// </summary>
+		/// <param name="list">The list to reduce</param>
+		/// <param name="function">The function</param>
+		/// <param name="initialState">The initial state of the reduction</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static T Reduce<T>(this IEnumerable<T> list, Func<T, T, T> function, T initialState)
+		{
+			if (list.Length ().Equals (0))
+				return initialState;
+			else
+				return Reduce<T> (list.Tail (), function, function (initialState, list.Head ()));
+		}
+
+		/// <summary>
 		/// Creates a predicate that checks to see if something is equal to
 		/// any of the items in the list
 		/// </summary>
