@@ -1,17 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests\Collections\Predicates.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Traits/Class.cs">
     <Files>
-      <File FileName="HumDrum\HumDrum\Collections\Predicates.cs" Line="114" Column="3" />
-      <File FileName="HumDrumTests\Collections\Predicates.cs" Line="136" Column="7" />
+      <File FileName="HumDrum/HumDrum/Traits/Class.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="HumDrum" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

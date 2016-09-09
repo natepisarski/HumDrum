@@ -43,6 +43,18 @@ Operations is the wing of the HumDrum library pertaining to IO, or some very par
 ### Files
 Files is a subsection of Operations that relates to operations of files / directories.
 
+### Database
+ Database contains classes and features used for dealing with a database as native objects.
+
+#### Column 
+Column is the class that makes up a table. It can contain data of one particular type.
+
+#### Table 
+A table manages a list of columns, which all have a given type. A table can grow and shrink columns on an as-needed basis.
+
+#### TableBuilder
+TableBuilder gives a syntax for building Tables and Columns in C# directly. No need for finicky SQL calls! It uses method cascading to provide a more readable table building format.
+
 #### DirectorySearch
 DirectorySearch is a library for searching directories recursively for files meeting some type of criteria. Using method cascading, heavy refining of included files is made very easy with DirectorySearch.
 
