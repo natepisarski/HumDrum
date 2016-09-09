@@ -1,4 +1,5 @@
 ﻿using System;
+using HumDrum.Collections;
 
 namespace HumDrum.Operations.Database
 {
@@ -65,7 +66,7 @@ namespace HumDrum.Operations.Database
 		/// <param name="data">The data to add to the column</param>
 		public ColumnBuilder<T> AddData(T data)
 		{
-			InnerColumn.Insert (data, 0);
+			InnerColumn.Insert (data, InnerColumn.Data.Length());
 			return new ColumnBuilder<T> (InnerColumn);
 		}
 

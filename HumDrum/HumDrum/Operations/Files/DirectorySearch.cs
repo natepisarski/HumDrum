@@ -122,16 +122,6 @@ namespace HumDrum.Operations.Files
 		}
 
 		/// <summary>
-		/// Checks to see whether or not the filename is a directory or not
-		/// </summary>
-		/// <returns><c>true</c> if is directory the specified filename; otherwise, <c>false</c>.</returns>
-		/// <param name="filename">The file name</param>
-		public static bool IsDirectory(string filename)
-		{
-			return File.GetAttributes (filename).HasFlag (FileAttributes.Directory);
-		}
-
-		/// <summary>
 		/// Gets a random file from the files that this DirectorySearch controls
 		/// </summary>
 		/// <returns>The filename</returns>

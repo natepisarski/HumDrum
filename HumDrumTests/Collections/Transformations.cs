@@ -237,6 +237,24 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests the zip function
+		/// </summary>
+		[Test]
+		public void TestZip()
+		{
+			// 0 1 2
+			// 1 2 3
+			// Tupples will go vertically
+
+			Assert.AreEqual (
+				TR.Make (
+					new Tuple<int, int> (0, 1),
+					new Tuple<int, int> (1, 2),
+					new Tuple<int, int> (2, 3)),
+				TR.Zip (TR.Make (0, 1, 2), TR.Make (1, 2, 3)));
+		}
+
+		/// <summary>
 		/// Tests Wrap
 		/// </summary>
 		[Test]

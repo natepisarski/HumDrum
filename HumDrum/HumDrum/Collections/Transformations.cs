@@ -218,6 +218,22 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
+		/// Zip the two lists together into a list of tuples. This will form points from the
+		/// equivalent indices from the two lists
+		/// </summary>
+		/// <param name="firstList">The first list</param>
+		/// <param name="secondList">The second list</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		/// <typeparam name="W">The 2nd type parameter.</typeparam>
+		public static IEnumerable<Tuple<T, W>> Zip<T, W>(IEnumerable<T> firstList, IEnumerable<W> secondList)
+		{
+			for (int i = 0; i < firstList.Length () && i < secondList.Length (); i++)
+				yield return new Tuple<T, W> (firstList.Get (i), secondList.Get (i));
+			
+			yield break;
+		}
+
+		/// <summary>
 		/// Wraps the specified item in some type of class
 		/// </summary>
 		/// <param name="item">The name of the item to wrap</param>

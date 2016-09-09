@@ -67,6 +67,21 @@ namespace HumDrum.Operations.Database
 		}
 
 		/// <summary>
+		/// Returns the given row from the table. This will return
+		/// a list where each item is a tuple of an object, and the type that
+		/// the object is, so that it can be cast.
+		/// </summary>
+		/// <returns>The row at the given index</returns>
+		/// <param name="index">The index, starting with 0, of the row you would like to return</param>
+		public IEnumerable<Tuple<Object, Type>> GetRow(int index)
+		{
+			// TODO: Change to Row type
+			foreach (Column c in Columns)
+				yield return new Tuple<Object, Type> (c.ItemAt<Object> (index), c.ColumnType);
+			yield break;
+		}
+			
+		/// <summary>
 		/// Inserts a column at the given place in the table
 		/// </summary>
 		/// <param name="c">The column to add to the table</param>
@@ -88,6 +103,7 @@ namespace HumDrum.Operations.Database
 					return c;
 			throw new Exception ("Column with the given name {" + columnTitle + "}was not found in the database");
 		}
+			
 	}
 }
 

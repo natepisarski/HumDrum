@@ -68,7 +68,7 @@ namespace HumDrum.Operations.Database
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public bool TypeCheck<T>()
 		{
-			return (typeof(T).IsEquivalentTo (ColumnType));
+			return (typeof(T).IsEquivalentTo (ColumnType) || typeof(T).IsEquivalentTo(typeof(Object)));
 		}
 
 		/// <summary>
