@@ -5,19 +5,19 @@ If you wanna see this library in action, take a quick look at these examples. Pr
 
 ````C#
 // Let's make a test list
-var oneToTen = HumDrum.Collections.Transformations.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+var oneToTen = HumDrum.Collections.Transformations.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);  
 // HumDrum.Collections.Transformations.Genericize
-IEnumerable<int> list = oneToTen.Genericize ();
+IEnumerable<int> list = oneToTen.Genericize ();  
 // HumDrum.Collections.Transformations.DropLast
-var oneToNine = list.DropLast ();
+var oneToNine = list.DropLast ();  
 // HumDrum.Collections.Predicates.DoTo
-var number6 = list.DoTo (x => (x == 5), (x => (x + 1)));
+var number6 = list.DoTo (x => (x == 5), (x => (x + 1)));  
 // HumDrum.Collections.Information.Get
-var number5 = list.Get (4);
+var number5 = list.Get (4);  
 // HumDrum.Collections.Transformations.RemoveAt
-var twoToNine = list.RemoveAt (0);
+var twoToNine = list.RemoveAt (0);  
 // HumDrum.Collections.Transformations.Subsequence
-var threeToSeven = list.Subsequence (2, 6);
+var threeToSeven = list.Subsequence (2, 6);  
 ````
 
 # Convenience functions for system tasks
@@ -31,12 +31,12 @@ var executableThings = systemScanner.Refine (x => x.Contains (".exe")).Refine (y
 ````C#
 // Outside of the class: interface exampleInterface { void someCode(int x); }
 // HumDrum.Traits
-Interface exampleSupplement = new Interface (typeof(exampleInterface));
+Interface exampleSupplement = new Interface (typeof(exampleInterface));  
 // HumDrum.Traits
 Class implementor = new Class (typeof(Object));
-implementor.AddMethod(new Method(new Action<int>(x => {}).Method, "someCode"));
+implementor.AddMethod(new Method(new Action<int>(x => {}).Method, "someCode"));  
 // HumDrum.Traits
-Trait writable = new Trait (exampleSupplement, implementor);
+Trait writable = new Trait (exampleSupplement, implementor);  
 // HumDrum.Traits
 writable.IsSatisfied(); // True
 ````
@@ -65,10 +65,10 @@ writable.IsSatisfied(); // True
 # And just about anything else 
 ````C#
 // HumDrum.Collections.Markov
-var markovChain = new HumDrum.Collections.Markov.Markov<int> (Transformations.Make (1, 2, 3, 1), 2);
+var markovChain = new HumDrum.Collections.Markov.Markov<int> (Transformations.Make (1, 2, 3, 1), 2);  
 // HumDrum.Structures
 Tree<int> tree = new Tree<int>(0);
-var alphabet = HumDrum.Constants.LOWERCASE_EN_US_ALPHABET;
+var alphabet = HumDrum.Constants.LOWERCASE_EN_US_ALPHABET;  
 // HumDrum.Structures
 var south = HumDrum.Structures.DirectionOperations.TranslateDirection (Direction.DOWN);
 /*
