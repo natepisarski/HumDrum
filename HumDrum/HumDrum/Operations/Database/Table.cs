@@ -103,7 +103,68 @@ namespace HumDrum.Operations.Database
 					return c;
 			throw new Exception ("Column with the given name {" + columnTitle + "}was not found in the database");
 		}
-			
+
+		/// <summary>
+		/// Removes the column from the database
+		/// </summary>
+		/// <param name="columnPred">The criteria to base the column on</param>
+		public void RemoveColumn(Predicate<Column> columnPred)
+		{
+			var newColumns = new List<Column> ();
+
+			foreach (Column c in Columns) 
+				if (!columnPred (c))
+					newColumns.Add (c);
+
+			Columns = newColumns;
+		}
+
+		/// <summary>
+		/// Selects a list of columns from this table
+		/// </summary>
+		/// <returns>The columns which match the criteria</returns>
+		/// <param name="columnPred">The predicate that filters the columns</param>
+		public IEnumerable<Column> SelectColumn(Predicate<Column> columnPred)
+		{
+			foreach (Column c in Columns)
+				if (columnPred (c))
+					yield return c;
+			yield break;
+		}
+
+		/// <summary>
+		/// Inserts an item into the database
+		/// </summary>
+		/// <param name="columnName">The column name in the table</param>
+		/// <param name="item">The item to insert into the column</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public void InsertInto<T>(string columnName, T item)
+		{
+			GetColumn (columnName).Insert<T> (item);
+		}
+
+		/// <summary>
+		/// Inserts the item into all columns that match the critera
+		/// </summary>
+		/// <param name="criteria">The criteria by which the columns are selected</param>
+		/// <param name="item">The item to insert into the columns</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public void InsertInto<T>(Predicate<Column> criteria, T item)
+		{
+			var columns = SelectColumn (criteria);
+
+			foreach (Column column in columns)
+				column.Insert<T> (item);
+		}
+
+		/// <summary>
+		/// Simply inserts a column into the database
+		/// </summary>
+		/// <param name="c">The column to insert into the column</param>
+		public void InsertInto(Column c)
+		{
+			Columns.Add (c);
+		}
 	}
 }
 

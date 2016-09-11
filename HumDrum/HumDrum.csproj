@@ -63,6 +63,7 @@
     <Compile Include="HumDrum\Operations\Database\Column.cs" />
     <Compile Include="HumDrum\Operations\Database\Table.cs" />
     <Compile Include="HumDrum\Operations\Database\TableBuilder.cs" />
+    <Compile Include="HumDrum\Operations\Database\IDatabaseDriver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

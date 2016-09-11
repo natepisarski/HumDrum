@@ -99,6 +99,16 @@ namespace HumDrum.Operations.Database
 		}
 
 		/// <summary>
+		/// Inserts an item into the table at the end
+		/// </summary>
+		/// <param name="item">The item to insert into the column</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public void Insert<T>(T item)
+		{
+			Insert<T> (item, Data.Length() - 1);
+		}
+
+		/// <summary>
 		/// Replaces the speicified index with the item
 		/// </summary>
 		/// <param name="item">The item to replace the index with</param>

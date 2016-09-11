@@ -1,8 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Traits/Class.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Operations/Database/IDatabaseDriver.cs">
     <Files>
       <File FileName="HumDrum/HumDrum/Traits/Class.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Operations/Database/Table.cs" Line="135" Column="3" />
+      <File FileName="HumDrum/HumDrum/Operations/Database/IDatabaseDriver.cs" Line="24" Column="1" />
+      <File FileName="HumDrum/HumDrum/Operations/Database/Column.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
