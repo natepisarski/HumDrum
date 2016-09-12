@@ -103,6 +103,12 @@ HumDrum is split up into 4 branches with any number of sub branches. Right now, 
 ### Operations
 Operations relates to IO or otherwise "impure" functionality. TCP stuff. Directory searching. Bitmap statistics. Things like that go in here.
 
+#### Files
+Operations for dealing with files and the directory structure.
+
+#### Database
+Operations for working with database objects and interfacing with foreign databases, like SQL.
+
 ### Structures
 Structures, as its name suggests, relates to generic data structures such as binary trees and binding tables. These also contain the files which rely on such structures, but as of right now no such files exist.
 

@@ -52,6 +52,9 @@ Column is the class that makes up a table. It can contain data of one particular
 #### Table 
 A table manages a list of columns, which all have a given type. A table can grow and shrink columns on an as-needed basis.
 
+#### IDatabaseDriver
+The DatabaseDriver interface contains a blueprint for basic operations on a database
+
 #### TableBuilder
 TableBuilder gives a syntax for building Tables and Columns in C# directly. No need for finicky SQL calls! It uses method cascading to provide a more readable table building format.
 
