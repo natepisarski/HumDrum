@@ -1,4 +1,0 @@
-Quick TODO
-Finish Sections Unit Test
-Make Positions, Position, RelativeMembers, (RelativeMember this one in both) in HigherOrder
-Fix the Tree class up and mark it not obsolete
