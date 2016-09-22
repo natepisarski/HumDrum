@@ -18,6 +18,10 @@ namespace HumDrum.Operations.Database
 		void InsertInto<T>(Predicate<Column> criteria, T item);
 
 		void InsertInto (Column c);
+
+		void IntoFile (string filename);
+
+		Database FromFile(string filename);
 	}
 }
 

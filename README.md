@@ -131,7 +131,7 @@ So, what I'm saying is - yes. You won't have any trouble relying on HumDrum. Alt
 
 # Version
 At the time of this commit, the version is:
-**1.3.1**
+**1.4.1**
 * First number: Major version. Breaks compatibility in some way.
 * Second number: Minor version. Adds some kind of feature.
 * Third number: Revision version. Bug, documentation, or test related changes.

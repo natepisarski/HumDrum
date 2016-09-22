@@ -40,14 +40,26 @@ Transformations is another general collections library. The "other half" of Info
 ## Operations
 Operations is the wing of the HumDrum library pertaining to IO, or some very particular task.
 
-### Files
-Files is a subsection of Operations that relates to operations of files / directories.
-
 ### Database
  Database contains classes and features used for dealing with a database as native objects.
 
 #### Column 
 Column is the class that makes up a table. It can contain data of one particular type.
+
+#### DatabaseOperations
+DatabaseOperations contains functions that operate over a database. These include all of the joins and products that can be made from combining multiple tables together.
+
+#### Row
+Row represents a row from one or more tables inside of a database. Each row item inside of a row contains a reference to its parent Column, which it is closely tied to.
+
+#### RowItem
+RowItems are individual members of a row. This is a convenience class for wrapping a type with the actual object of the row, as well as a reference to its parent column.
+
+#### Schema
+The schema contains type and naming information. This controls the identifier for columns of a table, as well as the type of information that it is allwoed to hold.
+
+#### SchemaAtom
+A SchemaAtom is a particular instance used within a Schema. This binds one name to a type.
 
 #### Table 
 A table manages a list of columns, which all have a given type. A table can grow and shrink columns on an as-needed basis.
@@ -57,6 +69,8 @@ The DatabaseDriver interface contains a blueprint for basic operations on a data
 
 #### TableBuilder
 TableBuilder gives a syntax for building Tables and Columns in C# directly. No need for finicky SQL calls! It uses method cascading to provide a more readable table building format.
+
+### Files
 
 #### DirectorySearch
 DirectorySearch is a library for searching directories recursively for files meeting some type of criteria. Using method cascading, heavy refining of included files is made very easy with DirectorySearch.

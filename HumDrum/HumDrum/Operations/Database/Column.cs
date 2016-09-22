@@ -78,7 +78,8 @@ namespace HumDrum.Operations.Database
 		/// <param name="position">The index, beginning with 0, of</param>
 		public T ItemAt<T>(int position)
 		{
-			if (typeof(T).IsEquivalentTo (ColumnType))
+			// If you're casting an object from a column it should always work, since the cast cannot fail
+			if (typeof(T).IsEquivalentTo (ColumnType) || typeof(T) == typeof(Object))
 				return (T)Data.Get (position);
 			else
 				throw new Exception ("The type provided does not match this column's type.");
@@ -105,7 +106,9 @@ namespace HumDrum.Operations.Database
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public void Insert<T>(T item)
 		{
-			Insert<T> (item, Data.Length() - 1);
+			// If this is an empty column, you don't want to try to put it at -1, thus the ternary.
+			var insertionPoint = Data.Length () == 0 ? 0 : Data.Length () - 1;
+			Insert<T> (item, insertionPoint);
 		}
 
 		/// <summary>

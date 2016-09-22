@@ -23,6 +23,14 @@ namespace HumDrum.Operations.Database
 		/// <value>The title for this table</value>
 		public string Title {get; set;}
 
+		public IEnumerable<Row> Rows {
+			get {
+				for (int i = 0; i < Columns.Get (0).Data.Length (); i++) {
+					yield return new Row (this, i);
+				}
+				yield break;
+			}
+		}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Database.Table"/> class.
 		/// This will simply name the table
@@ -73,12 +81,9 @@ namespace HumDrum.Operations.Database
 		/// </summary>
 		/// <returns>The row at the given index</returns>
 		/// <param name="index">The index, starting with 0, of the row you would like to return</param>
-		public IEnumerable<Tuple<Object, Type>> GetRow(int index)
+		public Row GetRow(int index)
 		{
-			// TODO: Change to Row type
-			foreach (Column c in Columns)
-				yield return new Tuple<Object, Type> (c.ItemAt<Object> (index), c.ColumnType);
-			yield break;
+			return new Row (this, index);
 		}
 			
 		/// <summary>
@@ -164,6 +169,41 @@ namespace HumDrum.Operations.Database
 		public void InsertInto(Column c)
 		{
 			Columns.Add (c);
+		}
+
+		/// <summary>
+		/// Gets the schema from this table
+		/// </summary>
+		/// <returns>The schema</returns>
+		public Schema GetSchema() {
+			return new Schema (this);
+		}
+			
+		/// <summary>
+		/// This will append columns which fit the given schema onto this table
+		/// </summary>
+		/// <param name="schema">The schema to use for this table</param>
+		public void AppendSchema(Schema schema) {
+			foreach (SchemaAtom atom in schema.TableSchema) {
+				Columns.Add (
+					new Column (atom.ColumnName, atom.ColumnType));
+			}
+		}
+
+		/// <summary>
+		/// Appends the row to the given table, given that the Row's schema type is compatible with this table's schema type.
+		/// For appending a row, you do not need the Schema name to be the same.
+		/// </summary>
+		/// <param name="row">The row to append to the table</param>
+		public void AppendRow(Row row /*Fight da Powa */) {
+			// Type Check
+			for (int i = 0; i < row.RowSchema.TableSchema.Length (); i++)
+				if (!(Columns.Get (i).ColumnType.IsEquivalentTo (row.RowSchema.TableSchema.Get (i).ColumnType)))
+					return;
+
+			// Types check out, let's append the row now
+			for (int i = 0; i < row.Items.Length (); i++) 
+				Columns.Get (i).Insert<Object>(row.Items.Get (i));
 		}
 	}
 }

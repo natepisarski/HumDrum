@@ -64,6 +64,12 @@
     <Compile Include="HumDrum\Operations\Database\Table.cs" />
     <Compile Include="HumDrum\Operations\Database\TableBuilder.cs" />
     <Compile Include="HumDrum\Operations\Database\IDatabaseDriver.cs" />
+    <Compile Include="HumDrum\Operations\Database\Database.cs" />
+    <Compile Include="HumDrum\Operations\Database\DatabaseOperations.cs" />
+    <Compile Include="HumDrum\Operations\Database\RowItem.cs" />
+    <Compile Include="HumDrum\Operations\Database\Row.cs" />
+    <Compile Include="HumDrum\Operations\Database\SchemaAtom.cs" />
+    <Compile Include="HumDrum\Operations\Database\Schema.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
