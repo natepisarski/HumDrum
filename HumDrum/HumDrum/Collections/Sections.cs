@@ -429,6 +429,20 @@ namespace HumDrum.Collections
 
 			return Information.AsString(words.Subsequence(0, words.Length - with.Length));
 		}
+
+		/// <summary>
+		/// Takes a collection of strings and concatenates them into one
+		/// </summary>
+		/// <returns>The string</returns>
+		/// <param name="source">The strings</param>
+		public static string DisrepairString(IEnumerable<string> source) {
+			string localString = "";
+
+			foreach (string s in source)
+				localString += (s + " ");
+
+			return localString;
+		}
 	}
 }
 

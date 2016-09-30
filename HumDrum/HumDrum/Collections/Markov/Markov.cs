@@ -174,6 +174,15 @@ namespace HumDrum.Collections.Markov
 		}
 
 		/// <summary>
+		/// Starting with a random seed, select the given number of words.
+		/// </summary>
+		/// <returns>The random sequence</returns>
+		/// <param name="count">The number of words to collect</param>
+		public IEnumerable<T> SelectRandomSequence(int count) {
+			return SelectRandomSequence(States.Get(new Random().Next(States.Length())).State, count);
+		}
+
+		/// <summary>
 		/// Gets a random state from the list of available states
 		/// </summary>
 		/// <returns>The state</returns>
