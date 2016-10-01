@@ -50,7 +50,7 @@ Trait writable = new Trait (exampleSupplement, implementor);
 writable.IsSatisfied(); // True
 ````
 
-# Table manipulation using the code-as-data model
+# Database manipulation using the code-as-data model
 ````C#
 // Creates a table
 			Table t = TableBuilder.Start ()
@@ -131,7 +131,7 @@ So, what I'm saying is - yes. You won't have any trouble relying on HumDrum. Alt
 
 # Version
 At the time of this commit, the version is:
-**1.6.0**
+**1.7.1**
 * First number: Major version. Breaks compatibility in some way.
 * Second number: Minor version. Adds some kind of feature.
 * Third number: Revision version. Bug, documentation, or test related changes.

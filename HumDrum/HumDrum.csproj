@@ -60,16 +60,18 @@
     <Compile Include="HumDrum\Traits\Exceptions.cs" />
     <Compile Include="HumDrum\Traits\Method.cs" />
     <Compile Include="HumDrum\Collections\EqualityType.cs" />
-    <Compile Include="HumDrum\Operations\Database\Column.cs" />
-    <Compile Include="HumDrum\Operations\Database\Table.cs" />
-    <Compile Include="HumDrum\Operations\Database\TableBuilder.cs" />
     <Compile Include="HumDrum\Operations\Database\IDatabaseDriver.cs" />
-    <Compile Include="HumDrum\Operations\Database\Database.cs" />
     <Compile Include="HumDrum\Operations\Database\DatabaseOperations.cs" />
-    <Compile Include="HumDrum\Operations\Database\RowItem.cs" />
-    <Compile Include="HumDrum\Operations\Database\Row.cs" />
-    <Compile Include="HumDrum\Operations\Database\SchemaAtom.cs" />
-    <Compile Include="HumDrum\Operations\Database\Schema.cs" />
+    <Compile Include="HumDrum\Operations\Database\Structures\Column.cs" />
+    <Compile Include="HumDrum\Operations\Database\Structures\Database.cs" />
+    <Compile Include="HumDrum\Operations\Database\Structures\Schema.cs" />
+    <Compile Include="HumDrum\Operations\Database\Structures\Row.cs" />
+    <Compile Include="HumDrum\Operations\Database\Structures\RowItem.cs" />
+    <Compile Include="HumDrum\Operations\Database\Structures\SchemaAtom.cs" />
+    <Compile Include="HumDrum\Operations\Database\Structures\Table.cs" />
+    <Compile Include="HumDrum\Operations\Database\Builders\ColumnBuilder.cs" />
+    <Compile Include="HumDrum\Operations\Database\Builders\SchemaBuilder.cs" />
+    <Compile Include="HumDrum\Operations\Database\Builders\TableBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -77,5 +79,7 @@
     <Folder Include="HumDrum\Operations\Files\" />
     <Folder Include="HumDrum\Traits\" />
     <Folder Include="HumDrum\Operations\Database\" />
+    <Folder Include="HumDrum\Operations\Database\Structures\" />
+    <Folder Include="HumDrum\Operations\Database\Builders\" />
   </ItemGroup>
 </Project>
