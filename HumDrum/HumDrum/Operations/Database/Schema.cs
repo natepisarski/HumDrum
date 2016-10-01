@@ -31,6 +31,14 @@ namespace HumDrum.Operations.Database
 		}
 
 		/// <summary>
+		/// Initializes a blank Schema
+		/// </summary>
+		public Schema()
+		{
+			TableSchema = new List<SchemaAtom> ();
+		}
+
+		/// <summary>
 		/// Tests to see if this schema has an item with the given title and type
 		/// </summary>
 		/// <returns><c>true</c> if this instance has type title; otherwise, <c>false</c>.</returns>

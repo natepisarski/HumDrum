@@ -1,13 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Operations/Database/Table.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests/Operations/Database/DatabaseTest.cs">
     <Files>
-      <File FileName="HumDrumTests/Operations/Database/DatabaseTest.cs" Line="113" Column="19" />
+      <File FileName="HumDrumTests/Operations/Database/DatabaseTest.cs" Line="90" Column="31" />
       <File FileName="HumDrum/HumDrum/Operations/Database/DatabaseOperations.cs" Line="29" Column="1" />
       <File FileName="HumDrum/HumDrum/Operations/Database/Table.cs" Line="206" Column="1" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/Column.cs" Line="109" Column="91" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/Schema.cs" Line="97" Column="12" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/TableBuilder.cs" Line="71" Column="1" />
+      <File FileName="HumDrum/HumDrum/Operations/Database/Column.cs" Line="1" Column="1" />
+      <File FileName="HumDrum/HumDrum/Operations/Database/Schema.cs" Line="38" Column="42" />
+      <File FileName="HumDrum/HumDrum/Operations/Database/TableBuilder.cs" Line="219" Column="45" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">
@@ -20,7 +20,8 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\lab1\Downloads\HumDrum\HumDrum\HumDrum\Structures\Tree.cs" line="350" column="14" />
-      <Breakpoint file="/home/nate/Code/HumDrum/HumDrumTests/Operations/Database/DatabaseTest.cs" line="113" column="29" />
+      <Breakpoint file="/home/nate/Code/HumDrum/HumDrumTests/Operations/Database/DatabaseTest.cs" line="124" column="29" />
+      <Breakpoint file="/home/nate/Code/HumDrum/HumDrumTests/Operations/Database/DatabaseTest.cs" line="90" column="31" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

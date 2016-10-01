@@ -25,7 +25,7 @@ namespace HumDrum.Operations.Database
 
 		public IEnumerable<Row> Rows {
 			get {
-				for (int i = 0; i < Columns.Get (0).Data.Length (); i++) {
+				for (int i = 0; i < Columns.Get (0).Data.Length() - 1; i++) {
 					yield return new Row (this, i);
 				}
 				yield break;
@@ -107,6 +107,15 @@ namespace HumDrum.Operations.Database
 				if (c.Title.Equals (columnTitle))
 					return c;
 			throw new Exception ("Column with the given name {" + columnTitle + "}was not found in the database");
+		}
+
+		/// <summary>
+		/// Unconditionally adds a new colum to this table.
+		/// </summary>
+		/// <param name="column">The column to add to the table</param>
+		public void AddColumn(Column column) 
+		{
+			Columns.Add (column);
 		}
 
 		/// <summary>
@@ -203,7 +212,7 @@ namespace HumDrum.Operations.Database
 
 			// Types check out, let's append the row now
 			for (int i = 0; i < row.Items.Length (); i++) 
-				Columns.Get (i).Insert<Object>(row.Items.Get (i));
+				Columns.Get (i).Insert<Object>(row.Items.Get (i).Item);
 		}
 	}
 }

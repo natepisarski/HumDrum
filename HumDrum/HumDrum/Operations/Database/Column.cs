@@ -30,16 +30,26 @@ namespace HumDrum.Operations.Database
 		public Type ColumnType { get; set; }
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="HumDrum.Operations.Database.Column"/> class.
+		/// This provides the entirety of this column, including initial data, title, and the type of the column.
+		/// </summary>
+		/// <param name="title">The name for this column</param>
+		/// <param name="type">The type of data that this column has</param>
+		/// <param name="data">The data itself</param>
+		public Column (string title, Type type, IEnumerable<Object> data) : this(title, type) {
+			Data = new List<Object> ();
+			Data.AddRange (data);
+		}
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Column`1"/> class.
 		/// This will make the data empty, but name the column
 		/// </summary>
 		/// <param name="title">The name of this column in the database</param>
 		/// <param name="type">The type that this column is going to be holding</param>
-		public Column (string title, Type type)
+		public Column (string title, Type type) : this(title)
 		{
-			Title = title;
 			ColumnType = type;
-			Data = new List<Object> ();
 		}
 
 		/// <summary>
@@ -48,6 +58,7 @@ namespace HumDrum.Operations.Database
 		/// <param name="title">The title of this column</param>
 		public Column(string title)
 		{
+			Data = new List<Object> ();
 			Title = title;
 		}
 
