@@ -9,18 +9,7 @@ namespace HumDrum.Operations.Database
 	/// </summary>
 	public interface IDatabaseDriver
 	{
-		IEnumerable<Column> Select (Predicate<Column> criteria);
-
-		void Remove (Predicate<Column> criteria);
-
-		void InsertInto<T> (string columnName, T item);
-
-		void InsertInto<T>(Predicate<Column> criteria, T item);
-
-		void InsertInto (Column c);
-
 		void IntoFile (string filename);
-
 		Database FromFile(string filename);
 	}
 }
