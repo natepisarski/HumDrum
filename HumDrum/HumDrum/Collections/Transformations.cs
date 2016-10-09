@@ -355,6 +355,21 @@ namespace HumDrum.Collections
 		{
 			return Concatenate (otherList, list);
 		}
+
+		/// <summary>
+		/// Reverses the specified list
+		/// </summary>
+		/// <param name="list">The list to reverse</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> Reverse<T>(this IEnumerable<T> list)
+		{
+			IEnumerable<T> retList = new List<T> ();
+
+			foreach (T item in list)
+				retList = retList.Prepend (item);
+
+			return retList;
+		}
 	}
 }
 

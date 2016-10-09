@@ -131,13 +131,13 @@ So, what I'm saying is - yes. You won't have any trouble relying on HumDrum. Alt
 
 # Version
 At the time of this commit, the version is:
-**2.2.0**
+**2.3.0**
 * First number: Major version. Breaks compatibility in some way.
 * Second number: Minor version. Adds some kind of feature.
 * Third number: Revision version. Bug, documentation, or test related changes.
 
 ## Further Reading
-The MAP.md file quickly explains the purpose of each file in this library. It tends to lag behind the actual directory structure, though.
+The MAP.md file quickly explains the purpose of each file in this library.
 
 # License
 BSD 3-clause

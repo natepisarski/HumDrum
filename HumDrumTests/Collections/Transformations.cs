@@ -338,6 +338,16 @@ namespace HumDrumTests.Collections
 				TR.Make (0, 1, 2, 3, 4),
 				TR.Prepend (TR.Make (3, 4), TR.Make (0, 1, 2)));
 		}
+
+		/// <summary>
+		/// Tests the reverse function
+		/// </summary>
+		[Test]
+		public void TestReverse() {
+			Assert.AreEqual (
+				TR.Make (5, 4, 3, 2, 1),
+				TR.Reverse (TR.Make (1, 2, 3, 4, 5)));
+		}
 	}
 }
 
