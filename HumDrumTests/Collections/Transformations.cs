@@ -321,6 +321,23 @@ namespace HumDrumTests.Collections
 				TR.Make (4, 1, 2, 3),
 				TR.LeftShift (TR.Make (1, 2, 3, 4), 3));
 		}
+
+		/// <summary>
+		/// Tests the Prepend function
+		/// </summary>
+		[Test]
+		public void TestPrepend()
+		{
+			// Test with an item
+			Assert.AreEqual (
+				TR.Make (0, 1, 2, 3, 4),
+				TR.Prepend (TR.Make (1, 2, 3, 4), 0));
+
+			// Test with a list
+			Assert.AreEqual (
+				TR.Make (0, 1, 2, 3, 4),
+				TR.Prepend (TR.Make (3, 4), TR.Make (0, 1, 2)));
+		}
 	}
 }
 

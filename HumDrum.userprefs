@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests/Collections/Transformations.cs">
     <Files>
-      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="327" Column="1" />
-      <File FileName="HumDrum/HumDrum/Collections/Transformations.cs" Line="315" Column="22" />
+      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="334" Column="43" />
+      <File FileName="HumDrum/HumDrum/Collections/Transformations.cs" Line="253" Column="3" />
+      <File FileName="HumDrum/HumDrum/Collections/Information.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">

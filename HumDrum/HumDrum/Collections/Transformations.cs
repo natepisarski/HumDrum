@@ -333,6 +333,28 @@ namespace HumDrum.Collections
 			
 			return list;
 		}
+
+		/// <summary>
+		/// Prepend an element to the list, making it the first element
+		/// </summary>
+		/// <param name="list">The list to add the item onto</param>
+		/// <param name="item">The item to add on to the front</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> Prepend<T>(this IEnumerable<T> list, T item) 
+		{
+			return Concatenate (Wrap (item), list);
+		}
+
+		/// <summary>
+		/// Preprends the other list onto the front of this list
+		/// </summary>
+		/// <param name="list">The original list</param>
+		/// <param name="otherList">The list to put in front of list</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> Prepend<T>(this IEnumerable<T> list, IEnumerable<T> otherList) 
+		{
+			return Concatenate (otherList, list);
+		}
 	}
 }
 
