@@ -1,13 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Operations/Database/IDatabaseDriver.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests/Collections/Transformations.cs">
     <Files>
-      <File FileName="HumDrum/HumDrum/Operations/Database/DatabaseOperations.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/Builders/ColumnBuilder.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/Builders/SchemaBuilder.cs" Line="1" Column="1" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/Builders/TableBuilder.cs" Line="6" Column="2" />
-      <File FileName="HumDrum/HumDrum/Operations/Database/IDatabaseDriver.cs" Line="12" Column="35" />
+      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="327" Column="1" />
+      <File FileName="HumDrum/HumDrum/Collections/Transformations.cs" Line="315" Column="22" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="HumDrum" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

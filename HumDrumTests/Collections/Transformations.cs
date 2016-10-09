@@ -287,6 +287,40 @@ namespace HumDrumTests.Collections
 				_testList,
 				TR.Tack (TR.Make (0, 1, 2, 3, 4, 5, 6, 7, 8, 9), 10));
 		}
+
+		/// <summary>
+		/// Tests the right shift function
+		/// </summary>
+		[Test]
+		public void TestRightShift()
+		{
+			// Tests the right shift with positions=1
+			Assert.AreEqual (
+				TR.Make (6, 1, 2, 3, 4, 5),
+				TR.RightShift (TR.Make (1, 2, 3, 4, 5, 6)));
+
+			// Tests the right shift with positions=4
+			Assert.AreEqual (
+				TR.Make (2, 3, 4, 5, 1),
+				TR.RightShift (TR.Make (1, 2, 3, 4, 5), 4));
+		}
+
+		/// <summary>
+		/// Tests the left shift function
+		/// </summary>
+		[Test]
+		public void TestLeftShift()
+		{
+			// Tests the left shift with positions=1
+			Assert.AreEqual (
+				TR.Make (2, 3, 4, 1),
+				TR.LeftShift (TR.Make (1, 2, 3, 4)));
+
+			// Tests the left shift with positions=3
+			Assert.AreEqual (
+				TR.Make (4, 1, 2, 3),
+				TR.LeftShift (TR.Make (1, 2, 3, 4), 3));
+		}
 	}
 }
 

@@ -268,6 +268,71 @@ namespace HumDrum.Collections
 		{
 			return Concatenate (list, Transformations.Wrap<T>(item));
 		}
+
+		/// <summary>
+		/// Shifts a list one element to the right, keeping all information.
+		/// </summary>
+		/// <returns>The shifted list</returns>
+		/// <param name="list">The list to shift</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> RightShift<T>(this IEnumerable<T> list)
+		{
+			List<T> retList = new List<T>();
+
+			retList.Add(list.Last());
+
+			foreach(T item in list.Subsequence(0, list.Length() - 1))
+				retList.Add(item);
+
+			return retList;
+		}
+		/// <summary>
+		/// Shifts a list a specified distances to the right. This retains all information,
+		/// yet increases the indices by one. This will shift the last position to the front position
+		/// </summary>
+		/// <param name="list">The list to shift</param>
+		/// <param name="positions">How many positions to shift the list</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> RightShift<T>(this IEnumerable<T> list, int positions)
+		{
+			for (int i = 0; i < positions; i++)
+				list = list.RightShift ();
+
+			return list;
+		}
+
+		/// <summary>
+		/// Shifts the list one position to the left. This retains all information
+		/// </summary>
+		/// <returns>The shifted list</returns>
+		/// <param name="list">The list to shift</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> LeftShift<T>(this IEnumerable<T> list)
+		{
+			List<T> retList = new List<T> ();
+
+			foreach (T item in list.Subsequence(1, list.Length()))
+				retList.Add (item);
+			
+			retList.Add (list.Head ());
+
+			return retList;
+		}
+
+		/// <summary>
+		/// Shifts a list a specified distance to the left. This retains all information.
+		/// </summary>
+		/// <returns>The shifted list</returns>
+		/// <param name="list">The list to shift</param>
+		/// <param name="positions">The number of positions to shift the list to the left</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static IEnumerable<T> LeftShift<T>(this IEnumerable<T> list, int positions)
+		{
+			for (int i = 0; i < positions; i++)
+				list = list.LeftShift ();
+			
+			return list;
+		}
 	}
 }
 
