@@ -2,6 +2,10 @@
 
 namespace HumDrum.Traits
 {
+	/// <summary>
+	/// Exceptions whcih are thrown within the Traits subsection of the library.
+	/// </summary>
+	[Stable]
 	public class Exceptions
 	{
 		/// <summary>

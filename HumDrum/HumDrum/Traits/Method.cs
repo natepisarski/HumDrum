@@ -10,8 +10,9 @@ namespace HumDrum.Traits
 
 	/// <summary>
 	/// Represents a C# Method, based only on
-	/// return values and parameter types
+	/// return values, name, and parameter types
 	/// </summary>
+	[Experimental]
 	public class Method
 	{
 		/// <summary>

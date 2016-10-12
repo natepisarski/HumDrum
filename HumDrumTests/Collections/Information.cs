@@ -37,13 +37,12 @@ namespace HumDrumTests.Collections
 		{
 			// Nothing
 			Assert.AreEqual (
-				IF.Length (new List<int> ()),
-				0);
+				0,
+				IF.Length (new List<int> ()));
 
 			// 11
 			Assert.AreEqual (
-				IF.Length (_testList),
-				11);
+				11, IF.Length (_testList));
 		}
 
 		/// <summary>
@@ -90,18 +89,18 @@ namespace HumDrumTests.Collections
 		{
 			// First
 			Assert.AreEqual (
-				IF.Get (_testList, 0),
-				0);
+				0,
+				IF.Get (_testList, 0));
 
 			// Middle
 			Assert.AreEqual (
-				IF.Get (_testList, 5),
-				5);
+				5,
+				IF.Get (_testList, 5));
 			
 			// Last
 			Assert.AreEqual (
-				IF.Get (_testList, 10),
-				10);
+				10,
+				IF.Get (_testList, 10));
 			
 		}
 
@@ -115,15 +114,15 @@ namespace HumDrumTests.Collections
 			Assert.True (IF.Equal (_testList, TR.Make (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
 
 			// ONE_TO_ONE explicit
-			Assert.True(IF.Equal(TR.Make(1, 2, 3), TR.Make(1, 2, 3), ET.ONE_TO_ONE));
-			Assert.False (IF.Equal (TR.Make (1, 2, 3), TR.Make (1, 3, 2), ET.ONE_TO_ONE));
+			Assert.True(IF.Equal(TR.Make(1, 2, 3), TR.Make(1, 2, 3), ET.OneToOne));
+			Assert.False (IF.Equal (TR.Make (1, 2, 3), TR.Make (1, 3, 2), ET.OneToOne));
 
 			// SUBSTANTIAL explicit
-			Assert.True(IF.Equal(TR.Make(1, 2, 3), TR.Make(3, 2, 1), ET.SUBSTANTIAL));
-			Assert.False (IF.Equal (TR.Make (1, 2, 3), TR.Make (1, 2, 3, 4), ET.SUBSTANTIAL));
+			Assert.True(IF.Equal(TR.Make(1, 2, 3), TR.Make(3, 2, 1), ET.Substantial));
+			Assert.False (IF.Equal (TR.Make (1, 2, 3), TR.Make (1, 2, 3, 4), ET.Substantial));
 
 			// SET_EQUALITY explicit
-			Assert.True(IF.Equal(TR.Make(1, 1, 2, 2, 3, 3, 3), TR.Make(1, 2, 3), ET.SET_EQUALITY));
+			Assert.True(IF.Equal(TR.Make(1, 1, 2, 2, 3, 3, 3), TR.Make(1, 2, 3), ET.SetEquality));
 			Assert.False (IF.Equal (TR.Make (1), TR.Make (1, 2, 3)));
 		}
 
@@ -135,23 +134,23 @@ namespace HumDrumTests.Collections
 		{
  			// None
 			Assert.AreEqual (
-				IF.Times (_testList, 11),
-				0);
+				0,
+				IF.Times (_testList, 11));
 			
 			// One
 			Assert.AreEqual (
-				IF.Times (_testList, 4),
-				1);
+				1,
+				IF.Times (_testList, 4));
 
 			// One on last element
 			Assert.AreEqual (
-				IF.Times (_testList, 10),
-				1);
+				1,
+				IF.Times (_testList, 10));
 			
 			// 3
 			Assert.AreEqual (
-				IF.Times (TR.Make (1, 1, 1, 2, 3), 1),
-				3);
+				3,
+				IF.Times (TR.Make (1, 1, 1, 2, 3), 1));
 		}
 
 		/// <summary>
@@ -191,8 +190,8 @@ namespace HumDrumTests.Collections
 		public void TestGenericize()
 		{
 			Assert.AreEqual (
-				IF.Genericize (TR.MakeList (1, 2, 3, 4, 5)),
-				TR.Make (1, 2, 3, 4, 5));
+				TR.Make (1, 2, 3, 4, 5),
+				IF.Genericize (TR.MakeList (1, 2, 3, 4, 5)));
 		}
 
 		/// <summary>
@@ -202,8 +201,8 @@ namespace HumDrumTests.Collections
 		public void TestPositions()
 		{
 			Assert.AreEqual (
-				IF.Positions (TR.Make (0, 1, 2, 3, 0, 4), 0),
-				TR.Make (0, 4));
+				TR.Make (0, 4),
+				IF.Positions (TR.Make (0, 1, 2, 3, 0, 4), 0));
 		}
 
 		/// <summary>
@@ -215,8 +214,8 @@ namespace HumDrumTests.Collections
 		public void TestPosition()
 		{
 			Assert.AreEqual (
-				IF.Position (_testList, 4),
-				4);
+				4,
+				IF.Position (_testList, 4));
 		}
 
 		/// <summary>

@@ -7,8 +7,9 @@ namespace HumDrum.Structures
 {
 	/// <summary>
 	/// A class representing the binding between two
-	/// types of data in a list.
+	/// types of data. This works in a manor extremely similar to Hashmaps.
 	/// </summary>
+	[Stable]
 	public class BindingsTable<T, W>
 	{
 		/// <summary>
@@ -25,34 +26,7 @@ namespace HumDrum.Structures
 			Bindings = new List<Tuple<T, W>> ();
 		}
 
-		/// <summary>
-		/// Bind the element in list1 to the corresponding element in list2.
-		/// This will only associate as many elements as are in either list.
-		/// </summary>
-		/// <param name="list1">The first list (keyset)</param>
-		/// <param name="list2">The second list (values)</param>
-		public static IEnumerable<Tuple<T, W>> Bind(IEnumerable<T> list1, IEnumerable<W> list2)
-		{
-			for (int index = 0; index < list1.Length () && index < list2.Length (); index++)
-				yield return new Tuple<T, W> (list1.Get (index), list2.Get (index));
-			yield break;
-		}
 
-		/// <summary>
-		/// Cross the specified list1 and list2. This will return a 
-		/// list where every possible combination of 2 elements is returned.
-		/// </summary>
-		/// <param name="list1">The first list</param>
-		/// <param name="list2">The second list.</param>
-		public static IEnumerable<Tuple<T, W>> Cross(IEnumerable<T> list1, IEnumerable<W> list2)
-		{
-			foreach (T item1 in list1) {
-				foreach (W item2 in list2) 
-					yield return (new Tuple<T, W> (item1, item2));
-			}
-
-			yield break;
-		}
 
 		/// <summary>
 		/// Associate the specified key and value.

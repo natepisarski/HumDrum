@@ -5,8 +5,23 @@ namespace HumDrum.Collections
 {
 	/// <summary>
 	/// Sections is a class for parsing collections which are separated with delimiters.
-	/// It could reasonably be used in places where preserving whitespace is important.
+	/// It could reasonably be used in places where preserving whitespace is important, or where
+	/// nested structures must be parsed.
+	/// 
+	/// <remarks>
+	/// The usability of Sections may not seem intuitive. Why is it essential to do?
+	/// Well, consider a system shell. In order to pass arguments into it, the shell
+	/// allows you to enclose text in quotes to represent a whole string. SO:
+	/// 
+	/// myprogram.exe arg1 "arg2 this is still arg2"
+	/// 
+	/// If you were going to parse this, with, say, split, you'd wind up with 6 arguments, where argument[2] and [6]
+	/// would be ["arg2] and [arg2"] respectively. With ParseSections, for instance:
+	/// 
+	/// ParseSections("myprogram.exe arg1 \"arg2 this is still arg2\"", \"), it would properly return like the shell.
+	/// </remarks>
 	/// </summary>
+	[Stable]
 	public static class Sections
 	{
 		/// <summary>
@@ -288,6 +303,11 @@ namespace HumDrum.Collections
 		/// this function will return the sections which are split using the separator unless it falls between the 
 		/// starting and ending delimiters
 		/// </summary>
+		/// <example>
+		/// // Imagine a language where sentences act as function arguments
+		/// string s = "function(here is my sentence) {"
+		/// Globs(s, '(', ')', ' ', '\\');
+		/// </example>
 		/// <param name="sequence">The sequence to analyize the globs of</param>
 		/// <param name="startDelim">The predicate acting as the starting delimiter</param>
 		/// <param name="endDelim">End delim.</param>
@@ -338,6 +358,15 @@ namespace HumDrum.Collections
 			return collection.Genericize ();
 		}
 			
+		/// <summary>
+		/// Overloads globs to work on strings directly.
+		/// Globs are text defined by any non-whitespace character, and whitespace enclosed by delimiters.
+		/// 
+		/// "here{is a glob}" would be parsed as one glob.
+		/// </summary>
+		/// <param name="text">The text to parse</param>
+		/// <param name="startDelim">The left delimiter</param>
+		/// <param name="endDelim">The right delimiter</param>
 		public static IEnumerable<string> Globs(string text, char startDelim, char endDelim)
 		{
 			return Sections.Globs (

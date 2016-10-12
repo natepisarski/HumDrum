@@ -6,8 +6,9 @@ using HumDrum.Collections;
 namespace HumDrum.Structures
 {
 	/// <summary>
-	/// An implementation of a binary tree.
+	/// An implementation of a generic binary tree
 	/// </summary>
+	[Stable]
 	public class Tree<T>
 	{
 		/// <summary>
@@ -111,13 +112,13 @@ namespace HumDrum.Structures
 		public T GetValue(Direction direction){
 			switch (direction)
 			{
-			case Direction.LEFT:
+			case Direction.Left:
 				return LeftBranch.CurrentNode;
-			case Direction.RIGHT:
+			case Direction.Right:
 				return RightBranch.CurrentNode;
-			case Direction.UP:
+			case Direction.Up:
 				return Parent.CurrentNode;
-			case Direction.DOWN:
+			case Direction.Down:
 				return this.CurrentNode;
 			}
 
@@ -132,13 +133,13 @@ namespace HumDrum.Structures
 		public Direction Which(Tree<T> branch)
 		{
 			if (LeftBranch != null && LeftBranch.Equals (branch))
-				return Direction.LEFT;
+				return Direction.Left;
 			if (RightBranch != null && RightBranch.Equals (branch))
-				return Direction.RIGHT;
+				return Direction.Right;
 			if (Parent != null && Parent.Equals (branch))
-				return Direction.UP;
+				return Direction.Up;
 			
-			return Direction.DOWN;
+			return Direction.Down;
 		}
 
 		/// <summary>
@@ -163,9 +164,9 @@ namespace HumDrum.Structures
 		/// <param name="value">The value to use</param>
 		/// <param name="direction">Which direction to grow</param>
 		public void Grow(T value, Direction direction){
-			if (direction == Direction.RIGHT)
+			if (direction == Direction.Right)
 				RightBranch = new Tree<T> (value, this);
-			else if (direction == Direction.LEFT)
+			else if (direction == Direction.Left)
 				LeftBranch = new Tree<T> (value, this);
 		}
 
@@ -184,7 +185,7 @@ namespace HumDrum.Structures
 		/// Returns all of the trees found nested "level" levels into
 		/// the binary tree. The root node is level 0.
 		/// </summary>
-		/// <param name="level">Level.</param>
+		/// <param name="level">The level of the tree to return, relative to this node.</param>
 		public IEnumerable<Tree<T>> Level(int level)
 		{
 			if (level == 0)
@@ -239,10 +240,10 @@ namespace HumDrum.Structures
 		public void Snip(Direction d)
 		{
 			switch (d) {
-			case Direction.LEFT:
+			case Direction.Left:
 				LeftBranch = null;
 				break;
-			case Direction.RIGHT:
+			case Direction.Right:
 				RightBranch = null;
 				break;
 			}
@@ -273,7 +274,7 @@ namespace HumDrum.Structures
 		/// <param name="coalescor">Coalescor - the function that takes 2 Nodes and returns a result</param>
 		public void Coalesce(Func<T, T, T> coalescor, Direction firstArgument)
 		{
-			bool leftFirst = firstArgument.Equals (Direction.LEFT);
+			bool leftFirst = firstArgument.Equals (Direction.Left);
 
 			// Base case - 2 children, neither of which are isometric parents.
 			if (IsIsoParent () && !(LeftBranch.IsIsoParent ()) && !(RightBranch.IsIsoParent ())) {
@@ -304,7 +305,7 @@ namespace HumDrum.Structures
 		/// <param name="coalescor">Coalescor - the function that takes 2 Nodes and returns a result</param>
 		public void Coalesce(Func<T, T, T, T> coalescor, Direction firstArgument)
 		{
-			bool leftFirst = firstArgument.Equals (Direction.LEFT);
+			bool leftFirst = firstArgument.Equals (Direction.Left);
 
 			// Base case - 2 children, neither of which are parents.
 			if (IsIsoParent () && !(LeftBranch.IsIsoParent ()) && !(RightBranch.IsIsoParent ())) {
@@ -346,7 +347,8 @@ namespace HumDrum.Structures
 		/// "Prune" branches of this tree after the predicate returns false.
 		/// </summary>
 		/// <param name="pred">Pred.</param>
-		public void Prune(Predicate<T> pred){
+		public void Prune(Predicate<T> pred)
+		{
 			if (pred (CurrentNode))
 				Parent.Snip (Parent.Which (this));
 			else { 

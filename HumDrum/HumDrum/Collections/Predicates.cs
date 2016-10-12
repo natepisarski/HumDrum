@@ -7,8 +7,12 @@ using HumDrum.Collections;
 namespace HumDrum.Collections
 {
 	/// <summary>
-	/// Class for analyzing collections of data based on some predicate.
+	/// Class for analyzing collections of data based on some predicate. This was
+	/// originally merged with HigherOrder, however, the two files do things decidedly differently.
+	/// 
+	/// Predicates is to HigherOrder as Information is to Transformations
 	/// </summary>
+	[Stable]
 	public static class Predicates
 	{
 		/// <summary>
@@ -40,14 +44,14 @@ namespace HumDrum.Collections
 		/// <param name="list">The list of booleans to test</param>
 		public static bool All(this IEnumerable<bool> list)
 		{
-			foreach (bool item in list)
-				if (!item)
-					return false;
-			return true;
+			return !(list.Any (x => x.Equals (false)));
 		}
 
 		/// <summary>
-		/// Performs an action on a unique member of the list
+		/// Performs an action on the first item of the list which contains the given predicate.
+		/// 
+		/// Will return the default value of the return type of the function if an item matching the
+		/// predicate cannot be found.
 		/// </summary>
 		/// <returns>The item from the list with the function applied to it</returns>
 		/// <param name="list">The list of information</param>
@@ -65,12 +69,13 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Performs the same 
+		/// Performs the same operation as DoTo, although to all items that the predicate is true for, returning
+		/// a collection of their transformed values.
 		/// </summary>
-		/// <returns>The to sequence.</returns>
-		/// <param name="list">List.</param>
-		/// <param name="predicate">Predicate.</param>
-		/// <param name="function">Function.</param>
+		/// <returns>The transformed sequence</returns>
+		/// <param name="list">The list</param>
+		/// <param name="predicate">The predicate, which will trigger the transformation if true</param>
+		/// <param name="function">The function to transform true items with</param>
 		public static IEnumerable<W> DoToSequence<T, W>(this IEnumerable<T> list, Predicate<T> predicate, Func<T, W> function)
 		{
 			foreach (T item in list)
@@ -141,7 +146,7 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Returns a Tautology, a predicare which always returns true.
+		/// Returns a Tautology, a predicate which always returns true.
 		/// </summary>
 		/// <typeparam name="T">The type</typeparam>
 		public static Predicate<T> Tautology<T>()

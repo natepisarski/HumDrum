@@ -6,8 +6,11 @@ using HumDrum.Collections;
 namespace HumDrum.Operations.Database
 {
 	/// <summary>
-	/// Represents a named column in a database.
+	/// Represents a named column in a database. A column
+	/// binds a name and a type together, and includes information
+	/// of this column's type.
 	/// </summary>
+	[Experimental]
 	public class Column
 	{
 		/// <summary>
@@ -53,7 +56,8 @@ namespace HumDrum.Operations.Database
 		}
 
 		/// <summary>
-		/// Initializes a column without a type. If you use this method, make sure to use .initialize()
+		/// Initializes a column without a type. If you use this method, make sure to use .initialize<T>()
+		/// where T is the column type.
 		/// </summary>
 		/// <param name="title">The title of this column</param>
 		public Column(string title)
@@ -71,7 +75,7 @@ namespace HumDrum.Operations.Database
 		{
 			return new Column (title, typeof(T));
 		}
-
+			
 		/// <summary>
 		/// Checks that the given type is equivalent to the type that this column manages
 		/// </summary>
@@ -79,6 +83,7 @@ namespace HumDrum.Operations.Database
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public bool TypeCheck<T>()
 		{
+			// Every type in C# is an object, although typeof will only return "Object" if it's a pure Object.
 			return (typeof(T).IsEquivalentTo (ColumnType) || typeof(T).IsEquivalentTo(typeof(Object)));
 		}
 
@@ -93,7 +98,8 @@ namespace HumDrum.Operations.Database
 			if (typeof(T).IsEquivalentTo (ColumnType) || typeof(T) == typeof(Object))
 				return (T)Data.Get (position);
 			else
-				throw new Exception ("The type provided does not match this column's type.");
+				throw new Exception ("The type provided does not match this column's type.\n " +
+					"Given type: " + typeof(T).ToString() + ", Expecting: " + ColumnType.ToString());
 		}
 
 		/// <summary>
@@ -105,9 +111,8 @@ namespace HumDrum.Operations.Database
 		public void Insert<T>(T item, int position)
 		{
 			// Type check
-			if (TypeCheck<T> ()) {
+			if (TypeCheck<T> ()) 
 				Data.Insert (position, item);
-			}
 		}
 
 		/// <summary>
@@ -131,7 +136,7 @@ namespace HumDrum.Operations.Database
 		public void Replace<T>(T item, int position)
 		{
 			if (TypeCheck<T> ()) {
-				Data.RemoveAt (position);
+				Data.RemoveAt (position); // This is not HumDrum.Collections.Transformations.RemoveAt. It actually modifies state.
 				Data.Insert (position, item);
 			}
 		}
@@ -143,7 +148,7 @@ namespace HumDrum.Operations.Database
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public void Delete<T>(int position)
 		{
-			Data.RemoveAt (position);
+			Data.RemoveAt (position); // This is not HumDrum.Collections.Transformations.RemoveAt. It actually modifies state.
 		}
 	}
 }

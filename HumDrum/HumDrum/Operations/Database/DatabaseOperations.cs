@@ -6,6 +6,7 @@ namespace HumDrum.Operations.Database
 	/// <summary>
 	/// Operations that can be performed between Database tables.
 	/// </summary>
+	[Experimental]
 	public static class DatabaseOperations
 	{
 		/// <summary>

@@ -14,6 +14,7 @@ namespace HumDrum.Traits
 	/// from the class definition, which lets you describe how some class that 
 	/// you did not make interacts with an interface. 
 	/// </summary>
+	[Experimental]
 	public class Trait
 	{
 		/// <summary>

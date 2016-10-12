@@ -8,6 +8,7 @@ namespace HumDrum.Operations.Database
 	/// Contains a list of schemas present in a table. For a schema
 	/// for an individal column, see: <see cref="HumDrum.Operations.DatabBase.SchemaAtom"/> 
 	/// </summary>
+	[Experimental]
 	public class Schema
 	{
 		/// <summary>
@@ -100,7 +101,7 @@ namespace HumDrum.Operations.Database
 			Schema otherSchema = (Schema)otherSchemaObject;
 
 			foreach (SchemaAtom atom in TableSchema)
-				if (!(otherSchema.Has (atom.ColumnType, atom.ColumnName)))
+				if (!(otherSchema.Has (atom.ColumnType, atom.ColumnName))) // If the atoms match in name and type, they are the same.
 					return false;
 			return true;
 		}

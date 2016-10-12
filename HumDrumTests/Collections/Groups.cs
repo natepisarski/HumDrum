@@ -39,8 +39,8 @@ namespace HumDrumTests.Collections
 			/* StateModify Tests */
 			GR.StateModify<int> increaseByOne = x => x + 1;
 
-			Assert.AreEqual (increaseByOne (5), 6);
-			Assert.AreEqual (increaseByOne (-1), 0);
+			Assert.AreEqual (6, increaseByOne (5));
+			Assert.AreEqual (0, increaseByOne (-1));
 		}
 
 		/// <summary>

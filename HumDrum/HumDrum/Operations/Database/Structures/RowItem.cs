@@ -2,6 +2,14 @@
 
 namespace HumDrum.Operations.Database
 {
+	/// <summary>
+	/// A RowItem is a binding used in Rows. In
+	/// the HumDrum Database suite, Rows are not proper
+	/// objects outright, but rather an amalgation of items
+	/// in columns. As such, each RowItem contains a reference 
+	/// to its parent column, its name type, and its item.
+	/// </summary>
+	[Experimental]
 	public class RowItem
 	{
 		/// <summary>

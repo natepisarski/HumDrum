@@ -6,8 +6,9 @@ using HumDrum.Collections;
 namespace HumDrum.Operations.Database
 {
 	/// <summary>
-	/// Contains a list of columns
+	/// Contains a list of columns. These are the "Objects" of a Database.
 	/// </summary>
+	[Experimental]
 	public class Table
 	{
 		/// <summary>
@@ -23,14 +24,23 @@ namespace HumDrum.Operations.Database
 		/// <value>The title for this table</value>
 		public string Title {get; set;}
 
+		/// <summary>
+		/// Gets the Rows from this Table programmatically, by grabbing elements from
+		/// all columns at a given index. Only complete Rows are returned
+		/// </summary>
+		/// <value>The rows.</value>
 		public IEnumerable<Row> Rows {
 			get {
 				for (int i = 0; i < Columns.Get (0).Data.Length() - 1; i++) {
+					if (Columns.Any (x => x.Data.Length () < i)) // Cannot make a row with null items
+						yield break;
+					
 					yield return new Row (this, i);
 				}
 				yield break;
 			}
 		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Database.Table"/> class.
 		/// This will simply name the table

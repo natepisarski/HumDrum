@@ -6,8 +6,10 @@ namespace HumDrum.Operations.Files
 {
 	/// <summary>
 	/// Numerical Writer is a SequentialWriter that deals
-	/// with numbered files
+	/// with numbered files. If a file in the directory already exists
+	/// with a given number, it is incremented.
 	/// </summary>
+	[Stable]
 	public class NumericalWriter : ISequentialWriter
 	{
 		/// <summary>
@@ -32,7 +34,6 @@ namespace HumDrum.Operations.Files
 				if (!(filenames.Contains (i + extension)))
 					return (i + extension);
 			}
-			throw new Exception ("Infinite loop in NumericalWriter exited for unknown reason)");
 		}
 
 		/// <summary>

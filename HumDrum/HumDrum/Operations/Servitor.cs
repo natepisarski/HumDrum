@@ -15,6 +15,7 @@ namespace HumDrum.Operations
 	/// Servitor is a wrapper of TcpListener. It buffers incoming requests
 	/// so that another thread can read them when they'd ready.
 	/// </summary>
+	[Experimental]
 	public class Servitor
 	{
 		/// <summary>
@@ -67,11 +68,15 @@ namespace HumDrum.Operations
 		public Servitor()
 		{
 			Address = IPAddress.Loopback;
+
 			AllInput = new List<string>();
-			LastIndex = 0;
-			Changed = false;
-			Port = DEFAULT_PORT;
 			IOTable = new BindingsTable<string, string> ();
+
+			LastIndex = 0;
+
+			Changed = false;
+
+			Port = DEFAULT_PORT;
 		}
 
 		/// <summary>
@@ -79,17 +84,16 @@ namespace HumDrum.Operations
 		/// </summary>
 		/// <param name="address">The IP address to listen to</param>
 		/// <param name="port">The port to listen on</param>
-		public Servitor(IPAddress address, int port){
+		public Servitor(IPAddress address, int port) : this()
+		{
 			Address = address;
-			AllInput = new List<string> ();
-			LastIndex = 0;
 			Port = port;
-			IOTable = new BindingsTable<string, string> ();
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="HumDrum.Operations.Servitor"/> class.
-		/// This allows the creation of a Servitor instance with an IOTable
+		/// This allows the creation of a Servitor instance with an IOTable, which defines a response
+		/// to give to a client given a certain input
 		/// </summary>
 		/// <param name="address">The address to listen to</param>
 		/// <param name="port">The port to listen to</param>
@@ -170,7 +174,8 @@ namespace HumDrum.Operations
 		}
 
 		/// <summary>
-		/// Sends the specified data to the port at address
+		/// Sends the specified data to the port at address. This cuts out tedious, repetitive code
+		/// for testing things.
 		/// </summary>
 		/// <param name="data">The data to send as a string</param>
 		/// <param name="address">The address to send the data to</param>

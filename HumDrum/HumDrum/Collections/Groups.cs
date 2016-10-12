@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace HumDrum.Collections
@@ -9,6 +8,7 @@ namespace HumDrum.Collections
 	/// of finite state machines to modify lists
 	/// depending on the state of said machines.
 	/// </summary>
+	[Stable]
 	public static class Groups
 	{		
 		/// <summary>
@@ -100,6 +100,7 @@ namespace HumDrum.Collections
 			foreach (T item in list) {
 				Buffer.Add (item);
 
+				// ModifyState returns true or false, as well as mutating the state.
 				if(StateCheck.ModifyState (item))
 				{
 					Collection.Add (Buffer);
@@ -131,6 +132,7 @@ namespace HumDrum.Collections
 			foreach (T item in list) {
 				Buffer.Add (item);
 
+				// ModifyState returns true or false, as well as mutating state
 				if(StateCheck.ModifyState ())
 				{
 					Collection.Add (Buffer);
@@ -144,4 +146,3 @@ namespace HumDrum.Collections
 		}
 	}
 }
-

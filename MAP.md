@@ -40,6 +40,9 @@ Transformations is another general collections library. The "other half" of Info
 ## Operations
 Operations is the wing of the HumDrum library pertaining to IO, or some very particular task.
 
+### ObjectBuilder
+ObjectBuilder allows you to dynamically create a Factory that can dynamically generate objects from any given number of constructors.
+
 ### Database
  Database contains classes and features used for dealing with a database as native objects.
 
@@ -86,9 +89,6 @@ NumericalWriter is a SequentialWriter that scans the directory for numbered file
 
 ### ImageManager
 A library for calculating image metadata. This includes functions such as the average color, most similar image based on color, and image searching.
-
-### Logger
-Logger writes information to an OutputStream. Logger is commonly used on FileOutputStreams to create log files.
 
 ### Servitor
 Servitor is a server program that listens on a given port and buffers input. Then, the client can read information from this buffer. This wraps the shockingly low-level .NET network library.

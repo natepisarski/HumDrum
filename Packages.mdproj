@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ItemType>PackagingProject</ItemType>
+    <ProjectGuid>{B3551401-0181-4343-8607-40AC6F8D5BAE}</ProjectGuid>
+    <Packages>
+      <Packages xmlns="">
+        <Package name="MSBuild (Visual Studio 2012) Sources">
+          <Builder targetFile="INSTALL\HumDrum.zip" format="MonoDevelop.Projects.FileFormat" ctype="SourcesZipPackageBuilder">
+            <RootEntry path="HumDrum\HumDrum.csproj" />
+          </Builder>
+        </Package>
+      </Packages>
+    </Packages>
+  </PropertyGroup>
+</Project>

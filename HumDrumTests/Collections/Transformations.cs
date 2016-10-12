@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 
 using TR = HumDrum.Collections.Transformations;
+using IF = HumDrum.Collections.Information;
 
 namespace HumDrumTests.Collections
 {
@@ -52,23 +53,23 @@ namespace HumDrumTests.Collections
 		/// <summary>
 		/// Tests Subsequence
 		/// </summary>
-		[Test()]
+		[Test]
 		public void TestSubsequence()
 		{
 			// Full
 			Assert.AreEqual (
-				TR.Subsequence (_testList, 0, 11),
-				_testList);
-			
+				_testList,
+				TR.Subsequence (_testList, 0, 11));
+		
 			// First 5
 			Assert.AreEqual (
-				TR.Subsequence (_testList, 0, 5),
-				TR.Make (0, 1, 2, 3, 4));
+				TR.Make (0, 1, 2, 3, 4),
+				TR.Subsequence (_testList, 0, 5));
 			
 			// 5-8
 			Assert.AreEqual (
-				TR.Subsequence (_testList, 5, 4),
-				TR.Make (5, 6, 7, 8));
+				TR.Make (5, 6, 7, 8),
+				TR.Subsequence (_testList, 5, 4));
 		}
 
 		/// <summary>
@@ -78,8 +79,8 @@ namespace HumDrumTests.Collections
 		public void TestTail()
 		{
 			Assert.AreEqual (
-				TR.Tail (_testList),
-				TR.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+				TR.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+				TR.Tail (_testList));
 
 			Assert.AreEqual (
 				new List<int> (),
@@ -94,8 +95,8 @@ namespace HumDrumTests.Collections
 		{
 			// It should simply return the first element
 			Assert.AreEqual (
-				TR.Head (TR.Make (1, 2, 3)),
-				1);
+				1,
+				TR.Head (TR.Make (1, 2, 3)));
 		}
 
 		/// <summary>
@@ -106,11 +107,13 @@ namespace HumDrumTests.Collections
 		{
 			// Test on longish list
 			Assert.AreEqual (
-				TR.Last (TR.Make (1, 2, 3, 4, 5)), 5);
+				5,
+				TR.Last (TR.Make (1, 2, 3, 4, 5)));
 
 			// Test on singleton list
 			Assert.AreEqual (
-				TR.Last (TR.Make (1)), 1);
+				1,
+				TR.Last (TR.Make (1)));
 		}
 
 		/// <summary>
@@ -130,18 +133,18 @@ namespace HumDrumTests.Collections
 		{
 			// First
 			Assert.AreEqual (
-				TR.RemoveAt (_testList, 0),
-				TR.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+				TR.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+				TR.RemoveAt (_testList, 0));
 
 			// Inner
 			Assert.AreEqual (
-				TR.RemoveAt (_testList, 5),
-				TR.Make (0, 1, 2, 3, 4, 6, 7, 8, 9, 10));
+				TR.Make (0, 1, 2, 3, 4, 6, 7, 8, 9, 10),
+				TR.RemoveAt (_testList, 5));
 
 			// Last
 			Assert.AreEqual (
-				TR.RemoveAt (_testList, 10),
-				TR.Make (0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+				TR.Make (0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+				TR.RemoveAt (_testList, 10));
 		}
 
 		/// <summary>
@@ -157,8 +160,8 @@ namespace HumDrumTests.Collections
 					secondTestList.Add (i);
 
 			Assert.AreEqual (
-				TR.RemoveDuplicates (secondTestList),
-				_testList);
+				_testList,
+				TR.RemoveDuplicates (secondTestList));
 		}
 
 		/// <summary>
@@ -169,18 +172,18 @@ namespace HumDrumTests.Collections
 		{
 			// First
 			Assert.AreEqual (
-				TR.StartingWith (_testList, TR.Make (0, 1)),
-				_testList);
+				_testList,
+				TR.StartingWith (_testList, TR.Make (0, 1)));
 
 			// Middle
 			Assert.AreEqual (
-				TR.StartingWith (_testList, TR.Make(5)),
-				TR.Make (5, 6, 7, 8, 9, 10));
+				TR.Make (5, 6, 7, 8, 9, 10),
+				TR.StartingWith (_testList, TR.Make(5)));
 			
 			// Last
 			Assert.AreEqual (
-				TR.StartingWith (_testList, TR.Make(10)),
-				TR.Make (10));
+				TR.Make (10),
+				TR.StartingWith (_testList, TR.Make(10)));
 			
 		}
 
@@ -192,18 +195,18 @@ namespace HumDrumTests.Collections
 		{
 			// First
 			Assert.AreEqual (
-				TR.SequencePosition (_testList, TR.Make (0, 1, 2)),
-				0);
+				0,
+				TR.SequencePosition (_testList, TR.Make (0, 1, 2)));
 
 			// 5
 			Assert.AreEqual (
-				TR.SequencePosition (_testList, TR.Make (5, 6, 7)),
-				5);
+				5,
+				TR.SequencePosition (_testList, TR.Make (5, 6, 7)));
 
 			// 10
 			Assert.AreEqual (
-				TR.SequencePosition (_testList, TR.Make (10)),
-				10);
+				10,
+				TR.SequencePosition (_testList, TR.Make (10)));
 		}
 
 		/// <summary>
@@ -218,6 +221,16 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests the AsList function
+		/// </summary>
+		public void TestAsList()
+		{
+			Assert.AreEqual (
+				_testList,
+				TR.AsList (_testList));
+		}
+
+		/// <summary>
 		/// Tests Unbind
 		/// </summary>
 		[Test()]
@@ -227,13 +240,13 @@ namespace HumDrumTests.Collections
 
 			// Even
 			Assert.AreEqual (
-				unbound.Item1, 
-				TR.Make (0, 2, 4, 6, 8, 10));
+				TR.Make (0, 2, 4, 6, 8, 10),
+				unbound.Item1);
 			
 			// Odd
 			Assert.AreEqual (
-				unbound.Item2, 
-				TR.Make(1, 3, 5, 7, 9));
+				TR.Make(1, 3, 5, 7, 9),
+				unbound.Item2);
 		}
 
 		/// <summary>
@@ -263,7 +276,7 @@ namespace HumDrumTests.Collections
 			var x = new List<int> ();
 			x.Add (1);
 
-			Assert.AreEqual (x, TR.Wrap (1));
+			Assert.AreEqual (TR.Wrap (1), x);
 		}
 
 		/// <summary>
@@ -347,6 +360,23 @@ namespace HumDrumTests.Collections
 			Assert.AreEqual (
 				TR.Make (5, 4, 3, 2, 1),
 				TR.Reverse (TR.Make (1, 2, 3, 4, 5)));
+		}
+
+		/// <summary>
+		/// Tests the static cross-product function as well as the Bind function
+		/// by comparing them with each other.
+		/// </summary>
+		[Test]
+		public void TestCrossAndBind()
+		{
+			var crossed = TR.Cross (TR.Make ("a", "b", "c"), TR.Make (1, 2, 3));
+
+			var elements = TR.Bind (
+				TR.Make ("a", "a", "a", "b", "b", "b", "c", "c", "c"),
+				TR.Make (1, 2, 3, 1, 2, 3, 1, 2, 3));
+
+			foreach (Tuple<string, int> member in elements)
+				Assert.True (IF.Has (crossed, member));
 		}
 	}
 }

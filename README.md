@@ -1,7 +1,22 @@
-# Hum Drum
-If you wanna see this library in action, take a quick look at these examples. Promise it won't be that hard to read!
+# HumDrum Library
+The HumDrum library has only one job: try to make your life, as a developer, easier. Its strategy is to do this by letting you:
 
-# List Manipulation and IEnumerable extension
+* Write the least amount of code possible
+* Write the easiest code possible
+
+Because HumDrum spans such a large number of use-cases, it's likely that it already has what you want in there. The MAP.md file gives a quick rundown of what you can find. Go give it a search.
+
+## HumDrum makes simple things simpler
+HumDrum tries to make code easier by providing a seamless experience, regardless of domain. The main way it accomplishes this is by **extending the HECK** out of base classes. For instance, **HumDrum.Collections** functions (of which there are currently a bit less than **100**) all work with **IEnumerable<>**, an interface that all of the common collections, like **List** and **Arrays** implement. This lets you use Length(), or ForEvery(), or any HumDrum.Collections function on ANY collection.
+
+No more fumbling around with methods. "Does List have count or length? What is capacity?". Length() works the same no matter what you've got.
+
+## HumDrum makes hard things simple
+HumDrum, in addition to being a convenience library, is an experimental library. Portions of the library with the [Experimental] Attribute facilitate the use of new design patterns. Things such as having runtime-checked Traits, cached Network communication, image processing, and dynamic object building are all relatively simple matters in HumDrum.
+
+Here are some examples of what the HumDrum library can do:
+
+# Unification of IEnumerable functions
 
 ````C#
 // Let's make a test list
@@ -23,15 +38,39 @@ var number5 = list.Get (4);
 var twoToNine = list.RemoveAt (0);  
 
 // HumDrum.Collections.Transformations.Subsequence
-var threeToSeven = list.Subsequence (2, 6);  
+var threeToSeven = list.Subsequence (2, 6);
+
+````
+
+# LINQ-like syntax for any IEnumerable
+````C#
+// The sum of all even numbers plus one
+var sum evenNumbersPlusOne = oneToTen
+    .When(x => x % 2 == 0)
+    .ForEvery(x => x + 1)
+    .Reduce((x, y) => x + y);
 ````
 
 # Convenience functions for system tasks
 ````C#
-/* Convenience functions for system tasks */
 var systemScanner = new DirectorySearch ("/", System.IO.SearchOption.AllDirectories);
-var executableThings = systemScanner.Refine (x => x.Contains (".exe")).Refine (y => y.Contains ("thing")).Files;
+
+var executableThings = systemScanner
+    .Refine (x => x.Contains (".exe"))
+    .Refine (y => y.Contains ("thing")).Files;
+    
 ````
+
+# Dynamic Factory Generation with multiple constructors
+````C#
+ObjectBuilder obj = new ObjectBuilder(TestClass.GetType());
+
+TestClass class = (TestClass) obj
+	  .SetParameter(0, "x", "X-string")
+	  .SetParameter(0, "y" 3)
+	  .Instantiate();
+````
+
 
 # A Naive impplementation of Traits
 ````C#
@@ -71,31 +110,44 @@ writable.IsSatisfied(); // True
 					.Finalize ()).Finalize();
 ````
 
-# And just about anything else 
+# And just about anything else
+
+## Markov Chains
 ````C#
 // HumDrum.Collections.Markov
 var markovChain = new HumDrum.Collections.Markov.Markov<int> (Transformations.Make (1, 2, 3, 1), 2);  
+````
 
+## Binary Trees
+````C#
 // HumDrum.Structures
 Tree<int> tree = new Tree<int>(0);
 var alphabet = HumDrum.Constants.LOWERCASE_EN_US_ALPHABET;  
-
-// HumDrum.Structures
-var south = HumDrum.Structures.DirectionOperations.TranslateDirection (Direction.DOWN);
-
-/*
-* License : BSD 3-clause
-* Author: Nathaniel Pisarski
-* */
 ````
 
-HumDrum in a hundred letters or less is this:
+## Direction manipulation
 
-Anything you could want in C#. If the function isn't domain-specific, it winds up in HumDrum.
+````C#
+// HumDrum.Structures
+var south = HumDrum.Structures.DirectionOperations.TranslateDirection (Direction.Down);
+```
 
-So, as a result, it has code from a whole bunch of different domains. Image processing, directory searching, statistical analysis, light AI stuff, collections manipulation, tree traversal, traits, whatever you want.
+## And plenty more!
 
-To deal with the breadth of what winds up in HumDrum, it's split up into a few branches.
+* The basis of plaintext parsing (**HumDrum.Collections.Sections**)
+* List collection via State Machines (**HumDrum.Collections.Groups**)
+* Custom Hashmap with LINQ-esque functionality (**HumDrum.Structures.BindingsTable**)
+* Cached, Thread-safe, concurrent port listener (**HumDrum.Operations.Servitor**)
+* Dynamic sequential file create (**HumDrum.Operations.Files.NumericalWriter**)
+* Native Objects for Database objects, including a driver for SQL / Access / etc. bindings (**HumDrum.Operations.Database**)
+* Image forensics
+
+With HumDrum, you can have **all that fun** while having to write **none of the code**. It's a win-win!
+
+# Installing HumDrum
+Currently, there is no NuGet package for HumDrum. However, you can use the project file inside of the HumDrum directory here directly in your project. The source is open and under a non-viral license, so it's 100% legal and safe to do that. And you even get to modify / add something that's broken / not there.
+
+A nuget package will be coming in the very near future though!
 
 # Branches
 HumDrum is split up into 4 branches with any number of sub branches. Right now, these branches are: Operations, Structures, Collections, and Traits.
@@ -119,22 +171,15 @@ Collections is by far the largest branch of HumDrum. It relates to anything that
 Traits is an experimental branch of HumDrum that, really, should not be relied on. It's overdue for some hacking. Currently, it enables Trait-based programming by making its own definition for classes and interfaces, which is obviously pretty cumbersome. However, if your code REALLY needs Traits to operate, this branch gives you the ability to do that.
 
 #Status
-HumDrum is under active development. As such, there are breakages. However, these breakages almost never effect code that is already unit tested (which is the vast majority of the library, including all of Collections).
-
-Almost every week, new functions get put into the library. This should (in theory) kick the minor version number up. These additions are obviously not breaking existing code.
-
-As for removals, well... Almost nothing gets removed. If I deem something to be pretty straight-up awful, it gets taken out. That almost never happens, as I said. 
-
-Modifications to code happen. When these happen, it's usually when I'm cleaning things up, so there should be unit tests to reflect the change, which make it a bit safer than just going in and toying with things blind.
-
-So, what I'm saying is - yes. You won't have any trouble relying on HumDrum. Although, I'm not vouching for its stability.
+HumDrum is under active development, yet is now stable. There will only be scheduled breakages of code. Additions to the library happen very frequently. Same for tests and documentation. However, renaming and removals only happen on scheduled intervals.
 
 # Version
 At the time of this commit, the version is:
-**2.3.0**
+**3.0.0.0**
 * First number: Major version. Breaks compatibility in some way.
 * Second number: Minor version. Adds some kind of feature.
-* Third number: Revision version. Bug, documentation, or test related changes.
+* Third number: Revision version. Some type of code or test change
+* Fourth number: Documentation change, either inline, generated, or one of the files
 
 ## Further Reading
 The MAP.md file quickly explains the purpose of each file in this library.

@@ -9,10 +9,10 @@ namespace HumDrum.Structures
 	/// </summary>
 	public enum Direction
 	{
-		UP,
-		DOWN,
-		LEFT,
-		RIGHT
+		Up,
+		Down,
+		Left,
+		Right
 	}
 
 	/// <summary>
@@ -20,10 +20,10 @@ namespace HumDrum.Structures
 	/// </summary>
 	public enum Cardinal
 	{
-		NORTH,
-		SOUTH,
-		EAST,
-		WEST
+		North,
+		South,
+		East,
+		West
 	}
 
 	/// <summary>
@@ -31,8 +31,8 @@ namespace HumDrum.Structures
 	/// </summary>
 	public enum OrbitalDirection
 	{
-		CLOCKWISE,
-		COUNTERCLOCKWISE
+		Clockwise,
+		CounterClockwise
 	}
 
 	/// <summary>
@@ -47,8 +47,8 @@ namespace HumDrum.Structures
 		/// <param name="direction">The direction to translate</param>
 		public static Cardinal TranslateDirection(Direction direction)
 		{
-			Cardinal[] orderedCardinals = {Cardinal.NORTH, Cardinal.EAST, Cardinal.SOUTH, Cardinal.WEST};
-			Direction[] orderedDirections = {Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT};
+			Cardinal[] orderedCardinals = {Cardinal.North, Cardinal.East, Cardinal.South, Cardinal.West};
+			Direction[] orderedDirections = {Direction.Up, Direction.Right, Direction.Down, Direction.Left};
 
 			return Information.RelativeMembers (orderedDirections, direction, orderedCardinals).Get (0);
 		}
@@ -60,8 +60,8 @@ namespace HumDrum.Structures
 		/// <param name="cardinal">The Cardinal</param>
 		public static Direction TranslateCardinal(Cardinal cardinal)
 		{
-			Cardinal[] orderedCardinals = {Cardinal.NORTH, Cardinal.EAST, Cardinal.SOUTH, Cardinal.WEST};
-			Direction[] orderedDirections = {Direction.UP, Direction.RIGHT, Direction.DOWN, Direction.LEFT};
+			Cardinal[] orderedCardinals = {Cardinal.North, Cardinal.East, Cardinal.South, Cardinal.West};
+			Direction[] orderedDirections = {Direction.Up, Direction.Right, Direction.Down, Direction.Left};
 
 			return Information.RelativeMembers (orderedCardinals, cardinal, orderedDirections).Get (0);
 		}
@@ -73,7 +73,7 @@ namespace HumDrum.Structures
 		/// <param name="orbit">The original orbit</param>
 		public static OrbitalDirection RotateOrbital(OrbitalDirection orbit)
 		{
-			return (orbit == OrbitalDirection.CLOCKWISE ? OrbitalDirection.COUNTERCLOCKWISE : OrbitalDirection.CLOCKWISE);
+			return (orbit == OrbitalDirection.Clockwise ? OrbitalDirection.CounterClockwise : OrbitalDirection.Clockwise);
 		}
 
 		/// <summary>
@@ -85,18 +85,18 @@ namespace HumDrum.Structures
 		public static Direction RotateDirection(Direction beginning, OrbitalDirection direction)
 		{
 			switch (beginning) {
-			case Direction.UP:
-				return (direction == OrbitalDirection.CLOCKWISE ? Direction.RIGHT : Direction.LEFT);
-			case Direction.RIGHT:
-				return (direction == OrbitalDirection.CLOCKWISE ? Direction.DOWN : Direction.UP);
-			case Direction.DOWN:
-				return (direction == OrbitalDirection.CLOCKWISE ? Direction.LEFT : Direction.RIGHT);
-			case Direction.LEFT:
-				return (direction == OrbitalDirection.CLOCKWISE ? Direction.UP : Direction.DOWN);
+			case Direction.Up:
+				return (direction == OrbitalDirection.Clockwise ? Direction.Right : Direction.Left);
+			case Direction.Right:
+				return (direction == OrbitalDirection.Clockwise ? Direction.Down : Direction.Up);
+			case Direction.Down:
+				return (direction == OrbitalDirection.Clockwise ? Direction.Left : Direction.Right);
+			case Direction.Left:
+				return (direction == OrbitalDirection.Clockwise ? Direction.Up : Direction.Down);
 			}
 
 			// Default. Should never happen. Ever.
-			return Direction.UP;
+			return Direction.Up;
 		}
 
 		/// <summary>

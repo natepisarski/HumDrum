@@ -26,10 +26,8 @@ namespace HumDrumTests.Collections
 		[SetUp]
 		public void Setup()
 		{
-			Console.WriteLine ("Setting up this fixture");
 			_testList = new List<int> ();
 			_testList.AddRange (TR.Make (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
-			Console.WriteLine ("Fixture properly set up");
 		}
 
 		/// <summary>
@@ -95,7 +93,9 @@ namespace HumDrumTests.Collections
 			Assert.AreEqual (5, actual);
 
 			/* Tests DoTo Sequence */
-			Assert.AreEqual(PR.DoToSequence (TR.Make (1, 2, 3, 4, 5), (x => (x % 2) == 0), (x => x + 1)), TR.Make (3, 5));
+			Assert.AreEqual(
+				TR.Make (3, 5),
+				PR.DoToSequence (TR.Make (1, 2, 3, 4, 5), (x => (x % 2) == 0), (x => x + 1)));
 
 		}
 

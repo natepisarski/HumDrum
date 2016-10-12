@@ -1,25 +1,28 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Structures/ObjectBuilder.cs">
+﻿<Properties StartupItem="Packages.mdproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests/Collections/Information.cs">
     <Files>
-      <File FileName="HumDrumTests/Collections/HigherOrder.cs" Line="139" Column="8" />
-      <File FileName="HumDrumTests/Structures/ObjectBuilder.cs" Line="23" Column="4" />
-      <File FileName="HumDrum/HumDrum/Structures/ObjectBuilder.cs" Line="53" Column="33" />
-      <File FileName="HumDrum/HumDrum/Structures/BindingsTable.cs" Line="137" Column="27" />
+      <File FileName="HumDrumTests/Collections/Information.cs" Line="125" Column="87" />
+      <File FileName="HumDrumTests/Collections/Predicates.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Collections/Sections.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Collections/Markov/Markov.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Operations/Database/DatabaseTest.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Operations/Servitor.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Structures/BindingsTable.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Structures/Direction.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Structures/ObjectBuilder.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Structures/Tree.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Traits/Traits.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Test.cs" Line="16" Column="1" />
+      <File FileName="HumDrum/HumDrum/Collections/EqualityType.cs" Line="28" Column="14" />
+      <File FileName="HumDrum/HumDrum/Collections/Information.cs" Line="138" Column="33" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="HumDrum" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\lab1\Downloads\HumDrum\HumDrum\HumDrum\Structures\Tree.cs" line="350" column="14" />
       <Breakpoint file="/home/nate/Code/HumDrum/HumDrumTests/Operations/Database/DatabaseTest.cs" line="124" column="29" />
-      <Breakpoint file="/home/nate/Code/HumDrum/HumDrum/HumDrum/Structures/BindingsTable.cs" line="76" column="23" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

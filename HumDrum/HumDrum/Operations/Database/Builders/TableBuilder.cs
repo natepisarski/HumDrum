@@ -5,8 +5,11 @@ namespace HumDrum.Operations.Database
 {
 
 	/// <summary>
-	/// The TableBuilder allows you to generate database tables easily.
+	/// The TableBuilder is the fluent interface for entire tables within a Database.
+	/// Using SchemaBuilder and ColumnBuilder inside of these methods allows entire tables
+	/// to be created with one call to TableBuilder.
 	/// </summary>
+	[Experimental]
 	public class TableBuilder
 	{
 		/// <summary>
@@ -52,13 +55,22 @@ namespace HumDrum.Operations.Database
 		}
 
 		/// <summary>
+		/// Returns a new TableBuilder with the table under-construction equal to
+		/// the current InnerTable field.
+		/// </summary>
+		private TableBuilder Reference()
+		{
+			return new TableBuilder (InnerTable);
+		}
+
+		/// <summary>
 		/// Changes the name of the internal table
 		/// </summary>
 		/// <param name="title">The title to change it to</param>
 		public TableBuilder Title(string title)
 		{
 			InnerTable.Title = title;
-			return new TableBuilder (InnerTable);
+			return Reference ();
 		}
 
 		/// <summary>
@@ -69,7 +81,7 @@ namespace HumDrum.Operations.Database
 		public TableBuilder AddColumn(Column c)
 		{
 			InnerTable.InsertColumn (c, 0);
-			return new TableBuilder (InnerTable);
+			return Reference ();
 		}
 
 		/// <summary>
@@ -81,7 +93,7 @@ namespace HumDrum.Operations.Database
 		public TableBuilder AddColumn(Column c, int index)
 		{
 			InnerTable.InsertColumn (c, index);
-			return new TableBuilder (InnerTable);
+			return Reference ();
 		}
 
 		/// <summary>

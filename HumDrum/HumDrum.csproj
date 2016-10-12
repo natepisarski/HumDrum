@@ -43,7 +43,6 @@
     <Compile Include="HumDrum\Collections\Markov\MarkovState.cs" />
     <Compile Include="HumDrum\Collections\StateModifiers\IntegerCounter.cs" />
     <Compile Include="HumDrum\Operations\ImageManager.cs" />
-    <Compile Include="HumDrum\Operations\Logger.cs" />
     <Compile Include="HumDrum\Operations\Servitor.cs" />
     <Compile Include="HumDrum\Structures\BindingsTable.cs" />
     <Compile Include="HumDrum\Structures\Direction.cs" />
@@ -74,6 +73,7 @@
     <Compile Include="HumDrum\Operations\Database\Builders\SchemaBuilder.cs" />
     <Compile Include="HumDrum\Operations\Database\Builders\TableBuilder.cs" />
     <Compile Include="HumDrum\Structures\ObjectBuilder.cs" />
+    <Compile Include="HumDrum\LibraryAttributes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

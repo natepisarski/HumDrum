@@ -30,8 +30,8 @@ namespace HumDrumTests.Structures
 
 			for (int i = 0; i < 5; i++) {
 				foreach (Tree<int> t in _testTree.Level(i)) {
-					t.Grow (i + 1, DR.LEFT);
-					t.Grow (i + 1, DR.RIGHT);
+					t.Grow (i + 1, DR.Left);
+					t.Grow (i + 1, DR.Right);
 				}
 			}
 		}
@@ -81,16 +81,16 @@ namespace HumDrumTests.Structures
 			Tree<int> tree = _testTree.Level (3).Get(0);
 
 			// DOWN
-			Assert.AreEqual(3, tree.GetValue(DR.DOWN));
+			Assert.AreEqual(3, tree.GetValue(DR.Down));
 
 			// UP
-			Assert.AreEqual(2, tree.GetValue(DR.UP));
+			Assert.AreEqual(2, tree.GetValue(DR.Up));
 
 			// LEFT
-			Assert.AreEqual(4, tree.GetValue(DR.LEFT));
+			Assert.AreEqual(4, tree.GetValue(DR.Left));
 
 			// RIGHT
-			Assert.AreEqual(4, tree.GetValue(DR.RIGHT));
+			Assert.AreEqual(4, tree.GetValue(DR.Right));
 		}
 
 		/// <summary>
@@ -145,8 +145,8 @@ namespace HumDrumTests.Structures
 			myTree.Snip (3);
 			Func<int, int, int> coalescor = ((x, y) => x + y);
 
-			myTree.Coalesce (coalescor, DR.RIGHT);
-			myTree.Coalesce (coalescor, DR.RIGHT);
+			myTree.Coalesce (coalescor, DR.Right);
+			myTree.Coalesce (coalescor, DR.Right);
 
 			Assert.AreEqual (8, myTree.CurrentNode);
 
@@ -157,8 +157,8 @@ namespace HumDrumTests.Structures
 
 			Func<int, int, int, int> coalescor2 = (x, y, z) => x + y + z;
 
-			myTree.Coalesce (coalescor2, DR.RIGHT);
-			myTree.Coalesce (coalescor2, DR.RIGHT);
+			myTree.Coalesce (coalescor2, DR.Right);
+			myTree.Coalesce (coalescor2, DR.Right);
 
 			Assert.AreEqual (10, myTree.CurrentNode);
 		}

@@ -7,8 +7,14 @@ namespace HumDrum.Operations.Database
 	/// Creates a Row given a table and some instructions. Table should handle 
 	/// the actual specification of what exactly is included in this row
 	/// </summary>
+	[Experimental]
 	public class Row
 	{
+		/// <summary>
+		/// The items in this row. This contains
+		/// the type, a reference to the parent column, and the data.
+		/// </summary>
+		/// <value>The items</value>
 		public List<RowItem> Items {get; set;}
 
 		/// <summary>

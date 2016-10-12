@@ -4,8 +4,10 @@ using HumDrum.Collections;
 namespace HumDrum.Collections.StateModifiers
 {
 	/// <summary>
-	/// A state machine used to count to a certain integer
+	/// A state machine used to count to a certain integer. This can be used
+	/// to get every even element of a list, or a certain number of elements from one
 	/// </summary>
+	[Stable]
 	public class IntegerCounter : Groups.StateObject<int>
 	{
 		/// <summary>

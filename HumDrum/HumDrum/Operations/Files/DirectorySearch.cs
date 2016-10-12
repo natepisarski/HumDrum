@@ -7,9 +7,10 @@ using HumDrum.Collections;
 namespace HumDrum.Operations.Files
 {
 	/// <summary>
-	/// Searches directories for matching
-	/// files
+	/// Searches, filters, and modifies files within the 
+	/// directory tree.
 	/// </summary>
+	[Stable]
 	public class DirectorySearch
 	{
 		/// <summary>
@@ -70,18 +71,24 @@ namespace HumDrum.Operations.Files
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new DirectorySearch using a list of filenames
 		/// </summary>
-		/// <param name="files">Files.</param>
+		/// <param name="files">The files to have in this DirectorySearch</param>
 		protected DirectorySearch(List<string> files)
 		{
 			Files = files;
 		}
 
 		/// <summary>
-		/// Refines the selection of files based on a predicate.
+		/// Refines the current selection of files based on a predicate interacting
+		/// with the filenames. 
+		/// 
+		/// 
 		/// </summary>
-		/// <param name="refiner">File.</param>
+		/// <param name="refiner">The predicate to filter with</param>
+		/// <returns>
+		/// A new DirectorySearch object to streamline refining
+		/// </returns>
 		public DirectorySearch Refine(Predicate<string> refiner)
 		{
 			Files.RemoveAll (x => !refiner (x));

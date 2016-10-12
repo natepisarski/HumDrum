@@ -1,11 +1,14 @@
 ﻿using System;
 
 using HumDrum.Collections;
+
 namespace HumDrum.Operations.Database
 {
 	/// <summary>
 	/// SchemaBuilder is a fluent interface to the Schema object.
+	/// It allows simple manipulation of a Table / Row schema.
 	/// </summary>
+	[Experimental]
 	public class SchemaBuilder 
 	{
 		/// <summary>
@@ -25,7 +28,7 @@ namespace HumDrum.Operations.Database
 		}
 
 		/// <summary>
-		/// Returns a reference to this object
+		/// Returns this object with the current working schema
 		/// </summary>
 		private SchemaBuilder Reference()
 		{

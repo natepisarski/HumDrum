@@ -13,6 +13,7 @@ namespace HumDrum.Operations
 	/// scan directories for image files and
 	/// perform operations on them.
 	/// </summary>
+	[Experimental]
 	public class ImageManager
 	{
 		/// <summary>
@@ -22,8 +23,8 @@ namespace HumDrum.Operations
 		public List<Image> Images;
 
 		/// <summary>
-		/// The image average data. Calculated with
-		/// ProcessPrimaryData.
+		/// The "dominant" color of an image, processed with a 
+		/// filtering of dominant colors and an averaging of the colors which remain
 		/// </summary>
 		public List<Tuple<Image, Color>> PrimaryData;
 
@@ -52,22 +53,21 @@ namespace HumDrum.Operations
 				ext.Equals (".png") ||
 				ext.Equals (".jpeg") ||
 				ext.Equals (".tiff");
-				}).Files.ForEach (x => Images.Add (Image.FromFile(x)));
+				})
+				.Files.ForEach (x => Images.Add (Image.FromFile(x)));
 		}
 
 		/// <summary>
 		/// Gets all the pixels from the given image
 		/// </summary>
-		/// <returns>The pixels.</returns>
-		/// <param name="bmp">Bmp.</param>
+		/// <returns>The pixels as an array of Color</returns>
+		/// <param name="bmp">The bitmap image</param>
 		public static Color[] GetPixels(Bitmap bmp){
 			var colors = new List<Color> ();
 
-			for (int x = 0; x < bmp.Width; x++) {
-				for (int y = 0; y < bmp.Height; y++) {
+			for (int x = 0; x < bmp.Width; x++) 
+				for (int y = 0; y < bmp.Height; y++) 
 					colors.Add (bmp.GetPixel (x, y));
-				}
-			}
 
 			return colors.ToArray ();
 		}
@@ -75,21 +75,19 @@ namespace HumDrum.Operations
 		/// <summary>
 		/// Gets a rectangular area from the bitmap
 		/// </summary>
-		/// <returns>The pixels.</returns>
-		/// <param name="bmp">Bmp.</param>
-		/// <param name="topLeft">Top left.</param>
-		/// <param name="bottomRight">Bottom right.</param>
+		/// <returns>The pixels found within the given area</returns>
+		/// <param name="bmp">The bitmap image file</param>
+		/// <param name="topLeft">The point in the top left of the rectangle</param>
+		/// <param name="bottomRight">The point in the bottom right of a rectangle</param>
 		public static Color[] GetPixels(Bitmap bmp, Point topLeft, Point bottomRight)
 		{
 			var colors = new List<Color> ();
 
+			// Increase the X value until it is equal to the bottom right's X value
 			for (int x = topLeft.X; x < bottomRight.X; x++) 
-			{
-				for (int y = topLeft.Y; y < bottomRight.Y; y++) 
-				{
+				// Increase the Y value until it is equal to the top left's Y value
+				for (int y = bottomRight.Y; y < topLeft.Y; y++) 
 					colors.Add (bmp.GetPixel (x, y));
-				}
-			}
 
 			return colors.ToArray ();
 		}
@@ -97,8 +95,9 @@ namespace HumDrum.Operations
 		/// <summary>
 		/// Filters extreme colors out of the image
 		/// </summary>
-		/// <returns>The extreme.</returns>
-		/// <param name="extremity">Extremity.</param>
+		/// <returns>The color array, devoid of any extreme colors</returns>
+		/// <param name="extremity">The degree of "extreme" colors, starting at 0 (most severe).
+		///  This is a distance from one of the primary colors (R, G, B)</param>
 		public static Color[] FilterExtreme(Color[] colors, int extremity)
 		{
 			var returnColors = new List<Color> ();
@@ -118,23 +117,26 @@ namespace HumDrum.Operations
 		/// <summary>
 		/// Find the average color of a given image.
 		/// </summary>
-		/// <returns>The color.</returns>
-		/// <param name="img">Image.</param>
+		/// <returns>The color which is the average.</returns>
+		/// <param name="img">The image to test</param>
 		public static Color AverageColor(Color[] colors){
 
 			// If the picture doesn't contain anything, return the neutral color - gray
 			if (colors.Length.Equals (0))
 				return Color.Gray;
 
+			//                     R    G    B
 			var color = new Tuple<int, int, int>(0, 0, 0);
 
+			// Add the R, G, B components of each color to this tuple in order
 			foreach(Color c in colors){
 					color = new Tuple<int, int, int> (
 					color.Item1 + c.R,
 						color.Item2 + c.G,
 						color.Item3 + c.B);
 			}
-				
+
+			// Make a color with the average reds, average greens, and average blues
 			color = new Tuple<int, int, int> (
 				color.Item1 / colors.Length,
 				color.Item2 / colors.Length,
@@ -146,7 +148,7 @@ namespace HumDrum.Operations
 		/// <summary>
 		/// Returns the average color from an image.
 		/// </summary>
-		/// <returns>The color.</returns>
+		/// <returns>The average color of an Image objct</returns>
 		/// <param name="img">The image to find the average color of</param>
 		public static Color AverageColor(Image img)
 		{
@@ -157,18 +159,18 @@ namespace HumDrum.Operations
 		/// Returns the average color from the image, after the extreme
 		/// colors (within 25 hues of white or black) have been removed.
 		/// </summary>
-		/// <returns>The color.</returns>
-		/// <param name="colors">Colors.</param>
+		/// <returns>The primary color from this image, if one color is dominant</returns>
+		/// <param name="colors">The array of colors for this image</param>
 		public static Color PrimaryColor(Color[] colors)
 		{
 			return AverageColor (FilterExtreme (colors, 25));
 		}
 
 		/// <summary>
-		/// Gets the primary color from the image.
+		/// Gets the primary color from the image object
 		/// </summary>
-		/// <returns>The color.</returns>
-		/// <param name="img">Image.</param>
+		/// <returns>The color with extreme colors weeded out</returns>
+		/// <param name="img">The image to use</param>
 		public static Color PrimaryColor(Image img)
 		{
 			return PrimaryColor (GetPixels (new Bitmap (img)));
@@ -178,6 +180,8 @@ namespace HumDrum.Operations
 		/// Processes the Primary data for the images.
 		/// Depending on the image data being observed, this process
 		/// is very computationally intensive.
+		/// 
+		/// The primary data is 
 		/// </summary>
 		public void ProcessPrimaryData()
 		{
@@ -196,8 +200,8 @@ namespace HumDrum.Operations
 		/// <summary>
 		/// Calculate the difference between two colors.
 		/// </summary>
-		/// <param name="a">The alpha component.</param>
-		/// <param name="b">The blue component.</param>
+		/// <param name="a">The first color</param>
+		/// <param name="b">The second color</param>
 		public static double Difference(Color a, Color b)
 		{
 			double totalDifference = 0;
@@ -221,6 +225,7 @@ namespace HumDrum.Operations
 		/// <param name="color">Color.</param>
 		public Image NearestMatch(Color color)
 		{
+			// We nee the Primary data calculated for this
 			if (PrimaryData == null)
 				ProcessPrimaryData ();
 			
@@ -240,6 +245,7 @@ namespace HumDrum.Operations
 			if (differences.Count.Equals (0))
 				return PrimaryData [0].Item1;
 
+			// This should be the most similar image after sorting
 			return differences [0].Item2;
 		}
 
@@ -247,8 +253,8 @@ namespace HumDrum.Operations
 		/// Return the image that has an average color closest to the average of
 		/// these colors.
 		/// </summary>
-		/// <returns>The match.</returns>
-		/// <param name="colors">Color.</param>
+		/// <returns>The image with colors most similar to the colors array provided</returns>
+		/// <param name="colors">The colors to compare with</param>
 		public Image NearestMatch(Color[] colors)
 		{
 			return NearestMatch (PrimaryColor (colors));
@@ -257,10 +263,10 @@ namespace HumDrum.Operations
 		/// <summary>
 		/// Get the image that's the nearest match for this region in the bitmap
 		/// </summary>
-		/// <returns>The match.</returns>
-		/// <param name="bmp">Bmp.</param>
-		/// <param name="topLeft">Top left.</param>
-		/// <param name="bottomRight">Bottom right.</param>
+		/// <returns>The image which is the nearest match</returns>
+		/// <param name="bmp">The bitmap image to take a region from</param>
+		/// <param name="topLeft">The top left point of the selection</param>
+		/// <param name="bottomRight">The bottom right point of the selection</param>
 		public Image NearestMatch(Bitmap bmp, Point topLeft, Point bottomRight)
 		{
 			return NearestMatch (GetPixels (bmp, topLeft, bottomRight));

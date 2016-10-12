@@ -68,16 +68,16 @@ namespace HumDrumTests.Collections.Markov
 			// Tests the chain of degree 1
 			MK.Markov<int> markovChain1 = new MK.Markov<int> (_testList, 1);
 
-			Assert.AreEqual (markovChain1.ProbabilityOf (TR.Make (2), 3), .5);
+			Assert.AreEqual (.5, markovChain1.ProbabilityOf (TR.Make (2), 3));
 
 			// Tests the chain of degree 2
 			MK.Markov<int> markovChain2 = new MK.Markov<int>(_testList, 2);
 
-			Assert.AreEqual (markovChain2.ProbabilityOf (TR.Make (0, 1), 7), .5);
+			Assert.AreEqual (.5, markovChain2.ProbabilityOf (TR.Make (0, 1), 7));
 
 			// Tests the chain of degree 4
 			MK.Markov<int> markovChain4 = new MK.Markov<int>(_testList, 4);
-			Assert.AreEqual (markovChain4.ProbabilityOf (TR.Make (0, 1, 2, 3), 2), 1.0);
+			Assert.AreEqual (1.0, markovChain4.ProbabilityOf (TR.Make (0, 1, 2, 3), 2));
 		}
 	}
 }

@@ -6,6 +6,7 @@ namespace HumDrum.Operations.Files
 	/// Sequential writer. This will return a filename
 	/// that is sequential in some way.
 	/// </summary>
+	[Stable]
 	public interface ISequentialWriter
 	{
 		/// <summary>

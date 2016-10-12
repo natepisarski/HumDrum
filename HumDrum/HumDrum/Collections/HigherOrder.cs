@@ -3,6 +3,13 @@ using System.Collections.Generic;
 
 namespace HumDrum.Collections
 {
+	/// <summary>
+	/// HigherOrder contains operations for lists that involve
+	/// running a function or delegate over them. Other Collections libraries
+	/// have these as well, but this file is concerned primarily with
+	/// providing LINQ-esque functionality.
+	/// </summary>
+	[Stable]
 	public static class HigherOrder
 	{
 		public delegate W Transformer<T, W>(T actOn);
@@ -29,7 +36,7 @@ namespace HumDrum.Collections
 		/// <param name="t">The transformer (lambda)</param>
 		/// <typeparam name="T">The type of the list</typeparam>
 		/// <typeparam name="W">The return type of the lambda</typeparam>
-		public static IEnumerable<W> ForEvery<T, W>(this IEnumerable<T> list, Transformer<T, W> t)
+		public static IEnumerable<W> ForEvery<T, W>(this IEnumerable<T> list, Func<T, W> t)
 		{
 			foreach (T item in list)
 				yield return t (item);
@@ -54,7 +61,8 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Fold the specified list to the right
+		/// Fold the specified list to the right.
+		/// If you would like to use a left fold, you may utilize the Reverse function in HumDrum.Collections.Transformations
 		/// </summary>
 		/// <param name="list">The list to fold</param>
 		/// <param name="collapsor">The function to fold the list with</param>
@@ -64,9 +72,8 @@ namespace HumDrum.Collections
 		{
 			T currentValue = list.Get (0);
 
-			for (int i = 1; i < list.Length (); i++) {
+			for (int i = 1; i < list.Length (); i++) 
 				currentValue = collapsor (currentValue, list.Get(i));
-			}
 
 			return currentValue;
 		}
@@ -227,6 +234,13 @@ namespace HumDrum.Collections
 			return withItem.DropLast ();
 		}
 
+		/// <summary>
+		/// Replace elements of a list where the predicate is true with the given value
+		/// </summary>
+		/// <param name="list">The list to replace values in</param>
+		/// <param name="pred">The predicate to search the list with</param>
+		/// <param name="value">The value to substitute in</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static IEnumerable<T> Replace<T>(this IEnumerable<T> list, Predicate<T> pred, T value)
 		{
 			List<T> rList = new List<T> ();

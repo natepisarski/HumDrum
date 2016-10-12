@@ -6,10 +6,11 @@ namespace HumDrum.Collections
 	/// Static functions which relate to gathering information
 	/// about a sequence.
 	/// </summary>
+	[Stable]
 	public static class Information
 	{
 		/// <summary>
-		/// Gets the number of elements in this IEnumerable
+		/// Gets the number of elements in this sequence
 		/// </summary>
 		/// <param name="theList">The list to count on</param>
 		/// <typeparam name="T">The type parameter</typeparam>
@@ -26,7 +27,8 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Get the item at the index from the list.
+		/// Get the item at the index from the list. If the list is empty, it will return
+		/// the default value for the type of the lsit
 		/// </summary>
 		/// <param name="list">The list</param>
 		/// <param name="index">The index (0-based)</param>
@@ -47,10 +49,13 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Returns a collection of the members found at the indices provided
+		/// Finds the items at the specified locations on the list.
+		/// Locations are 0-indexed
 		/// </summary>
-		/// <returns>The positions in the list to get</returns>
-		/// <param name="">.</param>
+		/// <returns>The items found at the given locations in the list</returns>
+		/// <param name="list">The list iteself</param>
+		/// <param name="indices">The idices where the items will be found in the list</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static IEnumerable<T> GetIndices<T>(this IEnumerable<T> list, params int[] indices)
 		{
 			foreach (int index in indices)
@@ -118,15 +123,19 @@ namespace HumDrum.Collections
 		{
 			switch (eq) {
 
-			case EqualityType.ONE_TO_ONE:
+			case EqualityType.OneToOne: // The list and orders are exactly equal
 				return Equal (list1, list2);
 
-			case EqualityType.SUBSTANTIAL:
+			case EqualityType.Substantial: // The content of the list is the same
 				if (!list1.Length ().Equals (list2.Length ()))
 					return false;
-				return list1.All (x => list1.Times (x).Equals (list2.Times (x))) && list2.All (x => list2.Times (x).Equals (list1.Times (x)));
+				return 
+					list1.All (
+						x => list1.Times (x).Equals (list2.Times (x)))
+				 && list2.All (
+						x => list2.Times (x).Equals (list1.Times (x)));
 
-			case EqualityType.SET_EQUALITY:
+			case EqualityType.SetEquality: // For each unique memeber in one list, the other list has it
 				return list1.All (x => list2.Has (x)) && list2.All (x => list1.Has (x));
 			}
 
@@ -143,7 +152,7 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The generic type parameter</typeparam>
 		public static int Times<T>(this IEnumerable<T> list, T item)
 		{
-			return HigherOrder.When (list, (T x) => x.Equals (item)).Length<T>();
+			return list.When((T x) => x.Equals (item)).Length<T>();
 		} 
 
 		/// <summary>
@@ -155,10 +164,7 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The generic type parameter</typeparam>
 		public static bool Has<T>(this IEnumerable<T> list, T item)
 		{
-			foreach (T listItem in list)
-				if (listItem.Equals (item))
-					return true;
-			return false;
+			return list.Any (Predicates.GenerateEqualityPredicate (item));
 		}
 
 		/// <summary>
@@ -172,7 +178,10 @@ namespace HumDrum.Collections
 		{
 			for (int i = 0; i + subsequence.Length () < list.Length () + 1; i++) {
 				List<T> chunk = new List<T> ();
+
+				// The chunk is equal to a list starting at i and going to the length of the subsequence
 				chunk.AddRange (list.Subsequence (i, subsequence.Length ()));
+
 				if (Information.Equal (subsequence, chunk.Genericize()))
 					return true;
 			}
@@ -180,7 +189,9 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Turn any type of collection into an IEnumerable
+		/// Turn any type of collection into a pure IEnumerable.
+		/// Techniquely, many collections implement IEnumerable. However, this will ensure
+		/// that only the assumptions that can be made about IEnumerable can be made about the object.
 		/// </summary>
 		/// <param name="list">The list to genericize</param>
 		/// <typeparam name="T">The type parameter of this list</typeparam>

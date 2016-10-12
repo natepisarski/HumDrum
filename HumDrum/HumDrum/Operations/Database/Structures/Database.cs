@@ -9,6 +9,7 @@ namespace HumDrum.Operations.Database
 	/// The Database class controls a list of Tables, which each manage a list of
 	/// Columns.
 	/// </summary>
+	[Experimental]
 	public class Database
 	{
 		/// <summary>

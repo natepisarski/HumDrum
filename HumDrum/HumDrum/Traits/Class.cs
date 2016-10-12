@@ -12,6 +12,7 @@ namespace HumDrum.Traits
 	/// and provides facilities for interacting with the
 	/// class through reflection.
 	/// </summary>
+	[Experimental]
 	public class Class
 	{
 		/// <summary>

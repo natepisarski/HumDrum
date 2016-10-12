@@ -12,6 +12,7 @@ namespace HumDrum.Collections.Markov
 	/// A representation of a markov chain for a certain
 	/// type of data.
 	/// </summary>
+	[Stable]
 	public class Markov<T>
 	{
 
@@ -38,7 +39,6 @@ namespace HumDrum.Collections.Markov
 		public Markov (IEnumerable<T> dataset, int degree)
 		{
 			States = new List<MarkovState<T>> ();
-			var markovPairs = new List<T> ();
 
 			AppendChain (dataset, degree);
 		}
@@ -74,11 +74,13 @@ namespace HumDrum.Collections.Markov
 
 			// Pass 2: Determine the probability of current incurring future state
 			foreach (MarkovState<T> ms in States) {
-				List<T> occurences = (from MarkovState<T> item in States
-					where Information.Equal(item.State, ms.State)
-					select item.Next).ToList();
+				
+				List<T> occurences = States
+					.When (x => Information.Equal (x.State, ms.State)) // Where the states match
+					.ForEvery (x => x.Next).AsList ();
+				
 				// Probability is equal to the times this future state occured compared to how many there are.
-				ms.Probability = ((double)Information.Times<T> (occurences, ms.Next)) / ((double)occurences.Length<T> ());
+				ms.Probability = ((double) occurences.Times(ms.Next)) / ((double) occurences.Length<T> ());
 			}
 		}
 
@@ -89,10 +91,10 @@ namespace HumDrum.Collections.Markov
 		/// <param name="state">The state to test for</param>
 		public double ProbabilityOf(IEnumerable<T> seed, T next)
 		{
-			foreach (MarkovState<T> state in States) {
+			foreach (MarkovState<T> state in States) 
 				if (state.State.SequenceEqual (seed))
 					return state.Probability;
-			}
+			
 
 			return 0.00;
 		}
@@ -163,13 +165,19 @@ namespace HumDrum.Collections.Markov
 		{
 			IEnumerable<T> selectedState = seed;
 
-			yield return SelectRandom (seed);
+			// The sequence will start with the seed
+			yield return SelectRandom (seed); 
+
 			for (; count > 0; count--) {
+
+				// The next state is equal to one item into the last seed, plus a random state based on this new seed
 				selectedState = Transformations.Concatenate (
 					Transformations.Subsequence (seed, 1, seed.Length ()),
 					Transformations.Wrap (SelectRandom (selectedState)));
+				
 				yield return SelectRandom (selectedState);
 			}
+
 			yield break;
 		}
 
@@ -179,7 +187,10 @@ namespace HumDrum.Collections.Markov
 		/// <returns>The random sequence</returns>
 		/// <param name="count">The number of words to collect</param>
 		public IEnumerable<T> SelectRandomSequence(int count) {
-			return SelectRandomSequence(States.Get(new Random().Next(States.Length())).State, count);
+			return SelectRandomSequence(
+				States.Get(
+					new Random().Next(States.Length()))
+				.State, count);
 		}
 
 		/// <summary>

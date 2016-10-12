@@ -2,6 +2,11 @@
 
 namespace HumDrum.Operations.Database
 {
+	/// <summary>
+	/// A SchemaAtom. A Schema Atom refers to the name and type of one
+	/// column within a database.
+	/// </summary>
+	[Experimental]
 	public class SchemaAtom
 	{
 		/// <summary>

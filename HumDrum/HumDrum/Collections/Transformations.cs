@@ -1,16 +1,28 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 
 using HumDrum.Collections;
 
 namespace HumDrum.Collections
 {
+	/// <summary>
+	/// Transformations is the "poster-child" of the HumDrum library.
+	/// 
+	/// It defines functions which manipulate the elements in generic collections, or create new ones.
+	/// 
+	/// Since these methods, for the most part, act as extension methods to IEnumerable, they apply
+	/// to nearly every collection on the .NET framework, unifying interaction with objects
+	/// across all sorts of different classes.
+	/// </summary>
+	[Stable]
 	public static class Transformations
 	{
 
 		/// <summary>
-		/// Use varargs to create an array literal
+		/// Use variatic arguments to specify a new IEnumerable sequence.
+		/// <example>
+		/// var array = Transformations.Make(1, 2, 3, 4, 5);
+		/// </example>
 		/// </summary>
 		/// <param name="items">The items to add to the array</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
@@ -21,14 +33,41 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Creates a System.Generic.List object based on the
+		/// Creates a System.Collections.Generic.List object based on the
 		/// items supplied to this method
 		/// </summary>
+		/// <example>
+		/// List<int> list = Transformations.MakeList(1, 2, 3);
+		/// </example>
 		/// <returns>A list object containing all of these items</returns>
 		/// <param name="items">The items to put into the list objects</param>
 		/// <typeparam name="T">The type parameter</typeparam>
 		public static List<T> MakeList<T>(params T[] items){
 			return new List<T> (items);
+		}
+
+		/// <summary>
+		/// Returns the given sequence as an array
+		/// </summary>
+		/// <returns>The list to convert</returns>
+		/// <param name="list">An array based on the list</param>
+		public static T[] AsArray<T>(this IEnumerable<T> list)
+		{
+			return list.AsList ().ToArray ();
+		}
+
+		/// <summary>
+		/// Returns the list with the information contained in this IEnumerable sequence
+		/// </summary>
+		/// <returns>The list object</returns>
+		/// <param name="list">The original sequence</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static List<T> AsList<T>(this IEnumerable<T> list)
+		{
+			var collector = new List<T> ();
+			collector.AddRange (list);
+
+			return collector;
 		}
 
 		/// <summary>
@@ -156,13 +195,13 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Returns the position where the sequence is found.
+		/// Returns the position where the sequence is found, starting with the first element to match
 		/// </summary>
-		/// <returns>The position.</returns>
-		/// <param name="sequence">Sequence.</param>
-		/// <param name="beginning">Beginning.</param>
+		/// <returns>The position where the first element is found in the list. Returns -1 if the sequence is not found</returns>
+		/// <param name="sequence">The original sequence</param>
+		/// <param name="beginning">The sequence to search for</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static int SequencePosition<T>(IEnumerable<T> sequence, IEnumerable<T> beginning)
+		public static int SequencePosition<T>(this IEnumerable<T> sequence, IEnumerable<T> beginning)
 		{
 			// The sequence cannot be less than "beginning", so the loop doesn't get that far.
 			for (int i = 0; i < (sequence.Length () - beginning.Length () + 1); i++) {
@@ -176,18 +215,6 @@ namespace HumDrum.Collections
 
 			// This sequence was not present in the list.
 			return -1;
-		}
-			
-		/// <summary>
-		/// Returns the given sequence as an array
-		/// </summary>
-		/// <returns>The list to convert</returns>
-		/// <param name="list">An array based on the list</param>
-		public static T[] AsArray<T>(this IEnumerable<T> list)
-		{
-			var collector = new List<T> ();
-			collector.AddRange (list);
-			return collector.ToArray ();
 		}
 
 		/// <summary>
@@ -234,7 +261,7 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Wraps the specified item in some type of class
+		/// Wraps the specified item in a list object
 		/// </summary>
 		/// <param name="item">The name of the item to wrap</param>
 		/// <typeparam name="T">The 1st type parameter to wrap</typeparam>
@@ -245,7 +272,7 @@ namespace HumDrum.Collections
 		}
 
 		/// <summary>
-		/// Concatenate two lists
+		/// Concatenate two lists, with list1 preceding list2
 		/// </summary>
 		/// <param name="list1">The first list</param>
 		/// <param name="list2">The second list</param>
@@ -253,8 +280,10 @@ namespace HumDrum.Collections
 		public static IEnumerable<T> Concatenate<T>(IEnumerable<T> list1, IEnumerable<T> list2){
 			foreach (T item in list1)
 				yield return item;
+			
 			foreach (T item in list2)
 				yield return item;
+			
 			yield break;
 		}
 
@@ -277,6 +306,12 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static IEnumerable<T> RightShift<T>(this IEnumerable<T> list)
 		{
+			/*
+			 * The transformation to enable this consist of moving
+			 * the last element to the head, and then appending the rest
+			 * of the list except for the element that was moved.
+			*/
+
 			List<T> retList = new List<T>();
 
 			retList.Add(list.Last());
@@ -286,6 +321,7 @@ namespace HumDrum.Collections
 
 			return retList;
 		}
+
 		/// <summary>
 		/// Shifts a list a specified distances to the right. This retains all information,
 		/// yet increases the indices by one. This will shift the last position to the front position
@@ -309,6 +345,12 @@ namespace HumDrum.Collections
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
 		public static IEnumerable<T> LeftShift<T>(this IEnumerable<T> list)
 		{
+			/*
+			 * The transformation which enables this is moving the Head
+			 * to write the array, skipping the head, and then append the 
+			 * head as the final element.
+			*/
+
 			List<T> retList = new List<T> ();
 
 			foreach (T item in list.Subsequence(1, list.Length()))
@@ -369,6 +411,35 @@ namespace HumDrum.Collections
 				retList = retList.Prepend (item);
 
 			return retList;
+		}
+
+		/// <summary>
+		/// Bind the element in list1 to the corresponding element in list2.
+		/// This will only associate as many elements as are in either list.
+		/// </summary>
+		/// <param name="list1">The first list (keyset)</param>
+		/// <param name="list2">The second list (values)</param>
+		public static IEnumerable<Tuple<T, W>> Bind<T, W>(this IEnumerable<T> list1, IEnumerable<W> list2)
+		{
+			for (int index = 0; index < list1.Length () && index < list2.Length (); index++)
+				yield return new Tuple<T, W> (list1.Get (index), list2.Get (index));
+			yield break;
+		}
+
+		/// <summary>
+		/// Cross the specified list1 and list2. This will return a 
+		/// list where every possible combination of 2 elements is returned.
+		/// </summary>
+		/// <param name="list1">The first list</param>
+		/// <param name="list2">The second list.</param>
+		public static IEnumerable<Tuple<T, W>> Cross<T, W>(this IEnumerable<T> list1, IEnumerable<W> list2)
+		{
+			foreach (T item1 in list1) {
+				foreach (W item2 in list2) 
+					yield return (new Tuple<T, W> (item1, item2));
+			}
+
+			yield break;
 		}
 	}
 }

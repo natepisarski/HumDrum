@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 
 using System.Reflection;
+
 namespace HumDrum.Traits
 {
 	/// <summary>
-	/// Represents an interface
+	/// Represents a C# interface, which defines methods another class must implement.
 	/// </summary>
+	[Experimental]
 	public class Interface
 	{
 		/// <summary>

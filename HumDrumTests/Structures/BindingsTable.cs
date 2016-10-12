@@ -27,7 +27,7 @@ namespace HumDrumTests.Structures
 		{
 			_Table = new ST.BindingsTable<string, int> ();
 
-			_Table.Associate(ST.BindingsTable<string, int>.Bind (
+			_Table.Associate(TR.Bind (
 				TR.Make ("a", "b", "c", "d"),
 				TR.Make ( 0,    1,   2,   3)));
 
@@ -39,23 +39,6 @@ namespace HumDrumTests.Structures
 		}
 
 		/// <summary>
-		/// Tests the static cross-product function as well as the Bind function
-		/// by comparing them with each other.
-		/// </summary>
-		[Test]
-		public void TestCrossAndBind()
-		{
-			var crossed = ST.BindingsTable<string, int>.Cross (TR.Make ("a", "b", "c"), TR.Make (1, 2, 3));
-
-			var elements = ST.BindingsTable<string, int>.Bind (
-				               TR.Make ("a", "a", "a", "b", "b", "b", "c", "c", "c"),
-				               TR.Make (1, 2, 3, 1, 2, 3, 1, 2, 3));
-
-			foreach (Tuple<string, int> member in elements)
-				Assert.True (IF.Has (crossed, member));
-		}
-
-		/// <summary>
 		/// Attempts to associate e with 4 in the Test List
 		/// </summary>
 		[Test]
@@ -63,7 +46,7 @@ namespace HumDrumTests.Structures
 		{
 			_Table.Associate ("e", 4);
 
-			Assert.AreEqual (_Table.LookupFirst ("e"), 4);
+			Assert.AreEqual (4, _Table.LookupFirst ("e"));
 		}
 
 		/// <summary>
@@ -72,7 +55,7 @@ namespace HumDrumTests.Structures
 		[Test]
 		public void TestKeyset()
 		{
-			Assert.AreEqual (_Table.Keyset (), TR.Make ("a", "b", "c", "d"));
+			Assert.AreEqual (TR.Make ("a", "b", "c", "d"), _Table.Keyset ());
 		}
 
 		/// <summary>
@@ -81,7 +64,7 @@ namespace HumDrumTests.Structures
 		[Test]
 		public void TestValues()
 		{
-			Assert.AreEqual (_Table.Values (), TR.Make (0, 1, 2, 3));
+			Assert.AreEqual (TR.Make (0, 1, 2, 3), _Table.Values ());
 		}
 	}
 }

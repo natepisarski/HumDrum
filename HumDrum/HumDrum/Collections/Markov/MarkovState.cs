@@ -7,6 +7,7 @@ namespace HumDrum.Collections.Markov
 	/// Contains information pertaining to the 
 	/// state of one item within a markov chain.
 	/// </summary>
+	[Stable]
 	public class MarkovState<T> 
 	{
 		/// <summary>

@@ -5,8 +5,11 @@ using HumDrum.Collections;
 namespace HumDrum.Operations.Database
 {
 	/// <summary>
-	/// Builds a column within the table given a certain type
+	/// Builds a column within the table given a certain type.
+	/// This class returns itself during the building phase, allowing
+	/// cascading to serve as an implementation of the code-as-data model.
 	/// </summary>
+	[Experimental]
 	public class ColumnBuilder<T> {
 
 		/// <summary>
@@ -35,7 +38,7 @@ namespace HumDrum.Operations.Database
 		/// Initializes a new instance of the <see cref="HumDrum.Database.ColumnBuilder`1"/> class.
 		/// This will initialize the type and name of the column
 		/// </summary>
-		/// <param name="title">Title.</param>
+		/// <param name="title">The title of the given column</param>
 		public ColumnBuilder(string title) {
 			InnerColumn = new Column (title, typeof(T));
 		}
@@ -84,7 +87,7 @@ namespace HumDrum.Operations.Database
 		}
 
 		/// <summary>
-		/// Returns the column
+		/// Returns the column object, finishing the Building phase.
 		/// </summary>
 		public Column Finalize()
 		{

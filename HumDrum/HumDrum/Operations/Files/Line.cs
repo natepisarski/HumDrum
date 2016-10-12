@@ -8,6 +8,7 @@ namespace HumDrum.Operations.Files
 	/// <summary>
 	/// Class representing a line from a text file
 	/// </summary>
+	[Stable]
 	public class Line
 	{
 		/// <summary>
