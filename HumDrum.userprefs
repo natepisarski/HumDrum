@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrumTests/Collections/Transformations.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum/HumDrum/Structures/ObjectBuilder.cs">
     <Files>
-      <File FileName="HumDrumTests/Collections/Transformations.cs" Line="339" Column="53" />
-      <File FileName="HumDrum/HumDrum/Collections/Transformations.cs" Line="366" Column="43" />
-      <File FileName="HumDrum/HumDrum/Collections/Information.cs" Line="1" Column="1" />
+      <File FileName="HumDrumTests/Collections/HigherOrder.cs" Line="139" Column="8" />
+      <File FileName="HumDrumTests/Structures/ObjectBuilder.cs" Line="23" Column="4" />
+      <File FileName="HumDrum/HumDrum/Structures/ObjectBuilder.cs" Line="53" Column="33" />
+      <File FileName="HumDrum/HumDrum/Structures/BindingsTable.cs" Line="137" Column="27" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">
@@ -18,6 +19,7 @@
     <BreakpointStore>
       <Breakpoint file="C:\Users\lab1\Downloads\HumDrum\HumDrum\HumDrum\Structures\Tree.cs" line="350" column="14" />
       <Breakpoint file="/home/nate/Code/HumDrum/HumDrumTests/Operations/Database/DatabaseTest.cs" line="124" column="29" />
+      <Breakpoint file="/home/nate/Code/HumDrum/HumDrum/HumDrum/Structures/BindingsTable.cs" line="76" column="23" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

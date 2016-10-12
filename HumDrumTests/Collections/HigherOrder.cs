@@ -127,6 +127,19 @@ namespace HumDrumTests.Collections
 		}
 
 		/// <summary>
+		/// Tests the replace function
+		/// </summary>
+		[Test]
+		public void TestReplace()
+		{
+			var x = HO.Replace (TR.Make (1, 2, 3, 4, 5, 6), PR.GenerateEqualityPredicate (1), 2);
+
+			Assert.AreEqual (
+				TR.Make (2, 2, 3, 4, 5, 6),
+				x);
+		}
+
+		/// <summary>
 		/// Tests the non-inclusive variant of the while function
 		/// </summary>
 		[Test]

@@ -226,6 +226,19 @@ namespace HumDrum.Collections
 			var withItem = BeforeInclusive (list, predicate);
 			return withItem.DropLast ();
 		}
+
+		public static IEnumerable<T> Replace<T>(this IEnumerable<T> list, Predicate<T> pred, T value)
+		{
+			List<T> rList = new List<T> ();
+
+			foreach (T item in list)
+				if (pred (item))
+					rList.Add (value);
+				else
+					rList.Add (item);
+
+			return rList.Genericize ();
+		}
 	}
 }
 

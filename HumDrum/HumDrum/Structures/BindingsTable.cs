@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 using System.Collections.Generic;
 using HumDrum.Collections;
@@ -89,12 +88,61 @@ namespace HumDrum.Structures
 		}
 
 		/// <summary>
+		/// Sets the value of the first item where the predicate is true to the value
+		/// </summary>
+		/// <param name="pred">The predicate to test for</param>
+		/// <param name="value">The value to test for</param>
+		public void SetAssociation(Predicate<T> pred, W value)
+		{
+			if (!Keyset().Any (pred))
+				return;
+			
+			var toSet = Bindings.First (x => pred (x.Item1));
+			toSet = new Tuple<T, W> (toSet.Item1, value);
+
+			Bindings.Replace (x => x.Item1.Equals (toSet.Item1), toSet);
+		}
+
+		/// <summary>
+		/// Set the existing association between an existing key and a new value.
+		/// If there is no key with the name, it will not add it to the list of 
+		/// associations
+		/// </summary>
+		/// <param name="key">The key to look for</param>
+		/// <param name="value">The value to use for this key</param>
+		public void SetAssociation(T key, W value)
+		{
+			SetAssociation (Predicates.GenerateEqualityPredicate (key), value);
+		}
+
+		/// <summary>
+		/// Manually set the association. This has no benefits over SetAssociation, and it will be
+		/// removed in future versions of HumDrum. However, at the time of writing this function,
+		/// dynamic variables cannot be used in predicates, and will cause a runtime error when used this way.
+		/// 
+		/// So, if either T or W is dynamic, this is the only way to update an association.
+		/// </summary>
+		/// <param name="key">The key to look for</param>
+		/// <param name="value">The value to associate with the key</param>
+		public void SetAssociationManually(T key, W value)
+		{
+			List<Tuple<T, W>> newBindings = new List<Tuple<T, W>> ();
+
+			foreach (Tuple<T, W> item in Bindings)
+				if (key.Equals (item.Item1))
+					newBindings.Add (new Tuple<T, W> (key, value));
+				else
+					newBindings.Add (item);
+
+			Bindings = newBindings;
+		}
+
+		/// <summary>
 		/// Return the UNIQUE keyset from this BindingsTable. 
 		/// </summary>
 		public IEnumerable<T> Keyset()
 		{
-			return Transformations.RemoveDuplicates((from x in Bindings
-				select x.Item1));
+			return Transformations.RemoveDuplicates (Bindings.ForEvery (x => x.Item1));
 		}
 
 		/// <summary>
@@ -102,8 +150,7 @@ namespace HumDrum.Structures
 		/// </summary>
 		public IEnumerable<W> Values()
 		{
-			return Transformations.RemoveDuplicates((from x in Bindings
-				select x.Item2));
+			return Transformations.RemoveDuplicates (Bindings.ForEvery (y => y.Item2));
 		}
 
 		/// <summary>
@@ -112,9 +159,18 @@ namespace HumDrum.Structures
 		/// <param name="key">The key to look up in the bindings table</param>
 		public IEnumerable<W> Lookup(T key)
 		{
-			return (from x in Bindings
-			        where x.Item1.Equals (key)
-			        select x.Item2);
+			return Lookup (Predicates.GenerateEqualityPredicate (key));
+		}
+
+		/// <summary>
+		/// Looks up the information in this BindingsTable where the predicate holds true for the key
+		/// </summary>
+		/// <param name="predicate">The predicate to use</param>
+		public IEnumerable<W> Lookup(Predicate<T> predicate)
+		{
+			return Bindings
+				.When (x => predicate (x.Item1))
+				.ForEvery (x => x.Item2);
 		}
 
 		/// <summary>
@@ -126,6 +182,16 @@ namespace HumDrum.Structures
 		public W LookupFirst(T key)
 		{
 			return Lookup (key).Get (0);
+		}
+
+		/// <summary>
+		/// Looks up the first item where the predicate yields true when applied to the key
+		/// </summary>
+		/// <returns>The first value where the key triggers the predicate</returns>
+		/// <param name="predicate">The predicate to filter with</param>
+		public W LookupFirst(Predicate<T> predicate)
+		{
+			return Lookup (predicate).Get (0);
 		}
 
 		/// <summary>

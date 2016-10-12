@@ -31,6 +31,7 @@
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="HumDrum\Operations\Database\Builders\ColumnBuilder.cs" />
     <Compile Include="HumDrum\Operations\Database\Builders\SchemaBuilder.cs" />
     <Compile Include="HumDrum\Operations\Database\Builders\TableBuilder.cs" />
+    <Compile Include="HumDrum\Structures\ObjectBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
