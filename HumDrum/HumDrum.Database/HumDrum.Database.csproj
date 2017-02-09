@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38890DAC-1111-4B08-B296-3FDF44BB7D68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HumDrum.Database</RootNamespace>
+    <AssemblyName>HumDrum.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DatabaseOperations.cs" />
+    <Compile Include="IDatabaseDriver.cs" />
+    <Compile Include="Builders\ColumnBuilder.cs" />
+    <Compile Include="Builders\SchemaBuilder.cs" />
+    <Compile Include="Builders\TableBuilder.cs" />
+    <Compile Include="Structures\Column.cs" />
+    <Compile Include="Structures\Database.cs" />
+    <Compile Include="Structures\Row.cs" />
+    <Compile Include="Structures\RowItem.cs" />
+    <Compile Include="Structures\Schema.cs" />
+    <Compile Include="Structures\SchemaAtom.cs" />
+    <Compile Include="Structures\Table.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HumDrum.Collections\HumDrum.Collections.csproj">
+      <Project>{628A97A9-FA0E-4E18-B4B8-561060862D04}</Project>
+      <Name>HumDrum.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HumDrum.General\HumDrum.General.csproj">
+      <Project>{280DD9B5-9BFA-4F21-AD67-A39AD0C3E55D}</Project>
+      <Name>HumDrum.General</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HumDrum.Structures\HumDrum.Structures.csproj">
+      <Project>{8FC1848F-2A59-4787-9FAE-9A15D7544BE0}</Project>
+      <Name>HumDrum.Structures</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

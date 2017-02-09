@@ -123,7 +123,7 @@ namespace HumDrum.Structures
 		/// <param name="constructorIndex">Which constructor to use, with 0 being the first constructor</param>
 		/// <param name="parameterField">The name of the parameter to fill in</param>
 		/// <param name="value">The value of the parameter with the identifier "parameterField"</param>
-		public ObjectBuilder this[int constructorIndex, string parameterField, dynamic value] 
+		public ObjectBuilder this[int constructorIndex, string parameterField, object value] 
 		{
 			get {
 				return SetParameter (constructorIndex, parameterField, value);
@@ -137,7 +137,7 @@ namespace HumDrum.Structures
 		/// <returns>The new ObjectBuilder.</returns>
 		/// <param name="constructorIndex">Which constructor you would like to use</param>
 		/// <param name="parameter">The value to set the parameter to</param>
-		public ObjectBuilder SetParameter(int constructorIndex, Tuple<string, dynamic> parameter)
+		public ObjectBuilder SetParameter(int constructorIndex, Tuple<string, object> parameter)
 		{
 			// Gets the information about the first parameter to have the name within this tuple
 			var relevantParameter = RequiredTypes.Get (constructorIndex).First (x => x.Name.Equals (parameter.Item1));
@@ -157,9 +157,9 @@ namespace HumDrum.Structures
 		/// <param name="constructorIndex">The index of the constructor, starting at 0.</param>
 		/// <param name="name">The name of the parameter</param>
 		/// <param name="parameterValue">The value to fill in for the parameter</param>
-		public ObjectBuilder SetParameter(int constructorIndex, string name, dynamic parameterValue)
+		public ObjectBuilder SetParameter(int constructorIndex, string name, object parameterValue)
 		{
-			return SetParameter (constructorIndex, new Tuple<string, dynamic> (name, parameterValue));
+			return SetParameter (constructorIndex, new Tuple<string, object> (name, parameterValue));
 		}
 
 		/// <summary>
@@ -168,7 +168,7 @@ namespace HumDrum.Structures
 		/// <returns>The ObjectBuilder with this information implanted in it</returns>
 		/// <param name="constructorIndex">The index of the constructor, starting with 0</param>
 		/// <param name="parameters">The list of parameters to give this ObjectBuilder</param>
-		public ObjectBuilder SetParameter(int constructorIndex, IEnumerable<Tuple<string, dynamic>> parameters)
+		public ObjectBuilder SetParameter(int constructorIndex, IEnumerable<Tuple<string, object>> parameters)
 		{
 			ObjectBuilder o = this;
 

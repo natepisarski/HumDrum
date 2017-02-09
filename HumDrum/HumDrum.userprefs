@@ -1,12 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum\Collections\HigherOrder.cs">
-    <Files>
-      <File FileName="HumDrum\Collections\HigherOrder.cs" Line="108" Column="4" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="HumDrum.Structures\ObjectBuilder.cs">
+    <Files>
+      <File FileName="HumDrum.Structures\ObjectBuilder.cs" Line="83" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <DisabledProjects>
+    <String>HumDrum.csproj</String>
+  </DisabledProjects>
 </Properties>

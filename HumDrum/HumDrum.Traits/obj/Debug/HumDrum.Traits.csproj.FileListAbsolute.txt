@@ -1,0 +1,11 @@
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.Traits.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.Traits.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.Collections.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.General.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.Structures.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.General.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.Collections.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\bin\Debug\HumDrum.Structures.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\obj\Debug\HumDrum.Traits.csprojResolveAssemblyReference.cache
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\obj\Debug\HumDrum.Traits.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Traits\obj\Debug\HumDrum.Traits.pdb

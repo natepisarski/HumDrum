@@ -1,0 +1,9 @@
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\obj\Debug\HumDrum.Structures.csprojResolveAssemblyReference.cache
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\bin\Debug\HumDrum.Structures.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\bin\Debug\HumDrum.Structures.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\bin\Debug\HumDrum.Collections.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\bin\Debug\HumDrum.General.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\bin\Debug\HumDrum.Collections.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\bin\Debug\HumDrum.General.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\obj\Debug\HumDrum.Structures.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Structures\obj\Debug\HumDrum.Structures.pdb

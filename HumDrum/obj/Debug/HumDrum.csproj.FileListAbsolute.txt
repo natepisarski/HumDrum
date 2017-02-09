@@ -86,3 +86,6 @@ C:\Users\sl4\Documents\GitHub\HumDrum\HumDrum\bin\Debug\normnfkd.nlp
 C:\Users\sl4\Documents\GitHub\HumDrum\HumDrum\obj\Debug\HumDrum.csprojResolveAssemblyReference.cache
 C:\Users\sl4\Documents\GitHub\HumDrum\HumDrum\obj\Debug\HumDrum.dll
 C:\Users\sl4\Documents\GitHub\HumDrum\HumDrum\obj\Debug\HumDrum.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\obj\Debug\HumDrum.csprojResolveAssemblyReference.cache
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\obj\Debug\HumDrum.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\obj\Debug\HumDrum.pdb

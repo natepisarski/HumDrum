@@ -1,0 +1,11 @@
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.Network.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.Network.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.Collections.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.General.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.Structures.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.Structures.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.General.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\bin\Debug\HumDrum.Collections.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\obj\Debug\HumDrum.Network.csprojResolveAssemblyReference.cache
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\obj\Debug\HumDrum.Network.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Network\obj\Debug\HumDrum.Network.pdb

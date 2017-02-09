@@ -1,0 +1,5 @@
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.General\bin\Debug\HumDrum.General.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.General\bin\Debug\HumDrum.General.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.General\obj\Debug\HumDrum.General.csprojResolveAssemblyReference.cache
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.General\obj\Debug\HumDrum.General.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.General\obj\Debug\HumDrum.General.pdb

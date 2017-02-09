@@ -1,0 +1,7 @@
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Collections\bin\Debug\HumDrum.Collections.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Collections\bin\Debug\HumDrum.Collections.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Collections\bin\Debug\HumDrum.General.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Collections\bin\Debug\HumDrum.General.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Collections\obj\Debug\HumDrum.Collections.csprojResolveAssemblyReference.cache
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Collections\obj\Debug\HumDrum.Collections.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.Collections\obj\Debug\HumDrum.Collections.pdb

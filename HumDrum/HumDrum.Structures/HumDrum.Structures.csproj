@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8FC1848F-2A59-4787-9FAE-9A15D7544BE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HumDrum.Structures</RootNamespace>
+    <AssemblyName>HumDrum.Structures</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BindingsTable.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="ObjectBuilder.cs" />
+    <Compile Include="Tree.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HumDrum.Collections\HumDrum.Collections.csproj">
+      <Project>{628A97A9-FA0E-4E18-B4B8-561060862D04}</Project>
+      <Name>HumDrum.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HumDrum.General\HumDrum.General.csproj">
+      <Project>{280DD9B5-9BFA-4F21-AD67-A39AD0C3E55D}</Project>
+      <Name>HumDrum.General</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

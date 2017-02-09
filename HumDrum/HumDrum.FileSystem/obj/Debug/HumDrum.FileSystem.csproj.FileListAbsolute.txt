@@ -1,0 +1,11 @@
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.FileSystem.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.FileSystem.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.Collections.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.General.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.Structures.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.Collections.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.Structures.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\bin\Debug\HumDrum.General.pdb
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\obj\Debug\HumDrum.FileSystem.csprojResolveAssemblyReference.cache
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\obj\Debug\HumDrum.FileSystem.dll
+C:\Users\Nathan.Pisarski\Code\HumDrum\HumDrum\HumDrum.FileSystem\obj\Debug\HumDrum.FileSystem.pdb
