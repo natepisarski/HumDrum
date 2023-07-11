@@ -1,18 +1,16 @@
 # HumDrum Library
-The HumDrum library has only one job: try to make your life, as a developer, easier. Its strategy is to do this by letting you:
+HumDrum is a general-purpose C# library I developed for use in personal real-world projects, and for fun.
 
-* Write the least amount of code possible
-* Write the easiest code possible
+HumDrum spans a large number of use-cases, but its greatest utility comes from its List processing capabilities that work on any `IEnumerable`.
 
-Because HumDrum spans such a large number of use-cases, it's likely that it already has what you want in there. The MAP.md file gives a quick rundown of what you can find. Go give it a search.
+Now, you don't have to wonder if it's `Array` or `List` that has `.capacity` or `.count` - you can just use `.Length`
 
-## HumDrum makes simple things simpler
-HumDrum tries to make code easier by providing a seamless experience, regardless of domain. The main way it accomplishes this is by **extending the HECK** out of base classes. For instance, **HumDrum.Collections** functions (of which there are currently a bit less than **100**) all work with **IEnumerable<>**, an interface that all of the common collections, like **List** and **Arrays** implement. This lets you use Length(), or ForEvery(), or any HumDrum.Collections function on ANY collection.
+There are almost 100 LINQ-style functions that work on any `IEnumerable` that make complicated transformations more simple.
 
-No more fumbling around with methods. "Does List have count or length? What is capacity?". Length() works the same no matter what you've got.
+## Cool Stuff
+Since this package was mostly developed for my own enjoyment, it has a bunch of "cool stuff" that has no logical reason to be bundled in. Runtime-checked traits in native C#, a network caching layer, image processing, object factories, markov chains, and many other random facilities.
 
-## HumDrum makes hard things simple
-HumDrum, in addition to being a convenience library, is an experimental library. Portions of the library with the [Experimental] Attribute facilitate the use of new design patterns. Things such as having runtime-checked Traits, cached Network communication, image processing, and dynamic object building are all relatively simple matters in HumDrum.
+For the extra zany ones, you will find an `[Experimental]` attribute on them.
 
 Here are some examples of what the HumDrum library can do:
 
@@ -20,10 +18,7 @@ Here are some examples of what the HumDrum library can do:
 
 ````C#
 // Let's make a test list
-var oneToTen = HumDrum.Collections.Transformations.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);  
-
-// HumDrum.Collections.Transformations.Genericize
-IEnumerable<int> list = oneToTen.Genericize ();  
+var oneToTen = HumDrum.Collections.Transformations.Make (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);   
 
 // HumDrum.Collections.Transformations.DropLast
 var oneToNine = list.DropLast ();  
@@ -110,7 +105,7 @@ writable.IsSatisfied(); // True
 					.Finalize ()).Finalize();
 ````
 
-# And just about anything else
+# And a bunch of other stuff!
 
 ## Markov Chains
 ````C#
@@ -127,7 +122,7 @@ var alphabet = HumDrum.Constants.LOWERCASE_EN_US_ALPHABET;
 
 ## Direction manipulation
 
-````C#
+```C#
 // HumDrum.Structures
 var south = HumDrum.Structures.DirectionOperations.TranslateDirection (Direction.Down);
 ```
@@ -140,46 +135,34 @@ var south = HumDrum.Structures.DirectionOperations.TranslateDirection (Direction
 * Cached, Thread-safe, concurrent port listener (**HumDrum.Operations.Servitor**)
 * Dynamic sequential file create (**HumDrum.Operations.Files.NumericalWriter**)
 * Native Objects for Database objects, including a driver for SQL / Access / etc. bindings (**HumDrum.Operations.Database**)
-* Image forensics
-
-With HumDrum, you can have **all that fun** while having to write **none of the code**. It's a win-win!
+* Image utilities
 
 # Installing HumDrum
 Currently, there is no NuGet package for HumDrum. However, you can use the project file inside of the HumDrum directory here directly in your project. The source is open and under a non-viral license, so it's 100% legal and safe to do that. And you even get to modify / add something that's broken / not there.
 
-A nuget package will be coming in the very near future though!
-
 # Branches
-HumDrum is split up into 4 branches with any number of sub branches. Right now, these branches are: Operations, Structures, Collections, and Traits.
+HumDrum is split up into 4 branches with any number of sub branches. Right now, these branches are: **Operations**, **Structures**, **Collections**, and **Traits**.
 
 ### Operations
-Operations relates to IO or otherwise "impure" functionality. TCP stuff. Directory searching. Bitmap statistics. Things like that go in here.
+"Impure" operations. IO, TCP/IP stuff, Directories, image manipulation, etc.
 
 #### Files
-Operations for dealing with files and the directory structure.
+Operations for dealing with files and the directory tree.
 
 #### Database
-Operations for working with database objects and interfacing with foreign databases, like SQL.
+Operations for working with database objects and interfacing with foreign databases, like SQL or XML datastores.
 
 ### Structures
-Structures, as its name suggests, relates to generic data structures such as binary trees and binding tables. These also contain the files which rely on such structures, but as of right now no such files exist.
+Structures, as its name suggests, relates to generic data structures such as binary trees and binding tables.
 
 ### Collections
-Collections is by far the largest branch of HumDrum. It relates to anything that involves functions on sets of data... That's a really generic definition, so you may be able to guess that this handles a LOT of stuff. Data interchange formats, pure sequence analysis, logic reductions, state-based grouping, etc.
+Collections is by far the largest branch of HumDrum. It relates to anything that involves functions on sets of data... That's a really generic definition, so you may be able to guess that this handles a LOT of stuff. Data interchange formats, pure sequence analysis, reducers, state-based grouping, etc.
 
 ### Traits
-Traits is an experimental branch of HumDrum that, really, should not be relied on. It's overdue for some hacking. Currently, it enables Trait-based programming by making its own definition for classes and interfaces, which is obviously pretty cumbersome. However, if your code REALLY needs Traits to operate, this branch gives you the ability to do that.
+Enables aspect-oriented programming in pure C# with traits. Traits function more similar to Rust traits or Haskell typeclasses than PHP ones, meaning they are interfaces on steroids.
 
-#Status
-HumDrum is under active development, yet is now stable. There will only be scheduled breakages of code. Additions to the library happen very frequently. Same for tests and documentation. However, renaming and removals only happen on scheduled intervals.
-
-# Version
-At the time of this commit, the version is:
-**3.0.0.0**
-* First number: Major version. Breaks compatibility in some way.
-* Second number: Minor version. Adds some kind of feature.
-* Third number: Revision version. Some type of code or test change
-* Fourth number: Documentation change, either inline, generated, or one of the files
+# Status
+HumDrum was a large (and successful!) pet project of mine, but is no longer under active development.
 
 ## Further Reading
 The MAP.md file quickly explains the purpose of each file in this library.
